@@ -89,4 +89,4 @@ const Formulario = (props) => {
     </section>
 }
 
-export default Formulario
+export default Formulario;

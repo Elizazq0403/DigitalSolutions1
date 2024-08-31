@@ -7,7 +7,7 @@ import Routers from '../routes/routers'
 function Layout() {
   return (
     <>
-    {/*<Header />*/}
+    <Header />
     <main>  
       <Routers />
     </main>

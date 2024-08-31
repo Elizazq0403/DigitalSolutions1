@@ -6,6 +6,9 @@ import Formulario from './components/Formulario/Formulario';
 //import MiOrg from './componentes/MiOrg';
 import Empresa from './components/Empresa/Empresa';
 //import Footer from './componentes/Footer';
+import TabsCard from './components/Tabs/TabsCard';
+
+
 
 function App() {
   const [mostrarFormulario, actualizarMostrar] = useState(false)
@@ -152,6 +155,7 @@ function App() {
 
   return (
     <div>
+      <TabsCard/>
       {/* {mostrarFormulario ? <Formulario /> : <></>} */}
       {
         mostrarFormulario && <Formulario
@@ -160,6 +164,7 @@ function App() {
           crearEquipo={crearEquipo}
         />
       }
+      {/*<Formulario/>*/}
 
       {/*<MiOrg cambiarMostrar={cambiarMostrar} />*/}
 

@@ -2,8 +2,9 @@ import './TabsCard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {TabContent, TabPane, Nav, NavItem, NavLink} from "reactstrap";
 import { useState } from 'react';
+import Contacto from '../../pages/Contacto';
 
-function App() {
+function TabsCard() {
 
   const[activeTab,setActiveTab] = useState("1");
 
@@ -121,7 +122,7 @@ function App() {
          <TabPane tabId="5">
            <div className='container'>
              <br />
-             <p>Este es un Contacto</p>
+             <Contacto/>
            </div>
          </TabPane>
 
@@ -130,5 +131,5 @@ function App() {
   );
 }
 
-export default App;
+export default TabsCard;
 
