@@ -3,7 +3,7 @@
     padding: 32px;
     box-sizing: border-box;
     text-align: center;
-    font-size: 32px;
+    font-size: 35px;
     position: relative;
 }
 
@@ -25,4 +25,5 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+ 
 }

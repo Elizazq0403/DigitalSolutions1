@@ -5,9 +5,12 @@
 }
 
 .colaborador .encabezado {
-    background-color:  #F0F0F0;
-    border-radius: 10px 10px 0px 0px;
+  background-color: #F0F0F0;
+  border-radius: 20px 20px 0 0;
+  height: 120px; /* Aumenta el valor para incrementar la altura del encabezado*/
 }
+
+
 .colaborador img {
     width: 100px;
     border-radius: 50%;
@@ -18,20 +21,24 @@
 .colaborador .info {
     background: #FFFFFF;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
-    border-radius: 0px 0px 10px 10px;
-    padding-top: 90px;
-    padding-bottom: 40px;
+    border-radius: 0px 0px 20px 20px;
+    padding-top: 30px;
+    padding-bottom: 10px;
     min-height: 100px;
     font-family: 'Montserrat', sans-serif;
 }
 
 .colaborador .info h4 {
-    color: #6278F7;
-    font-size: 18px;
-    line-height: 22px;
-    font-weight: bold;
-    margin-bottom: 8px;
+  color: #6278F7;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  border-bottom: 2px solid;
+  padding-bottom: 3px;
+  display: inline-block; /* Ajusta el ancho al tamaño del contenido */
 }
+
 
 .colaborador .info h5 {
     font-size: 18px;
@@ -54,21 +61,29 @@
   gap: 50px; /* Espacio entre íconos */
   justify-items: center;
   max-width: 400px;
-  margin: 50px auto;
-}
+  margin: 30px auto;
   
-.social-icon {
-  font-size: 20px;
-  color: #333;
-  background-color: #57C278; /*fondo de los botones*/
-  width: 60px;
-  height: 60px;
-  display: flex;
+}
+
+.social-icon-container {
+  background-color: #57C278; /* Fondo de los botones */
+  width: 60px; /* Tamaño del fondo */
+  height: 60px; /* Tamaño del fondo */
+  /*display: flex;*/
   justify-content: center;
   align-items: center;
   border-radius: 12px; /* Bordes redondeados */
   transition: background-color 0.3s ease, color 0.3s ease;
+  
 }
+  
+.social-icon {
+  font-size: 35px; /* Tamaño del ícono */
+  color: #333; /* Color del ícono */
+  transition: color 0.3s ease;
+}
+
+
   
   .social-icon:hover {
     background-color: #41D9A1;

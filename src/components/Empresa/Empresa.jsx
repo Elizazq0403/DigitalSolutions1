@@ -3,7 +3,7 @@ import Cliente from "../Cliente/Cliente";
 import hexToRgba from 'hex-to-rgba';
 
 const Empresa = (props) => {
-    //Destructuracion
+    //Destructuracion, simplifica al maximo el codigo
     const { colorPrimario, colorSecundario, titulo, id } = props.datos
     const { colaboradores, eliminarColaborador, actualizarColor, like } = props
     const obj = {
@@ -25,7 +25,8 @@ const Empresa = (props) => {
                         actualizarColor(evento.target.value, id)
                     }}
                 />
-                <h3 style={estiloTitulo} >{titulo}</h3>
+                {/*<h3 style={estiloTitulo} >{titulo}</h3> de esta linea de codigo se borro el titulo del equipo programacion, etc*/}
+                <h3 style={estiloTitulo} ></h3>
                 <div className="colaboradores">
                     {
                         colaboradores.map((colaborador, index) => <Cliente

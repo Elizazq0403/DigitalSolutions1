@@ -19,26 +19,38 @@ const Cliente = (props) => {
         <div className="info">
             <h4>{nombre}</h4>
             <h5>{puesto}</h5>
-            {fav ? <AiFillHeart color="red" onClick={() => like(id)} /> : <AiOutlineHeart onClick={() => like(id)} />} {/*Icono like*/}
+            {/*fav ? <AiFillHeart color="red" onClick={() => like(id)} /> : <AiOutlineHeart onClick={() => like(id)} />} {/*Icono like*/}
 
             <div className="social-icons-container">
                 <a href="tel:+1234567890">
-                    <FiPhoneCall className="social-icon phone" />
+                    <div className="social-icon-container">
+                        <FiPhoneCall className="social-icon" />
+                    </div>
                 </a>
                 <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
-                    <FaWhatsapp className="social-icon whatsapp" />
+                    <div className="social-icon-container">
+                        <FaWhatsapp className="social-icon whatsapp" />
+                    </div>
                 </a>
                 <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
-                    <MdEmail className="social-icon email" />
+                    <div className="social-icon-container">
+                        <MdEmail className="social-icon email" />
+                    </div>
                 </a>
                 <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
-                    <MdPhoneIphone className="social-icon iphone" />
+                    <div className="social-icon-container">
+                        <MdPhoneIphone className="social-icon iphone" />
+                    </div>
                 </a>
                 <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                    <RiQrCodeFill className="social-icon qr" />
+                    <div className="social-icon-container">
+                        <RiQrCodeFill className="social-icon qr" />
+                    </div>
                 </a>
                 <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                    <FaShareAlt className="social-icon share" />
+                    <div className="social-icon-container">
+                        <FaShareAlt className="social-icon share" />
+                    </div>
                 </a>
             </div>
 

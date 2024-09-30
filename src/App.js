@@ -171,9 +171,9 @@ function App() {
       {
         equipos.map((equipo) => <Empresa
           datos={equipo}
-          key={equipo.titulo}
+          /*key={equipo.titulo}*/
           colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
-          eliminarColaborador={eliminarColaborador}
+          /*eliminarColaborador={eliminarColaborador} este es eñ icono de eliminar*/
           actualizarColor={actualizarColor}
           like={like}
         />
