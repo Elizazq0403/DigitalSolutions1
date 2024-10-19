@@ -1,0 +1,17 @@
+/* Carrusel.css */
+.slick-slide {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #57C278;
+  overflow: hidden;
+  
+}
+
+.slick-slide h3 {
+  color: #fff;
+}
+
+
+
+  

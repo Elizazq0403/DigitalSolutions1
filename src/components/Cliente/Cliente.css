@@ -1,5 +1,5 @@
 .colaborador {
-    width: 280px;
+    width: 340px;
     margin-bottom: 24px;
     position: relative;
 }
@@ -8,6 +8,7 @@
   background-color: #F0F0F0;
   border-radius: 20px 20px 0 0;
   height: 120px; /* Aumenta el valor para incrementar la altura del encabezado*/
+  box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
 }
 
 
@@ -26,6 +27,9 @@
     padding-bottom: 10px;
     min-height: 100px;
     font-family: 'Montserrat', sans-serif;
+    box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
+    
+    
 }
 
 .colaborador .info h4 {
@@ -66,18 +70,19 @@
 }
 
 .social-icon-container {
+  position: relative; /* Para permitir posicionamiento absoluto del ícono */
   background-color: #57C278; /* Fondo de los botones */
   width: 60px; /* Tamaño del fondo */
   height: 60px; /* Tamaño del fondo */
-  /*display: flex;*/
-  justify-content: center;
-  align-items: center;
   border-radius: 12px; /* Bordes redondeados */
   transition: background-color 0.3s ease, color 0.3s ease;
-  
 }
   
 .social-icon {
+  position: absolute; /* Posiciona el ícono respecto al contenedor */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra el ícono en el contenedor */
   font-size: 35px; /* Tamaño del ícono */
   color: #333; /* Color del ícono */
   transition: color 0.3s ease;

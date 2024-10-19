@@ -1,0 +1,116 @@
+.equipo {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.equipo h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+
+/* Estilo de la lista */
+.ant-list-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 7px 7px 15px rgba(0, 0, 0, 35%);
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ant-list-item-meta-description {
+    text-align: justify; /* Justifica los párrafos */
+}
+
+
+
+
+.ant-list-item-meta-title a {
+    font-size: 1.5rem;
+    color: #1890ff;
+    text-decoration: none;
+}
+
+/* Imágenes adicionales en las tarjetas */
+.ant-list-item-extra {
+    margin-left: auto;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    max-width: 272px; /* Limita el tamaño máximo de la imagen */
+    border-radius: 10px;
+}
+
+.ant-pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .equipo h3 {
+        font-size: 1.8rem;
+    }
+
+    .ant-list-item {
+        padding: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ant-list-item-meta-title a {
+        font-size: 1.3rem;
+    }
+
+    .ant-list-item-extra {
+        margin-top: 20px;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
+
+/* Responsividad para móviles */
+@media (max-width: 480px) {
+    .equipo {
+        padding: 10px;
+    }
+
+    .equipo h3 {
+        font-size: 1.5rem;
+    }
+
+    .ant-list-item {
+        padding: 10px;
+    }
+
+    .ant-list-item-meta-title a {
+        font-size: 1.2rem;
+    }
+
+    .ant-list-item-meta-description {
+        font-size: 0.9rem;
+    }
+
+    .ant-list-item-extra {
+        margin-top: 15px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+  }
+  
+}
+
+
+
+

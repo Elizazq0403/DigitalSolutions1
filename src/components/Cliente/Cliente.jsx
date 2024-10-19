@@ -4,15 +4,20 @@ import { FaFacebookF, FaLinkedinIn, FaTwitter, FaInstagram, FaWhatsapp, FaShareA
 import { MdEmail, MdPhoneIphone } from "react-icons/md";
 import { FiPhoneCall } from "react-icons/fi";
 import { RiQrCodeFill } from "react-icons/ri";
+import ListProductos from "../../pages/Productos/ListProductos";
+
 
 const Cliente = (props) => {
     const { nombre, puesto, foto, equipo, id, fav } = props.datos
-    const { colorPrimario, eliminarColaborador, like } = props
+    //const { colorPrimario, eliminarColaborador, like } = props
+    const { colorPrimario} = props
 
     // condicion ? verdadero : falso
 
     return <div className="colaborador">
-        <AiFillCloseCircle className="eliminar" onClick={() => eliminarColaborador(id)} /> {/*Boton eliminar*/}
+    
+    
+
         <div className="encabezado" style={{ backgroundColor: colorPrimario }}>
             <img src={foto} alt={nombre} />
         </div> {/*Imagen del colaborador*/}
@@ -20,7 +25,7 @@ const Cliente = (props) => {
             <h4>{nombre}</h4>
             <h5>{puesto}</h5>
             {/*fav ? <AiFillHeart color="red" onClick={() => like(id)} /> : <AiOutlineHeart onClick={() => like(id)} />} {/*Icono like*/}
-
+            <ListProductos/>
             <div className="social-icons-container">
                 <a href="tel:+1234567890">
                     <div className="social-icon-container">
@@ -53,13 +58,10 @@ const Cliente = (props) => {
                     </div>
                 </a>
             </div>
-
-
+            
         </div>
-
-    
-
     </div>
+    
 }
 
 export default Cliente
