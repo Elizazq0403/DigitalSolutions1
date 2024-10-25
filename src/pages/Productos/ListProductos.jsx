@@ -39,7 +39,7 @@ const renderActions = () => (
 const ListProductos = () => {
  
   const [currentPage, setCurrentPage] = React.useState(1);
-  const pageSize = 3;
+  const pageSize = 1;
 
 
   const handlePageChange = (page) => {

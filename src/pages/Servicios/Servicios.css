@@ -30,7 +30,7 @@
     min-height: 100px;
     font-family: 'Montserrat', sans-serif;
     box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
-    height: 740px; /*debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
+    /*height: 740px; debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
     
 }
 
@@ -125,5 +125,3 @@
   .instagram:hover {
     color: #C13584;
   }
-  
-  

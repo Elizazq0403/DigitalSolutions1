@@ -25,7 +25,7 @@ const Cliente = (props) => {
             <h4>{nombre}</h4>
             <h5>{puesto}</h5>
             {/*fav ? <AiFillHeart color="red" onClick={() => like(id)} /> : <AiOutlineHeart onClick={() => like(id)} />} {/*Icono like*/}
-            <ListProductos/>
+            {/*<ListProductos/>*/}
             <div className="social-icons-container">
                 <a href="tel:+1234567890">
                     <div className="social-icon-container">
