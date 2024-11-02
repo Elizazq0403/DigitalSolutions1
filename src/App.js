@@ -9,7 +9,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {TabContent, TabPane, Nav, NavItem, NavLink} from "reactstrap";
 import ListProductos from './pages/Productos/ListProductos';
 import Servicios from './pages/Servicios/Servicios';
-
+import { TabCard2 } from './components/TabsCars2';
+import { HiAdjustments, HiShoppingCart } from "react-icons/hi";
+import { MdDashboard, MdAdUnits, MdOutlineStorefront, MdAssignmentInd } from "react-icons/md";
 
 
 function App() {
@@ -56,103 +58,81 @@ function App() {
 
 
   return (
-    <div>
-   <div className="App">
-       <Nav tabs>
-         <NavItem>
-           <NavLink 
-           className={(activeTab=="1" ? "activeTab baseTab" : "baseTab" )}
-           onClick={()=>cambiarTab("1")}>
-             MI PERFIL
-           </NavLink>
-         </NavItem>
+    <div className="flex justify-center items-center min-h-screen">
+      {/* Contenedor de las pestañas */}
+      <div className="overflow-x-auto border rounded-lg p-4 bg-white shadow-md">
+        {/* Controles de navegación para cambiar de pestaña */}
+        <div className="flex justify-around border-b border-gray-300">
+          <button
+            onClick={() => setActiveTab("MiPerfil")}
+            className={`px-2 py-3 ${activeTab === "MiPerfil" ? "border-b-2 border-blue-500 font-semibold" : ""}`}
+          >
+            < MdAdUnits className="inline mr-2" />
+            Perfil
+          </button>
+          <button
+            onClick={() => setActiveTab("MiEmpresa")}
+            className={`px-2 py-3 ${activeTab === "MiEmpresa" ? "border-b-2 border-blue-500 font-semibold" : ""}`}
+          >
+            <MdOutlineStorefront className="inline mr-2" />
+            Empresa
+          </button>
+          <button
+            onClick={() => setActiveTab("Productos")}
+            className={`px-2 py-3 ${activeTab === "Productos" ? "border-b-2 border-blue-500 font-semibold" : ""}`}
+          >
+            <HiShoppingCart className="inline mr-2" />
+            Productos
 
-         <NavItem>
-           <NavLink 
-              className={(activeTab=="2" ? "activeTab baseTab" : "baseTab" )}
-           onClick={()=>cambiarTab("2")}>
-             MI EMPRESA
-           </NavLink>
-         </NavItem>
-
-         <NavItem>
-           <NavLink 
-              className={(activeTab=="3" ? "activeTab baseTab" : "baseTab" )}
-           onClick={()=>cambiarTab("3")}>
-            PRODUCTOS
-           </NavLink>
-         </NavItem>
-
-         <NavItem>
-           <NavLink 
-              className={(activeTab=="4" ? "activeTab baseTab" : "baseTab" )}
-           onClick={()=>cambiarTab("4")}>
-            EVENTOS
-           </NavLink>
-         </NavItem>
-
-         <NavItem>
-           <NavLink 
-              className={(activeTab=="5" ? "activeTab baseTab" : "baseTab" )}
-           onClick={()=>cambiarTab("5")}>
-            CONTACTOS
-           </NavLink>
-         </NavItem>
-
-       </Nav>
-
-       <TabContent activeTab={activeTab}>
-         <TabPane tabId="1">
-           <div className='container'>
-             <br />
-             {equipos.map((equipo) => (
-              <Empresa
-                datos={equipo}
-                //key={equipo.titulo}
-                colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
-                actualizarColor={actualizarColor}
-
-              />
-              ))}
-           </div>
-
-         </TabPane>
-         <TabPane tabId="2">
-           {/*<div className='container'>
-             <br />
-             <img src='https://lh3.googleusercontent.com/a-/AOh14GjjMfH-BpCvLrIU7AoboHTinGSIgLowZtLIGrJTFg=s360-p-rw-no'
-              width={300} height={300}
-              />
-           </div>*/}
-         </TabPane>
-         <TabPane tabId="3">
-         <div className='container'>
-          <br />
-          {equipos.map((equipo) => (
-            <Servicios
-              datos={equipo} // se debe pasar el objeto datos como prop para poder actualizar el color primario
-            />
-          ))}
+          </button>
+          <button
+            onClick={() => setActiveTab("Contactos")}
+            className={`px-2 py-3 ${activeTab === "Contactos" ? "border-b-2 border-blue-500 font-semibold" : ""}`}
+          >
+            <MdAssignmentInd className="inline mr-2" />
+            Contactos
+          </button>
         </div>
-         <TabPane/>
-         </TabPane>
-         <TabPane tabId="4">
-           {/*<div className='container'>
-             <br />
-             <p>Este es un evento</p>
-           </div>*/}
-         </TabPane>
-         <TabPane tabId="5">
-           {/*<div className='container'>
-             <br />
-             <Contacto/>
-           </div>*/}
-         </TabPane>
-       </TabContent>
+        {/* Contenido de cada pestaña, renderizado en el cuerpo de la página */}
+        <div className="mt-4 text-center">
+          {activeTab === "MiPerfil" && (
+           <div className='container'>
+           <br />
+           {equipos.map((equipo) => (
+            <Empresa
+              datos={equipo}
+              //key={equipo.titulo}
+              colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
+              actualizarColor={actualizarColor}
+            />
+            ))}
+         </div>
+          )}
+          {activeTab === "MiEmpresa" && (
+            <div>
+              This is <span className="font-medium text-gray-800 dark:text-white">Dashboard tab's associated content</span>.
+            </div>
+          )}
+          {activeTab === "Productos" && (
+            <div>
+            <div className='container'>
+            <br />
+            {equipos.map((equipo) => (
+              <Servicios
+                datos={equipo} // se debe pasar el objeto datos como prop para poder actualizar el color primario
+              />
+            ))}
+          </div>
+          </div>
+          )}
+          {activeTab === "Contactos" && (
+            <div>
+              This is <span className="font-medium text-gray-800 dark:text-white">Contacts tab's associated content</span>.
+            </div>
+          )}
+        </div>
+      </div>
     </div>
-      
-    </div>
-    
   );
 }
 

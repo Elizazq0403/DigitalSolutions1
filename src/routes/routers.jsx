@@ -17,7 +17,7 @@ function Routers() {
     <Route path="/" element={<Home />} />
     <Route path="/Productos" element={<Productos />} />
     <Route path="/contacto" element={<Contacto />} />
-    <Route path="/prueba" element={<Formulario />} />
+    <Route path="/prueba" element={<TabsCard2 />} />
     <Route path="/*" element={<Error404 />} />
 
     </Routes>
