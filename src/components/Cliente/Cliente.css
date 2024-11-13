@@ -45,6 +45,14 @@
   display: inline-block; /* Ajusta el ancho al tamaño del contenido */
 }
 
+/* Sobrescribimos el estilo para los elementos especificados */
+audio, canvas, embed, iframe, img, object, svg, video {
+  display: inline;
+  /* O si prefieres mantenerlos como elementos de bloque en línea */
+  /* display: inline-block; */
+}
+
+
 
 .colaborador .info h5 {
     font-size: 18px;
