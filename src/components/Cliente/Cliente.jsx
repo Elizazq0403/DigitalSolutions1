@@ -1,67 +1,90 @@
-import "./Cliente.css"
-import { AiFillCloseCircle, AiOutlineHeart, AiFillHeart } from "react-icons/ai"
+import "./Cliente.css";
+import { AiFillCloseCircle, AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaFacebookF, FaLinkedinIn, FaTwitter, FaInstagram, FaWhatsapp, FaShareAlt } from 'react-icons/fa';
 import { MdEmail, MdPhoneIphone } from "react-icons/md";
 import { FiPhoneCall } from "react-icons/fi";
 import { RiQrCodeFill } from "react-icons/ri";
 import ListProductos from "../../pages/Productos/ListProductos";
 
-
 const Cliente = (props) => {
-    const { nombre, puesto, foto, equipo, id, fav } = props.datos
-    //const { colorPrimario, eliminarColaborador, like } = props
-    const { colorPrimario} = props
+    const { nombre, puesto, foto, equipo, id, fav } = props.datos;
+    const { colorPrimario } = props;
 
-    // condicion ? verdadero : falso
-
-    return <div className="colaborador">
-    
-    
-
-        <div className="encabezado" style={{ backgroundColor: colorPrimario }}>
-            <img src={foto} alt={nombre} />
-        </div> {/*Imagen del colaborador*/}
-        <div className="info">
-            <h4>{nombre}</h4>
-            <h5>{puesto}</h5>
-            {/*fav ? <AiFillHeart color="red" onClick={() => like(id)} /> : <AiOutlineHeart onClick={() => like(id)} />} {/*Icono like*/}
-            {/*<ListProductos/>*/}
-            <div className="social-icons-container">
-                <a href="tel:+1234567890">
-                    <div className="social-icon-container">
-                        <FiPhoneCall className="social-icon" />
-                    </div>
-                </a>
-                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
-                    <div className="social-icon-container">
-                        <FaWhatsapp className="social-icon whatsapp" />
-                    </div>
-                </a>
-                <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
-                    <div className="social-icon-container">
-                        <MdEmail className="social-icon email" />
-                    </div>
-                </a>
-                <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
-                    <div className="social-icon-container">
-                        <MdPhoneIphone className="social-icon iphone" />
-                    </div>
-                </a>
-                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                    <div className="social-icon-container">
-                        <RiQrCodeFill className="social-icon qr" />
-                    </div>
-                </a>
-                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                    <div className="social-icon-container">
-                        <FaShareAlt className="social-icon share" />
-                    </div>
-                </a>
+    return (
+        <div className="cliente-card">
+            <div className="cliente-header" style={{ backgroundColor: colorPrimario }}>
+                <img src={foto} alt={nombre} />
             </div>
-            
-        </div>
-    </div>
-    
-}
+            <div className="cliente-info">
+                <h4>{nombre}</h4>
+                <h5><strong>{puesto}</strong></h5>
 
-export default Cliente
+                <div className="social-links">
+                    <a href="tel:+573008600740">
+                    <div className="social-icon-box">
+                        <img 
+                            src={require('../../assets/img/icono llamar.png')} 
+                            alt="Icono Llamar" 
+                            className="iphone"
+                        />
+                        <span className="icon-label"><strong>Llamar</strong></span>
+                    </div>
+                                        </a>
+                    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+                        <div className="social-icon-box">
+                            <img 
+                                src={require('../../assets/img/email.png')} 
+                                alt="Icono Email" 
+                                className="whatsapp-icon" 
+                            />
+                        <span className="icon-label"><strong>Correo</strong></span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
+                        <div className="social-icon-box">
+                            <img 
+                                src={require('../../assets/img/whatsapp.png')} 
+                                alt="Icono WhatsApp" 
+                                className="iphone" 
+                            />
+                        <span className="icon-label"><strong>Whatsapp</strong></span>
+                        </div>
+                    </a>
+                    <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
+                        <div className="social-icon-box">
+                            <img 
+                                src={require('../../assets/img/descarga.png')} 
+                                alt="Icono Descargar" 
+                                className="iphone" 
+                            />
+                        <span className="icon-label"><strong>Contacto</strong></span>    
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                        <div className="social-icon-box">
+                            <img 
+                                src={require('../../assets/img/compartir2.png')} 
+                                alt="Icono Compartir" 
+                                className="iphone" 
+                            />
+                        <span className="icon-label"><strong>Compartir Wp</strong></span>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                        <div className="social-icon-box">
+                            <img 
+                                src={require('../../assets/img/compartir.png')} 
+                                alt="Icono Compartir" 
+                                className="iphone" 
+                            />
+                        <span className="icon-label"><strong>Compartir QR</strong></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Cliente;

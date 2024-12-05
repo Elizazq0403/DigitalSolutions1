@@ -1,137 +1,137 @@
-.colaborador {
-    width: 340px;
-    margin-bottom: 24px;
-    position: relative;
+.cliente-card {
+  width: 340px;
+  margin-bottom: 24px;
+  position: relative;
 }
 
 /*Este es el encabezado del fondo de la tarjeta*/
-.colaborador .encabezado {
-  background-color: #F0F0F0;
-  border-radius: 20px 20px 0 0;
-  height: 120px; /* Aumenta el valor para incrementar la altura del encabezado*/
+.cliente-card .cliente-header {
+background-color: #F0F0F0;
+border-radius: 20px 20px 0 0;
+height: 120px; /* Aumenta el valor para incrementar la altura del encabezado*/
+box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
+}
+
+.cliente-card img {
+  width: 80px;
+  border-radius: 50%;
+  position: relative;
+  bottom: -70px;
+}
+
+/*Esta es la parte blanca del fondo de la tarjeta*/
+.cliente-card .cliente-info {
+  background: #FFFFFF;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 0px 0px 20px 20px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  min-height: 100px;
+  font-family: 'Montserrat', sans-serif;
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
+  height: 650px; /*debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
 }
 
-
-.colaborador img {
-    width: 100px;
-    border-radius: 50%;
-    position: relative;
-    bottom: -50px;
+.cliente-card .cliente-info h4 {
+color: #6278F7;
+font-size: 18px;
+line-height: 22px;
+font-weight: bold;
+margin-bottom: 8px;
+border-bottom: 2px solid;
+padding-bottom: 3px;
+display: inline-block; /* Ajusta el ancho al tamaño del contenido */
 }
 
-/*Esta es la parte blanco del fondo de la tarjeta*/
-.colaborador .info {
-    background: #FFFFFF;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
-    border-radius: 0px 0px 20px 20px;
-    padding-top: 30px;
-    padding-bottom: 10px;
-    min-height: 100px;
-    font-family: 'Montserrat', sans-serif;
-    box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
-    height: 740px; /*debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
-    
+audio, canvas, embed, iframe, img, object, svg, video {
+display: inline;
 }
 
-.colaborador .info h4 {
-  color: #6278F7;
+.cliente-card .cliente-info h5 {
   font-size: 18px;
   line-height: 22px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  border-bottom: 2px solid;
-  padding-bottom: 3px;
-  display: inline-block; /* Ajusta el ancho al tamaño del contenido */
+  color: #212121;
+  padding: 0 24px;
+  font-weight: 400;
+  margin: 0;
 }
 
-/* Sobrescribimos el estilo para los elementos especificados */
-audio, canvas, embed, iframe, img, object, svg, video {
-  display: inline;
-  /* O si prefieres mantenerlos como elementos de bloque en línea */
-  /* display: inline-block; */
+.eliminar {
+  position: absolute;
+  right: -15px;
+  top: -15px;
 }
 
-
-
-.colaborador .info h5 {
-    font-size: 18px;
-    line-height: 22px;
-    color: #212121;
-    padding: 0 24px;
-    font-weight: 400;
-    margin: 0;
+.social-links {
+display: grid;
+grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+gap: 30px; /* Espacio entre íconos */
+justify-items: center;
+max-width: 400px;
+margin: 30px 30px; /*Espacio entre iconos redes sociales*/
+margin-top: auto;
+margin-bottom: auto !important;
 }
 
-.eliminar{
-    position: absolute;
-    right: -15px;
-    top: -15px;
+.social-icon-box {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column; /* Alinea la imagen y el texto verticalmente */
+  align-items: center; /* Centra la imagen y el texto */
+  justify-content: center; /* Alinea los elementos dentro del contenedor */
+  text-align: center; /* Centra el texto */
+  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  Sombra ligera */
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.social-icons-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-  gap: 50px; /* Espacio entre íconos */
-  justify-items: center;
-  max-width: 400px;
-  margin: 30px auto;
-  
+.icon-label {
+  font-size: 15px; /* Tamaño del texto */
+  color: #333; /* Color del texto */
+  margin-top: 70px; /* Espacio entre la imagen y el texto */
 }
 
-.social-icon-container {
-  position: relative; /* Para permitir posicionamiento absoluto del ícono */
-  background-color: #57C278; /* Fondo de los botones */
-  width: 60px; /* Tamaño del fondo */
-  height: 60px; /* Tamaño del fondo */
-  border-radius: 12px; /* Bordes redondeados */
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-  
 .social-icon {
-  position: absolute; /* Posiciona el ícono respecto al contenedor */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centra el ícono en el contenedor */
-  font-size: 35px; /* Tamaño del ícono */
-  color: #333; /* Color del ícono */
-  transition: color 0.3s ease;
+position: absolute; /* Posiciona el ícono respecto al contenedor */
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%); /* Centra el ícono en el contenedor */
+font-size: 35px; /* Tamaño del ícono */
+color: #333; /* Color del ícono */
+transition: color 0.3s ease;
 }
 
+.social-icon:hover {
+background-color: #41D9A1;
+color: #fff;
+transform: scale(1.1); /* Efecto de agrandar íconos en hover */
+}
 
-  
-  .social-icon:hover {
-    background-color: #41D9A1;
-  color: #fff;
-  transform: scale(1.1); /* Efecto de agrandar íconos en hover */
-  }
-  
-  /* Estilos para los íconos en la columna izquierda */
-  .social-icons-container a:nth-child(odd) .social-icon {
-    /*color: #f00;  Estilo de ejemplo para la columna izquierda */
-    margin-left: 50px; /* Espacio entre columnas */
-  }
-  
-  /* Estilos para los íconos en la columna derecha */
-  .social-icons-container a:nth-child(even) .social-icon {
-    /* color: #00f; Estilo de ejemplo para la columna derecha */
-    margin-right: 50px;  /* Espacio entre columnas */
-  }
-  
-  .facebook:hover {
-    color: #57C278;
-  }
-  
-  .linkedin:hover {
-    color: #0077B5;
-  }
-  
-  .twitter:hover {
-    color: #1DA1F2;
-  }
-  
-  .instagram:hover {
-    color: #C13584;
-  }
+/* Estilos para los íconos en la columna izquierda */
+.social-links a:nth-child(odd) .social-icon {
+margin-left: 50px; /* Espacio entre columnas */
+}
+
+/* Estilos para los íconos en la columna derecha */
+.social-links a:nth-child(even) .social-icon {
+margin-right: 50px;  /* Espacio entre columnas */
+}
+
+.facebook:hover {
+color: #57C278;
+}
+
+.linkedin:hover {
+color: #0077B5;
+}
+
+.twitter:hover {
+color: #1DA1F2;
+}
+
+.instagram:hover {
+color: #C13584;
+}
+
   
   

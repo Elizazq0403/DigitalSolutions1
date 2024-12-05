@@ -73,7 +73,7 @@
 
 .social-icon-container {
   position: relative; /* Para permitir posicionamiento absoluto del ícono */
-  background-color: #57C278; /* Fondo de los botones */
+ /* background-color: #57C278; /* Fondo de los botones */
   width: 60px; /* Tamaño del fondo */
   height: 60px; /* Tamaño del fondo */
   border-radius: 12px; /* Bordes redondeados */
