@@ -22,7 +22,7 @@ function App() {
   const [equipos, actualizarEquipos] = useState([{
     id: uuid(),
     titulo: "Front End",
-    colorPrimario: "#27D363", // Color inicial
+    colorPrimario: "#0F77FF", // Color inicial
     colorSecundario: "#E8F8FF"
   }]);
 

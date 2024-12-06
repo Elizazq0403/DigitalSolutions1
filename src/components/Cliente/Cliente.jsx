@@ -11,7 +11,7 @@ const Cliente = (props) => {
     const { colorPrimario } = props;
 
     return (
-        <div className="cliente-card">
+        <div className="cliente-card ">
             <div className="cliente-header" style={{ backgroundColor: colorPrimario }}>
                 <img src={foto} alt={nombre} />
             </div>
