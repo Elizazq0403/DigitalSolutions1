@@ -51,3 +51,12 @@
   background-color: #007bff !important;
   color: white !important;
 }
+
+.p-4 {
+  padding: 0 !important; /* Sobrescribe el padding */
+}
+
+.rounded-lg {
+  border-radius: 1rem !important;
+}
+
