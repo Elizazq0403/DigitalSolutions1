@@ -74,6 +74,7 @@ const ListProductos = () => {
 
   return (
     <div className="equipo"> {/* Aplica la clase equipo */}
+    
       <h3>Lista de Productos</h3>
       <List
         itemLayout="vertical"

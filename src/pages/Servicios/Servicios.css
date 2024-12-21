@@ -8,17 +8,20 @@
 .colaborador .encabezado {
   background-color: #F0F0F0;
   border-radius: 20px 20px 0 0;
-  height: 120px; /* Aumenta el valor para incrementar la altura del encabezado*/
+  height: 160px; /* Aumenta el valor para incrementar la altura del encabezado*/
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
 }
 
 
 .colaborador img {
-    width: 100px;
-    border-radius: 50%;
-    position: relative;
-    bottom: -50px;
+  width: 120px; /* Tamaño de la imagen */
+  border-radius: 50%;
+  border: 4px solid #7BB0F4; /* Borde mediano de color azul */
+  position: relative;
+  bottom: -80px;
+  box-sizing: border-box; /* Incluye el borde dentro del tamaño total */
 }
+
 
 /*Esta es la parte blanco del fondo de la tarjeta*/
 .colaborador .info {

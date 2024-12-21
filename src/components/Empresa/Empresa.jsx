@@ -7,7 +7,7 @@ const Empresa = (props) => {
     const { colorPrimario, colorSecundario, titulo, id } = props.datos
     const { colaboradores, eliminarColaborador, actualizarColor, like } = props
     const obj = {
-        backgroundColor: hexToRgba(colorPrimario, 0.6) //hexToRgba es lo que le da opasidad al  color de fondo, es una biblioteca de nmp (npm i hex-to-rgba) 
+        //backgroundColor: hexToRgba(colorPrimario, 0.6) hexToRgba es lo que le da opasidad al  color de fondo, es una biblioteca de nmp (npm i hex-to-rgba) 
     }
 
 
