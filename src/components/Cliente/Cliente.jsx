@@ -30,7 +30,7 @@ const Cliente = (props) => {
                         <span className="icon-label"><strong>Llamar</strong></span>
                     </div>
                                         </a>
-                    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/573044698664" target="_blank" rel="noopener noreferrer">
                         <div className="social-icon-box">
                             <img 
                                 src={require('../../assets/img/email.png')} 

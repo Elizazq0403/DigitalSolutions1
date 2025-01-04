@@ -9,7 +9,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #3c0566; /* Fondo principal */
+  /*background-color: #3c0566; * Fondo principal */
   display: flex;
   justify-content: center;
   align-items: center;
