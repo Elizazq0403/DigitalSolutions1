@@ -6,6 +6,7 @@ import Servicios from './pages/Servicios/Servicios';
 import { MdAdUnits, MdOutlineStorefront, MdAssignmentInd } from "react-icons/md";
 import { HiShoppingCart } from "react-icons/hi";
 import hexToRgba from 'hex-to-rgba';
+import Business from './pages/Business/Business';
 
 function App() {
   // Estado para colaboradores
@@ -70,7 +71,7 @@ function App() {
           <button onClick={() => cambiarTab("Contactos")}
                   className={`px-2 py-3 ${activeTab === "Contactos" ? "border-b-2 border-blue-500 font-semibold" : ""}`}>
             <MdAssignmentInd className="inline mr-2" />
-            Contactos
+            Contacto
           </button>
         </div>
         
@@ -90,9 +91,12 @@ function App() {
             </div>
           )}
           {activeTab === "MiEmpresa" && (
-            <div>
-              Este es el contenido asociado a la pestaña <span className="font-medium text-gray-800 dark:text-white">Mi Empresa</span>.
-            </div>
+            <div className='container'>
+            <br />
+            {equipos.map((equipo) => (
+              <Business datos={equipo} key={equipo.id} />
+            ))}
+          </div>
           )}
           {activeTab === "Productos" && (
             <div className='container'>

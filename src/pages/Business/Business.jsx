@@ -1,7 +1,7 @@
-import "./Servicios.css"
-import ListProductos from "../../pages/Productos/ListProductos";
+import "./Business.css"
+import QuienesSomos from "../../components/QuienesSomos/QuienesSomos";
 import hexToRgba from 'hex-to-rgba';
-import fotoProductos from "../../assets/img/icono productos.png"
+import fotoProductos from "../../assets/img/icono empresa.png"
 
 
 const Servicios = (props) => {
@@ -23,7 +23,7 @@ const Servicios = (props) => {
         <img src={fotoProductos} alt={nombre} />
         </div>
         <div className="info">
-          <ListProductos />
+          <QuienesSomos />
         </div>
       </div>
     </section>

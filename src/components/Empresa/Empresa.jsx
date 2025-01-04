@@ -44,4 +44,4 @@ const Empresa = (props) => {
     </>
 }
 
-export default Empresa
+export default Empresa   
