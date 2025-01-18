@@ -1,0 +1,130 @@
+.colaborador {
+    width: 340px;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+/*Este es el encabezado del fondo de la tarjeta*/
+.colaborador .encabezado {
+  background-color: #F0F0F0;
+  border-radius: 20px 20px 0 0;
+  height: 160px; /* Aumenta el valor para incrementar la altura del encabezado*/
+  box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
+}
+
+
+.colaborador img {
+  width: 120px; /* Tamaño de la imagen */
+  border-radius: 50%;
+  border: 4px solid #7BB0F4; /* Borde mediano de color azul */
+  position: relative;
+  bottom: -80px;
+  box-sizing: border-box; /* Incluye el borde dentro del tamaño total */
+}
+
+
+/*Esta es la parte blanco del fondo de la tarjeta*/
+.colaborador .info {
+    background: #FFFFFF;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 0px 0px 20px 20px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    min-height: 100px;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
+    /*height: 740px; debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
+    
+}
+
+.colaborador .info h4 {
+  color: #6278F7;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  border-bottom: 2px solid;
+  padding-bottom: 3px;
+  display: inline-block; /* Ajusta el ancho al tamaño del contenido */
+}
+
+
+.colaborador .info h5 {
+    font-size: 18px;
+    line-height: 22px;
+    color: #212121;
+    padding: 0 24px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.eliminar{
+    position: absolute;
+    right: -15px;
+    top: -15px;
+}
+
+.social-icons-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  gap: 50px; /* Espacio entre íconos */
+  justify-items: center;
+  max-width: 400px;
+  margin: 30px auto;
+  
+}
+
+.social-icon-container {
+  position: relative; /* Para permitir posicionamiento absoluto del ícono */
+ /* background-color: #57C278; /* Fondo de los botones */
+  width: 60px; /* Tamaño del fondo */
+  height: 60px; /* Tamaño del fondo */
+  border-radius: 12px; /* Bordes redondeados */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+  
+.social-icon {
+  position: absolute; /* Posiciona el ícono respecto al contenedor */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra el ícono en el contenedor */
+  font-size: 35px; /* Tamaño del ícono */
+  color: #333; /* Color del ícono */
+  transition: color 0.3s ease;
+}
+
+
+  
+  .social-icon:hover {
+    background-color: #41D9A1;
+  color: #fff;
+  transform: scale(1.1); /* Efecto de agrandar íconos en hover */
+  }
+  
+  /* Estilos para los íconos en la columna izquierda */
+  .social-icons-container a:nth-child(odd) .social-icon {
+    /*color: #f00;  Estilo de ejemplo para la columna izquierda */
+    margin-left: 50px; /* Espacio entre columnas */
+  }
+  
+  /* Estilos para los íconos en la columna derecha */
+  .social-icons-container a:nth-child(even) .social-icon {
+    /* color: #00f; Estilo de ejemplo para la columna derecha */
+    margin-right: 50px;  /* Espacio entre columnas */
+  }
+  
+  .facebook:hover {
+    color: #57C278;
+  }
+  
+  .linkedin:hover {
+    color: #0077B5;
+  }
+  
+  .twitter:hover {
+    color: #1DA1F2;
+  }
+  
+  .instagram:hover {
+    color: #C13584;
+  }

@@ -7,6 +7,7 @@ import { MdAdUnits, MdOutlineStorefront, MdAssignmentInd } from "react-icons/md"
 import { HiShoppingCart } from "react-icons/hi";
 import hexToRgba from 'hex-to-rgba';
 import Business from './pages/Business/Business';
+import Contacto from './pages/Contacto/Contacto';
 
 function App() {
   // Estado para colaboradores
@@ -107,9 +108,12 @@ function App() {
             </div>
           )}
           {activeTab === "Contactos" && (
-            <div>
-              Este es el contenido asociado a la pestaña <span className="font-medium text-gray-800 dark:text-white">Contactos</span>.
-            </div>
+            <div className='container'>
+            <br />
+            {equipos.map((equipo) => (
+              <Contacto datos={equipo} key={equipo.id} />
+            ))}
+          </div>
           )}
         </div>
       </div>
