@@ -16,8 +16,8 @@ const Cliente = (props) => {
                 <img src={foto} alt={nombre} />
             </div>
             <div className="cliente-info">
-                <h4>{nombre}</h4>
-                <h5><strong>{puesto}</strong></h5>
+                    <h4>{nombre}</h4>
+                    <h5><strong>{puesto}</strong></h5>
 
                 <div className="social-links">
                     <a href="tel:+573008600740">
