@@ -1,25 +1,32 @@
-import "./Contacto.css";
-import { AiFillCloseCircle, AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { FaFacebookF, FaLinkedinIn, FaTwitter, FaInstagram, FaWhatsapp, FaShareAlt } from 'react-icons/fa';
-import { MdEmail, MdPhoneIphone } from "react-icons/md";
-import { FiPhoneCall } from "react-icons/fi";
-import { RiQrCodeFill } from "react-icons/ri";
+import "./Contacto.css"
 import ListProductos from "../../pages/Productos/ListProductos";
+import hexToRgba from 'hex-to-rgba';
 import fotoProductos from "../../assets/img/ubicacion.png"
 
-const Contacto = (props) => {
-    const { nombre, puesto, foto, equipo, id, fav } = props.datos;
-    const { colorPrimario } = props;
 
-    return (
+const Servicios = (props) => {
+  if (!props.datos) {
+    return <div>No se han proporcionado datos</div>;
+  }
+
+  const { colorPrimario, nombre, puesto } = props.datos;
+  
+
+  const obj = {
+    //backgroundColor: hexToRgba(colorPrimario, 0.6)
+  };
+
+  return (
+    <section className="equipo" style={obj}>
         <div className="cliente-card ">
             <div className="cliente-header" style={{ backgroundColor: colorPrimario }}>
-                <img src={foto} alt={nombre} />
+                <img src={fotoProductos} alt={nombre} />
             </div>
             <div className="cliente-info">
+                    <div>
                     <h4>{nombre}</h4>
                     <h5><strong>{puesto}</strong></h5>
-
+                    </div>
                 <div className="social-redes">
                     <a href="tel:+573008600740">
                     <div className="social-icon-box">
@@ -28,7 +35,8 @@ const Contacto = (props) => {
                             alt="Icono facebook" 
                             className="iphone"
                         />
-                    </div>                    </a>
+                    </div>                    
+                    </a>
                     <a href="https://wa.me/573044698664" target="_blank" rel="noopener noreferrer">
                         <div className="social-icon-box">
                             <img 
@@ -51,6 +59,8 @@ const Contacto = (props) => {
                 </div>
             </div>
         </div>
-    );
-}
-export default Contacto;
+    </section>
+  );
+};
+
+export default Servicios;

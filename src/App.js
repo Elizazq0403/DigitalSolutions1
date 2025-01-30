@@ -112,6 +112,8 @@ function App() {
             <br />
             {equipos.map((equipo) => (
               <Contacto datos={equipo} key={equipo.id} />
+              
+
             ))}
           </div>
           )}
