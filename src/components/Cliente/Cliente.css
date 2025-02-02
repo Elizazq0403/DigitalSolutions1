@@ -22,6 +22,19 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   bottom: -80px; /* Ajusta según la posición deseada */
 }
 
+.cliente-titulo {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000;
+  font-size: 25px;
+  font-family: "Cascadia Mono";
+  font-weight: normal;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); 
+}
 
 
 .cliente-card img {

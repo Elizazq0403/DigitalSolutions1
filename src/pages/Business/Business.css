@@ -4,13 +4,43 @@
     position: relative;
 }
 
+.cliente-titulo {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000;
+  font-size: 25px;
+  font-family: "Cascadia Mono";
+  font-weight: normal;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); 
+}
+
 /*Este es el encabezado del fondo de la tarjeta*/
 .colaborador .encabezado {
   background-color: #F0F0F0;
   border-radius: 20px 20px 0 0;
   height: 160px; /* Aumenta el valor para incrementar la altura del encabezado*/
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
+  
 }
+
+.cliente-titulo {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000; /* Texto negro */
+  font-size: 25px;
+  font-family: "Cascadia Mono";
+  font-weight: normal;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); /* Sombra blanca */
+}
+
 
 
 .colaborador img {

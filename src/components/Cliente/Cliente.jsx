@@ -12,9 +12,11 @@ const Cliente = (props) => {
 
     return (
         <div className="cliente-card ">
-            <div className="cliente-header" style={{ backgroundColor: colorPrimario }}>
+            <div className="cliente-header" style={{ backgroundColor: colorPrimario, position: "relative" }}>
+                <h2 className="cliente-titulo">!Bienvenidos¡</h2>
                 <img src={foto} alt={nombre} />
             </div>
+
             <div className="cliente-info">
                     <h4>{nombre}</h4>
                     <h5><strong>{puesto}</strong></h5>
