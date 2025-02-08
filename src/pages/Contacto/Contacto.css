@@ -83,6 +83,8 @@ display: inline;
   /*gap: 0px;  Espacio entre los íconos */
   max-width: 400px;
   margin: 10px auto; /* Centra el contenedor */
+  position: relative;
+  z-index: 100;
 }
 
 
@@ -96,6 +98,8 @@ display: inline;
   text-align: center; /* Centra el texto */
   /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  Sombra ligera */
   transition: transform 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  z-index: 11;
 }
 
 .icon-label {
@@ -130,9 +134,64 @@ margin-left: 50px; /* Espacio entre columnas */
 margin-right: 50px;  /* Espacio entre columnas */
 }
 
+.cuadrado-con-borde-interno {
+  width: 320px; /* Ancho total */
+  height: 320px; /* Alto total */
+  background-color: transparent; /* Sin relleno */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); /* Sombra negra clara */
+  border-radius: 15px; /* Bordes redondeados */
+  position: relative; /* Para manejar posicionamiento interno */
+  box-sizing: border-box; /* Incluye el borde en las dimensiones */
+}
+
+.borde-interno-rojo {
+  width: calc(100% - 40px); /* Tamaño reducido para espacio del margen */
+  height: calc(100% - 40px); /* Tamaño reducido para espacio del margen */
+  border: 3px solid #0F77FF; /* Borde rojo */
+  border-radius: 12px; /* Bordes redondeados internos */
+  background-color: transparent; /* Sin relleno */
+  position: absolute; /* Posicionamiento relativo al contenedor externo */
+  top: 20px; /* Espaciado desde la parte superior */
+  left: 20px; /* Espaciado desde el lado izquierdo */
+  box-sizing: border-box; /* Incluye el borde en las dimensiones */
+  display: flex; /* Usamos flexbox */
+  align-items: center; /* Centrado vertical */
+  justify-content: flex-start; /* Alineación a la izquierda */
+}
+
+.borde-interno-rojo p {
+  margin: 0; /* Eliminamos márgenes predeterminados */
+  padding: 0 10px; /* Espaciado a la izquierda y derecha */
+}
+
+.borde-interno-rojo::before {
+  content: ""; /* Genera un elemento visual */
+  position: absolute;
+  left: -3px; /* Alineado con el borde rojo */
+  top: 33.33%; /* Inicio en un tercio desde la parte superior */
+  width: 3px; /* Grosor del borde */
+  height: 33.33%; /* Altura para cubrir un tercio del cuadrado */
+  background-color: #ffffff; /* Color blanco */
+  border-radius: 1.5px; /* Redondear bordes de la línea negra */
+  z-index: 2; /* Aparece encima del borde rojo */
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column; /* Coloca los elementos en fila */
+  gap: 10px; /* Espacio entre filas */
+}
+
+.fila {
+  font-size: 14px; /*Este me quito el borde blanco*/
+  padding: 2px;
+  
+}
+
 @media (max-width: 768px) {
   .cliente-card .cliente-header img {
     width: 100px; /* Ajusta a un tamaño más pequeño en pantallas pequeñas */
   }
 }
+
 

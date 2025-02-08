@@ -58,7 +58,22 @@ const Servicios = (props) => {
                         </div>
                     </a>
                 </div>
+                <div className="social-redes">
+                <div class="cuadrado-con-borde-interno">
+                <div class="borde-interno-rojo">
+                    <div class="">
+                        <div class="fila">300 860 07 40</div>
+                        <div class="fila">Cra 49 calle 144 sur 29</div>
+                        <div class="fila">elizazq@hotmail.com</div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div>
+                    
+            </div>   
             </div>
+               
         </div>
     </section>
   );
