@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.b85bed18.css",
-    "main.js": "/static/js/main.b06cc760.js",
-    "static/js/453.b8ba57c0.chunk.js": "/static/js/453.b8ba57c0.chunk.js",
-    "static/media/instagram.png": "/static/media/instagram.534f526cf7cd845ad8ec.png",
-    "static/media/facebook.png": "/static/media/facebook.b484c86b528a701319aa.png",
-    "static/media/descarga.png": "/static/media/descarga.0d0f378523dbf319f6a6.png",
-    "static/media/compartir2.png": "/static/media/compartir2.dfc5fcfdbae667a86bdb.png",
-    "static/media/icono internet.png": "/static/media/icono internet.d3c862a5726c42a5e1e9.png",
-    "static/media/whatsapp.png": "/static/media/whatsapp.fb806aa84b6a2c187d0d.png",
-    "static/media/icono llamar.png": "/static/media/icono llamar.16a96e0fe630321985b1.png",
-    "static/media/email.png": "/static/media/email.6a7873ac1a63c561501e.png",
-    "static/media/compartir.png": "/static/media/compartir.9a7dc08617ebbae892d9.png",
-    "static/media/icono empresa.png": "/static/media/icono empresa.886f12fcf479c4f54d7d.png",
-    "static/media/ubicacion.png": "/static/media/ubicacion.054ed2d92cc15175d1c1.png",
-    "index.html": "/index.html",
-    "main.b85bed18.css.map": "/static/css/main.b85bed18.css.map",
-    "main.b06cc760.js.map": "/static/js/main.b06cc760.js.map",
-    "453.b8ba57c0.chunk.js.map": "/static/js/453.b8ba57c0.chunk.js.map"
+    "main.css": "/DigitalSolutions1/static/css/main.b85bed18.css",
+    "main.js": "/DigitalSolutions1/static/js/main.f27a1408.js",
+    "static/js/453.b8ba57c0.chunk.js": "/DigitalSolutions1/static/js/453.b8ba57c0.chunk.js",
+    "static/media/instagram.png": "/DigitalSolutions1/static/media/instagram.534f526cf7cd845ad8ec.png",
+    "static/media/facebook.png": "/DigitalSolutions1/static/media/facebook.b484c86b528a701319aa.png",
+    "static/media/descarga.png": "/DigitalSolutions1/static/media/descarga.0d0f378523dbf319f6a6.png",
+    "static/media/compartir2.png": "/DigitalSolutions1/static/media/compartir2.dfc5fcfdbae667a86bdb.png",
+    "static/media/icono internet.png": "/DigitalSolutions1/static/media/icono internet.d3c862a5726c42a5e1e9.png",
+    "static/media/whatsapp.png": "/DigitalSolutions1/static/media/whatsapp.fb806aa84b6a2c187d0d.png",
+    "static/media/icono llamar.png": "/DigitalSolutions1/static/media/icono llamar.16a96e0fe630321985b1.png",
+    "static/media/email.png": "/DigitalSolutions1/static/media/email.6a7873ac1a63c561501e.png",
+    "static/media/compartir.png": "/DigitalSolutions1/static/media/compartir.9a7dc08617ebbae892d9.png",
+    "static/media/icono empresa.png": "/DigitalSolutions1/static/media/icono empresa.886f12fcf479c4f54d7d.png",
+    "static/media/ubicacion.png": "/DigitalSolutions1/static/media/ubicacion.054ed2d92cc15175d1c1.png",
+    "index.html": "/DigitalSolutions1/index.html",
+    "main.b85bed18.css.map": "/DigitalSolutions1/static/css/main.b85bed18.css.map",
+    "main.f27a1408.js.map": "/DigitalSolutions1/static/js/main.f27a1408.js.map",
+    "453.b8ba57c0.chunk.js.map": "/DigitalSolutions1/static/js/453.b8ba57c0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b85bed18.css",
-    "static/js/main.b06cc760.js"
+    "static/js/main.f27a1408.js"
   ]
 }
