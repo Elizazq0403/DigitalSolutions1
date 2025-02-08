@@ -16,6 +16,24 @@ const Servicios = (props) => {
     //backgroundColor: hexToRgba(colorPrimario, 0.6)
   };
 
+  const iconData = [
+    {
+      src: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg",
+      alt: "Email Icon",
+      text: "/ elizazq@hotmail.com",
+    },
+    {
+      src: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg",
+      alt: "Location Icon",
+      text: "/ Cra 49 calle 144 sur 29",
+    },
+    {
+      src: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Mobile_phone_%2889516%29_-_The_Noun_Project.svg",
+      alt: "Phone Icon",
+      text: "/ 300 860 07 40",
+    },
+  ];
+
   return (
     <section className="equipo" style={obj}>
         <div className="cliente-card ">
@@ -59,15 +77,20 @@ const Servicios = (props) => {
                     </a>
                 </div>
                 <div className="social-redes">
-                <div class="cuadrado-con-borde-interno">
-                <div class="borde-interno-rojo">
-                    <div class="">
-                        <div class="fila">300 860 07 40</div>
-                        <div class="fila">Cra 49 calle 144 sur 29</div>
-                        <div class="fila">elizazq@hotmail.com</div>
+                    <div class="cuadrado-con-borde-interno">
+                        <div class="borde-interno-rojo">
+                            <div className="iconos">
+                                {iconData.map((item, index) => (
+                                    <div className="facebook-username" key={index}>
+                                    <div className="icon">
+                                        <img src={item.src} alt={item.alt} />
+                                    </div>
+                                    <div className="username-text">{item.text}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                </div>
                 </div>
                 <div>
                     
