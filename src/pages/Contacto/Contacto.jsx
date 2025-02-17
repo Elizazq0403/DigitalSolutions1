@@ -38,7 +38,7 @@ const Servicios = (props) => {
     <section className="equipo" style={obj}>
         <div className="cliente-card ">
         <div className="cliente-header" style={{ backgroundColor: colorPrimario, position: "relative" }}>
-                <h2 className="cliente-titulo">Contacto</h2>
+                <h2 className="cliente-titulo">Datos de Contacto</h2>
                 <img src={fotoProductos} alt={nombre} />
             </div>
             <div className="cliente-info">
@@ -47,7 +47,7 @@ const Servicios = (props) => {
                     <h5><strong>{puesto}</strong></h5>
                     </div>
                 <div className="social-redes">
-                    <a href="tel:+573008600740">
+                    <a href="https://www.facebook.com/profile.php?id=100067087870686">
                     <div className="social-icon-box">
                         <img 
                             src={require('../../assets/img/facebook.png')} 
@@ -56,7 +56,7 @@ const Servicios = (props) => {
                         />
                     </div>                    
                     </a>
-                    <a href="https://wa.me/573044698664" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.instagram.com/eliza.bethzq/" target="_blank" rel="noopener noreferrer">
                         <div className="social-icon-box">
                             <img 
                                 src={require('../../assets/img/instagram.png')} 
@@ -66,7 +66,7 @@ const Servicios = (props) => {
                         </div>
                     </a>
 
-                    <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://elizazq0403.github.io/Curriculo-Vitae/" target="_blank" rel="noopener noreferrer">
                         <div className="social-icon-box">
                             <img 
                                 src={require('../../assets/img/icono internet.png')} 

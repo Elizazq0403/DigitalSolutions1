@@ -13,7 +13,7 @@ const Cliente = (props) => {
     return (
         <div className="cliente-card ">
             <div className="cliente-header" style={{ backgroundColor: colorPrimario, position: "relative" }}>
-                <h2 className="cliente-titulo">!Bienvenidos¡</h2>
+                <h2 className="cliente-titulo">Web-Z  Digitals Solutions</h2>
                 <img src={foto} alt={nombre} />
             </div>
 
@@ -22,7 +22,7 @@ const Cliente = (props) => {
                     <h5><strong>{puesto}</strong></h5>
 
                 <div className="social-links">
-                    <a href="tel:+573008600740">
+                    <a href="tel:+573216921887">
                     <div className="social-icon-box">
                         <img 
                             src={require('../../assets/img/icono llamar.png')} 
@@ -32,7 +32,7 @@ const Cliente = (props) => {
                         <span className="icon-label"><strong>Llamar</strong></span>
                     </div>
                                         </a>
-                    <a href="https://wa.me/573044698664" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
                         <div className="social-icon-box">
                             <img 
                                 src={require('../../assets/img/email.png')} 
@@ -43,7 +43,7 @@ const Cliente = (props) => {
                         </div>
                     </a>
 
-                    <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/573216921887" target="_blank" rel="noopener noreferrer">
                         <div className="social-icon-box">
                             <img 
                                 src={require('../../assets/img/whatsapp.png')} 
@@ -84,6 +84,19 @@ const Cliente = (props) => {
                         </div>
                     </a>
                 </div>
+            </div>
+            <div className="cliente-inf">
+                <div className="social-redes">
+                    <div class="cuadrado-con-borde-int">
+                        <div class="borde-interno-rojo">
+                        <img 
+                            src={require('../../assets/img/CODIGO QR.jpeg')} 
+                            alt="Icono Compartir" 
+                            className="qr-imagen" 
+                        />  
+                        </div>
+                    </div>
+                </div>  
             </div>
         </div>
     );

@@ -16,7 +16,7 @@ function App() {
     equipo: "Front End",
     foto: "https://firebasestorage.googleapis.com/v0/b/cv-elizabethzapataq.appspot.com/o/WhatsApp%20Image%202024-10-19%20at%205.07.00%20PM.jpeg?alt=media&token=fd10feaf-8efd-49df-8cad-c4d5797b89f9",
     nombre: "Elizabeth Zapata Quiceno",
-    puesto: "WEB-Z Digitals Solutions",
+    puesto: "Desarrolladora de Software",
     fav: true
   }]);
 
