@@ -20,7 +20,7 @@ const Servicios = (props) => {
     <section className="equipo" style={obj}>
       <div className="colaborador">
       <div className="encabezado" style={{ backgroundColor: colorPrimario, position: "relative" }}>
-            <h2 className="cliente-titulo">Productos</h2>
+            <h2 className="cliente-titulo">Nuestros Productos</h2>
             <img src={fotoProductos} alt={nombre} />
           </div>
         <div className="info">

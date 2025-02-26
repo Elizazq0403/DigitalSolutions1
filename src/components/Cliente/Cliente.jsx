@@ -11,46 +11,45 @@ const Cliente = (props) => {
     const { colorPrimario } = props;
 
     return (
-        <div className="cliente-card ">
+        <div className="cliente-card">
             <div className="cliente-header" style={{ backgroundColor: colorPrimario, position: "relative" }}>
-                <h2 className="cliente-titulo">!Bienvenidos¡</h2>
+                <h2 className="cliente-titulo">Web-Z  Digitals Solutions</h2>
                 <img src={foto} alt={nombre} />
             </div>
 
             <div className="cliente-info">
-                    <h4>{nombre}</h4>
-                    <h5><strong>{puesto}</strong></h5>
+                <h4>{nombre}</h4>
+                <h5><strong>{puesto}</strong></h5>
 
                 <div className="social-links">
-                    <a href="tel:+573008600740">
-                    <div className="social-icon-box">
-                        <img 
-                            src={require('../../assets/img/icono llamar.png')} 
-                            alt="Icono Llamar" 
-                            className="iphone"
-                        />
-                        <span className="icon-label"><strong>Llamar</strong></span>
-                    </div>
-                                        </a>
-                    <a href="https://wa.me/573044698664" target="_blank" rel="noopener noreferrer">
+                    <a href="tel:+573216921887">
+                        <div className="social-icon-box">
+                            <img 
+                                src={require('../../assets/img/icono llamar.png')} 
+                                alt="Icono Llamar" 
+                                className="iphone"
+                            />
+                            <span className="icon-label"><strong>Llamar</strong></span>
+                        </div>
+                    </a>
+                    <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
                         <div className="social-icon-box">
                             <img 
                                 src={require('../../assets/img/email.png')} 
                                 alt="Icono Email" 
                                 className="whatsapp-icon" 
                             />
-                        <span className="icon-label"><strong>Correo</strong></span>
+                            <span className="icon-label"><strong>Correo</strong></span>
                         </div>
                     </a>
-
-                    <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/573216921887" target="_blank" rel="noopener noreferrer">
                         <div className="social-icon-box">
                             <img 
                                 src={require('../../assets/img/whatsapp.png')} 
                                 alt="Icono WhatsApp" 
                                 className="iphone" 
                             />
-                        <span className="icon-label"><strong>Whatsapp</strong></span>
+                            <span className="icon-label"><strong>Agende su cita</strong></span>
                         </div>
                     </a>
                     <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
@@ -60,7 +59,7 @@ const Cliente = (props) => {
                                 alt="Icono Descargar" 
                                 className="iphone" 
                             />
-                        <span className="icon-label"><strong>Contacto</strong></span>    
+                            <span className="icon-label"><strong>Contacto</strong></span>    
                         </div>
                     </a>
                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
@@ -70,7 +69,7 @@ const Cliente = (props) => {
                                 alt="Icono Compartir" 
                                 className="iphone" 
                             />
-                        <span className="icon-label"><strong>Compartir Wp</strong></span>
+                            <span className="icon-label"><strong>Compartir Wp</strong></span>
                         </div>
                     </a>
                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
@@ -80,10 +79,24 @@ const Cliente = (props) => {
                                 alt="Icono Compartir" 
                                 className="iphone" 
                             />
-                        <span className="icon-label"><strong>Compartir QR</strong></span>
+                            <span className="icon-label"><strong>Compartir QR</strong></span>
                         </div>
                     </a>
                 </div>
+            </div>
+
+            <div className="cliente-inf">
+                <div className="social-redes">
+                    <div className="cuadrado-con-borde-int">
+                        <div className="borde-interno-rojo">
+                            <img 
+                                src={require('../../assets/img/CODIGO QR.jpg')} 
+                                alt="QR" 
+                                className="tarjeta-qr-imagen" 
+                            />  
+                        </div>
+                    </div>
+                </div>  
             </div>
         </div>
     );

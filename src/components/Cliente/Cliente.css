@@ -34,7 +34,11 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   padding: 5px 10px;
   border-radius: 5px;
   text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); 
+  white-space: nowrap; /* Evita el salto de línea */
+  overflow: hidden; /* Evita que el texto se desborde */
+  text-overflow: ellipsis; /* Agrega "..." si el texto es muy largo */
 }
+
 
 
 .cliente-card img {
@@ -58,6 +62,22 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   height: 600px; /*debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
 }
+
+/*Esta es la parte blanca del fondo escaner QR*/
+.cliente-inf {
+  background: #FFFFFF;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 20px 20px 20px 20px;
+  margin-top: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-height: 100px;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
+  height: 380px; /*debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
+}
+
+
 
 .cliente-card .cliente-info h4 {
 color: #0F77FF;
@@ -83,6 +103,19 @@ display: inline;
   margin: 0;
 }
 
+
+
+.tarjeta-qr-imagen {
+  display: block;
+  width: 500% !important;
+  max-width: 280px ;
+  height: auto;
+  margin: 0 auto;
+}
+
+
+
+
 .eliminar {
   position: absolute;
   right: -15px;
@@ -100,7 +133,11 @@ margin-top: auto;
 margin-bottom: auto !important;
 }
 
-.social-icon-box {
+.social-icon-box.qr-code {
+  border-radius: 0;
+}
+
+.social-icon-box img{
   width: 100px;
   height: 100px;
   display: flex;
@@ -111,6 +148,8 @@ margin-bottom: auto !important;
   /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  Sombra ligera */
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
+
+
 
 .icon-label {
   font-size: 15px; /* Tamaño del texto */
@@ -134,6 +173,19 @@ color: #fff;
 transform: scale(1.1); /* Efecto de agrandar íconos en hover */
 }
 
+.cuadrado-con-borde-int {
+  width: 350px; /* Ancho total */
+  height: 350px; /* Alto total */
+  background-color: transparent; /* Sin relleno */
+  /*box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); /* Sombra negra clara */
+  border-radius: 15px; /* Bordes redondeados */
+  position: relative; /* Para manejar posicionamiento interno */
+  box-sizing: border-box; /* Incluye el borde en las dimensiones */
+  
+}
+
+
+
 /* Estilos para los íconos en la columna izquierda */
 .social-links a:nth-child(odd) .social-icon {
 margin-left: 50px; /* Espacio entre columnas */
@@ -148,22 +200,6 @@ margin-right: 50px;  /* Espacio entre columnas */
   .cliente-card .cliente-header img {
     width: 100px; /* Ajusta a un tamaño más pequeño en pantallas pequeñas */
   }
-}
-
-.facebook:hover {
-color: #57C278;
-}
-
-.linkedin:hover {
-color: #0077B5;
-}
-
-.twitter:hover {
-color: #1DA1F2;
-}
-
-.instagram:hover {
-color: #C13584;
 }
 
   

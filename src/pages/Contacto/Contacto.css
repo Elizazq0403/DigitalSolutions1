@@ -26,10 +26,21 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
 
 .cliente-card img {
   width: 80px;
-  border-radius: 50%;
+  border-radius: 0%; /* estaba en 50%, para el qr */
   position: relative;
   bottom: -100px;
+  
 }
+
+.tarjeta-qr-imagen {
+  display: block;
+  width: 500% !important;
+  max-width: 280px ;
+  height: auto;
+  margin: 0 auto;
+  top: -5px;
+}
+
 
 
 
@@ -100,6 +111,7 @@ display: inline;
   transition: transform 0.3s ease, background-color 0.3s ease;
   position: relative;
   z-index: 11;
+  
 }
 
 .icon-label {
