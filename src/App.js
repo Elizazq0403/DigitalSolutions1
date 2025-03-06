@@ -104,6 +104,7 @@ function App() {
               <br />
               {equipos.map((equipo) => (
                 <Servicios datos={equipo} key={equipo.id} />
+                
               ))}
             </div>
           )}
@@ -111,10 +112,13 @@ function App() {
             <div className='container'>
             <br />
             {equipos.map((equipo) => (
-              <Contacto datos={equipo} key={equipo.id} />
-              
+            <Contacto 
+              datos={equipo} 
+              key={equipo.id} 
+              colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)} 
+            />
+          ))}
 
-            ))}
           </div>
           )}
         </div>
