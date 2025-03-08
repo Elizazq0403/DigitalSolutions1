@@ -59,15 +59,15 @@ function App() {
             <MdAdUnits className="inline mr-2" />
             Perfil
           </button>
-          <button onClick={() => cambiarTab("MiEmpresa")}
-                  className={`px-2 py-3 ${activeTab === "MiEmpresa" ? "border-b-2 border-blue-500 font-semibold" : ""}`}>
-            <MdOutlineStorefront className="inline mr-2" />
-            Empresa
-          </button>
           <button onClick={() => cambiarTab("Productos")}
                   className={`px-2 py-3 ${activeTab === "Productos" ? "border-b-2 border-blue-500 font-semibold" : ""}`}>
             <HiShoppingCart className="inline mr-2" />
             Productos
+          </button>
+          <button onClick={() => cambiarTab("MiEmpresa")}
+                  className={`px-2 py-3 ${activeTab === "MiEmpresa" ? "border-b-2 border-blue-500 font-semibold" : ""}`}>
+            <MdOutlineStorefront className="inline mr-2" />
+            Empresa
           </button>
           <button onClick={() => cambiarTab("Contactos")}
                   className={`px-2 py-3 ${activeTab === "Contactos" ? "border-b-2 border-blue-500 font-semibold" : ""}`}>
@@ -92,7 +92,7 @@ function App() {
             </div>
           )}
           {activeTab === "MiEmpresa" && (
-            <div className='container'>
+          <div className='container'>
             <br />
             {equipos.map((equipo) => (
               <Business datos={equipo} key={equipo.id} />

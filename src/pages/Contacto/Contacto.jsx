@@ -48,7 +48,11 @@ const Contacto = ({ datos, colaboradores }) => {
               </div>
             ))}
           </div>
-
+          <div>
+            <div className="contacto">
+              <h5 style={{ fontSize: 50 }}><strong>Síguenos:</strong></h5>
+            </div>
+          </div>
           {/* Redes sociales */}
           <div className="social-redes">
             <a href="tel:+573008600740">
@@ -85,6 +89,19 @@ const Contacto = ({ datos, colaboradores }) => {
               </div>
             </div>
           </div>
+          <div className="cliente-inf">
+                <div className="social-redes">
+                    <div className="cuadrado-con-borde-int">
+                        <div className="borde-interno-rojo">
+                            <img 
+                                src={require('../../assets/img/CODIGO QR.jpg')} 
+                                alt="QR" 
+                                className="tarjeta-qr-imagen" 
+                            />  
+                        </div>
+                    </div>
+                </div>  
+            </div>
         </div>
       </div>
     </section>

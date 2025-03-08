@@ -34,8 +34,11 @@
     font-family: 'Montserrat', sans-serif;
     box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
     /*height: 740px; debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
+
     
 }
+
+  
 
 .colaborador .info h4 {
   color: #6278F7;

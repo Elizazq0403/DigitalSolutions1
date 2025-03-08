@@ -20,7 +20,6 @@ const Cliente = (props) => {
             <div className="cliente-info">
                 <h4>{nombre}</h4>
                 <h5><strong>{puesto}</strong></h5>
-
                 <div className="social-links">
                     <a href="tel:+573216921887">
                         <div className="social-icon-box">
@@ -79,7 +78,7 @@ const Cliente = (props) => {
                                 alt="Icono Compartir" 
                                 className="iphone" 
                             />
-                            <span className="icon-label"><strong>Compartir QR</strong></span>
+                            <span className="icon-label"><strong>QR Pagos</strong></span>
                         </div>
                     </a>
                 </div>

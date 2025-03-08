@@ -237,6 +237,22 @@ body {
   padding: 3px; /* Espaciado interno */
 }
 
+@font-face {
+  font-family: 'Stalemate';
+  src: url('../../assets/fonts/Stalemate/Stalemate-Regular.ttf') format('truetype');
+}
+
+.contacto {
+  font-family: 'Stalemate', cursive;
+  margin-top: 40px; /* Ajusta el margen según necesites */
+  font-size: 24px; /* Aumenta el tamaño de la letra (ajústalo según prefieras) */
+}
+
+.siguenos {
+  font-size: 24px;
+}
+
+
 .username-text {
   margin-left: 10px;
   font-size: 14px;

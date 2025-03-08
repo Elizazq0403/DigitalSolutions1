@@ -26,6 +26,19 @@ const Servicios = (props) => {
         <div className="info">
           <ListProductos />
         </div>
+        <div className="cliente-inf">
+                <div className="social-redes">
+                    <div className="cuadrado-con-borde-int">
+                        <div className="borde-interno-rojo">
+                            <img 
+                                src={require('../../assets/img/CODIGO QR.jpg')} 
+                                alt="QR" 
+                                className="tarjeta-qr-imagen" 
+                            />  
+                        </div>
+                    </div>
+                </div>  
+            </div>
       </div>
     </section>
   );
