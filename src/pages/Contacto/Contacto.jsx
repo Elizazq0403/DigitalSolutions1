@@ -90,18 +90,25 @@ const Contacto = ({ datos, colaboradores }) => {
             </div>
           </div>
           <div className="cliente-inf">
-                <div className="social-redes">
-                    <div className="cuadrado-con-borde-int">
-                        <div className="borde-interno-rojo">
-                            <img 
-                                src={require('../../assets/img/CODIGO QR.jpg')} 
-                                alt="QR" 
-                                className="tarjeta-qr-imagen" 
-                            />  
-                        </div>
+        <div className="social-redes">
+                <div className="cuadrado-con-borde-int">
+                    <div className="borde-interno-rojo">
+                        <iframe
+                            title="Google Maps"
+                            className="google-maps"
+                            width="300%"
+                            height="300%"
+                            style={{ border: 0 }}
+                            loading="lazy"
+                            allowFullScreen
+                            referrerPolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.3732328504957!2d-75.63583762435954!3d6.080307293905855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e46870ca763c9e3%3A0xf1b38a9819d4b64b!2sWEB-Z%20Soluciones%20Digitales!5e0!3m2!1ses!2sco!4v1741743443486!5m2!1ses!2sco"
+                        ></iframe>
                     </div>
-                </div>  
+                </div>
             </div>
+        </div>
+
         </div>
       </div>
     </section>
