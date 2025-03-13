@@ -109,7 +109,7 @@ display: inline;
   text-align: center; /* Centra el texto */
   /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  Sombra ligera */
   transition: transform 0.3s ease, background-color 0.3s ease;
-  position: relative;
+  position: relative; 
   z-index: 11;
   
 }
@@ -154,7 +154,7 @@ margin-right: 50px;  /* Espacio entre columnas */
   border-radius: 15px; /* Bordes redondeados */
   position: relative; /* Para manejar posicionamiento interno */
   box-sizing: border-box; /* Incluye el borde en las dimensiones */
-  margin-top: 70px; /* Ajusta margen superior recuadro datos de contacto */
+  /*margin-top: 70px;  Ajusta margen superior recuadro datos de contacto */
 }
 
 .borde-interno-rojo {
@@ -257,6 +257,16 @@ body {
   height: 300px;
   border: none;
   border-radius: 5px;
+  
+}
+
+
+
+.social-icon-normal {
+  display: inline-block;
+  margin-right: 10px;
+  transform: translateY(-90px);
+  
 }
 
 

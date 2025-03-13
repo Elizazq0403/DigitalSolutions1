@@ -56,17 +56,17 @@ const Contacto = ({ datos, colaboradores }) => {
           {/* Redes sociales */}
           <div className="social-redes">
             <a href="tel:+573008600740">
-              <div className="social-icon-box">
+              <div className="social-icon-normal">
                 <img src={require("../../assets/img/facebook.png")} alt="Icono facebook" className="iphone" />
               </div>
             </a>
             <a href="https://wa.me/573044698664" target="_blank" rel="noopener noreferrer">
-              <div className="social-icon-box">
+              <div className="social-icon-normal">
                 <img src={require("../../assets/img/instagram.png")} alt="Icono instagram" className="iphone" />
               </div>
             </a>
             <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
-              <div className="social-icon-box">
+              <div className="social-icon-normal">
                 <img src={require("../../assets/img/icono internet.png")} alt="Icono internet" className="iphone" />
               </div>
             </a>
