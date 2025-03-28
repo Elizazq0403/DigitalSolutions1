@@ -21,7 +21,7 @@ const Servicios = (props) => {
       <div className="colaborador">
         <div className="encabezado" style={{ backgroundColor: colorPrimario, position: "relative" }}>
                   <h2 className="cliente-titulo">Mi empresa</h2>
-                  <img src={fotoProductos} alt={nombre} />
+                  <img src={fotoProductos} alt={nombre} className="colaborador-imagen"/>
           </div>
         <div className="info">
           <QuienesSomos />

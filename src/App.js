@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { v4 as uuid } from "uuid";
 import './App.css';
 import Empresa from './components/Empresa/Empresa';
@@ -8,9 +8,10 @@ import { HiShoppingCart } from "react-icons/hi";
 import hexToRgba from 'hex-to-rgba';
 import Business from './pages/Business/Business';
 import Contacto from './pages/Contacto/Contacto';
+import { useNavigate, useLocation } from "react-router-dom"; 
+import Routers from './routes/routers'; 
 
 function App() {
-  // Estado para colaboradores
   const [colaboradores, actualizarColaboradores] = useState([{
     id: uuid(),
     equipo: "Front End",
@@ -20,15 +21,13 @@ function App() {
     fav: true
   }]);
 
-  // Estado para equipos, donde se almacenará el colorPrimario dinámico
   const [equipos, actualizarEquipos] = useState([{
     id: uuid(),
     titulo: "Front End",
-    colorPrimario: "#0F77FF", // Color inicial
+    colorPrimario: "#0F77FF",
     colorSecundario: "#E8F8FF"
   }]);
 
-  // Función para actualizar el colorPrimario de un equipo específico
   const actualizarColor = (color, id) => {
     const equiposActualizados = equipos.map((equipo) => {
       if (equipo.id === id) {
@@ -39,23 +38,32 @@ function App() {
     actualizarEquipos(equiposActualizados);
   };
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   // Estado para el tab activo
-  const [activeTab, setActiveTab] = useState("MiPerfil");
+  const [activeTab, setActiveTab] = useState(location.pathname.replace("/", "") || "Perfil");
+
+  // Sincronizar el estado activeTab con la ruta
+  useEffect(() => {
+    const rutaActual = location.pathname.replace("/", "") || "Perfil";
+    setActiveTab(rutaActual);
+  }, [location]);
 
   // Cambiar el tab activo
-  const cambiarTab = (numeroTab) => {
-    if (activeTab !== numeroTab) {
-      setActiveTab(numeroTab);
+  const cambiarTab = (tab) => {
+    if (activeTab !== tab) {
+      navigate(`/${tab}`);
+      setActiveTab(tab);
     }
   };
 
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="overflow-x-auto border rounded-lg p-4 shadow-md" style={{ backgroundColor: hexToRgba(equipos[0].colorPrimario, 0.6) }}>
-        {/* Navegación de Tabs */}
         <div className="flex justify-around border-b border-gray-300">
-          <button onClick={() => cambiarTab("MiPerfil")}
-                  className={`px-2 py-3 ${activeTab === "MiPerfil" ? "border-b-2 border-blue-500 font-semibold" : ""}`}>
+          <button onClick={() => cambiarTab("Perfil")}
+                  className={`px-2 py-3 ${activeTab === "Perfil" ? "border-b-2 border-blue-500 font-semibold" : ""}`}>
             <MdAdUnits className="inline mr-2" />
             Perfil
           </button>
@@ -64,23 +72,21 @@ function App() {
             <HiShoppingCart className="inline mr-2" />
             Productos
           </button>
-          <button onClick={() => cambiarTab("MiEmpresa")}
-                  className={`px-2 py-3 ${activeTab === "MiEmpresa" ? "border-b-2 border-blue-500 font-semibold" : ""}`}>
+          <button onClick={() => cambiarTab("Empresa")}
+                  className={`px-2 py-3 ${activeTab === "Empresa" ? "border-b-2 border-blue-500 font-semibold" : ""}`}>
             <MdOutlineStorefront className="inline mr-2" />
             Empresa
           </button>
-          <button onClick={() => cambiarTab("Contactos")}
-                  className={`px-2 py-3 ${activeTab === "Contactos" ? "border-b-2 border-blue-500 font-semibold" : ""}`}>
+          <button onClick={() => cambiarTab("Contacto")}
+                  className={`px-2 py-3 ${activeTab === "Contacto" ? "border-b-2 border-blue-500 font-semibold" : ""}`}>
             <MdAssignmentInd className="inline mr-2" />
             Contacto
           </button>
         </div>
-        
-        {/* Contenido de Tabs */}
+
         <div className="mt-4 text-center">
-          {activeTab === "MiPerfil" && (
+          {activeTab === "Perfil" && (
             <div className='container'>
-              <br />
               {equipos.map((equipo) => (
                 <Empresa
                   datos={equipo}
@@ -91,35 +97,30 @@ function App() {
               ))}
             </div>
           )}
-          {activeTab === "MiEmpresa" && (
-          <div className='container'>
-            <br />
-            {equipos.map((equipo) => (
-              <Business datos={equipo} key={equipo.id} />
-            ))}
-          </div>
-          )}
-          {activeTab === "Productos" && (
+          {activeTab === "Empresa" && (
             <div className='container'>
-              <br />
               {equipos.map((equipo) => (
-                <Servicios datos={equipo} key={equipo.id} />
-                
+                <Business datos={equipo} key={equipo.id} />
               ))}
             </div>
           )}
-          {activeTab === "Contactos" && (
+          {activeTab === "Productos" && (
             <div className='container'>
-            <br />
-            {equipos.map((equipo) => (
-            <Contacto 
-              datos={equipo} 
-              key={equipo.id} 
-              colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)} 
-            />
-          ))}
-
-          </div>
+              {equipos.map((equipo) => (
+                <Servicios datos={equipo} key={equipo.id} />
+              ))}
+            </div>
+          )}
+          {activeTab === "Contacto" && (
+            <div className='container'>
+              {equipos.map((equipo) => (
+                <Contacto 
+                  datos={equipo} 
+                  key={equipo.id} 
+                  colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)} 
+                />
+              ))}
+            </div>
           )}
         </div>
       </div>
@@ -128,3 +129,4 @@ function App() {
 }
 
 export default App;
+

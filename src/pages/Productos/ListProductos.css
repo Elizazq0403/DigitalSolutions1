@@ -40,7 +40,7 @@
     margin-left: auto;
 }
 
-img {
+.lista-productos-imagen {
     width: 100%;
     height: auto;
     max-width: 272px; /* Limita el tamaño máximo de la imagen */

@@ -21,8 +21,9 @@ const Servicios = (props) => {
       <div className="colaborador">
       <div className="encabezado" style={{ backgroundColor: colorPrimario, position: "relative" }}>
             <h2 className="cliente-titulo">Nuestros Productos</h2>
-            <img src={fotoProductos} alt={nombre} />
+            <img src={fotoProductos} alt={nombre} className="producto-imagen"/>
           </div>
+        
         <div className="info">
           <ListProductos />
         </div>
@@ -39,7 +40,7 @@ const Servicios = (props) => {
                     </div>
                 </div>  
             </div>
-      </div>
+        </div>
     </section>
   );
 };
