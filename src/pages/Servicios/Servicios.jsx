@@ -21,7 +21,7 @@ const Servicios = (props) => {
       <div className="colaborador">
       <div className="encabezado" style={{ backgroundColor: colorPrimario, position: "relative" }}>
             <h2 className="cliente-titulo">Nuestros Productos</h2>
-            <img src={fotoProductos} alt={nombre} className="producto-imagen"/>
+            <img src={fotoProductos} alt={nombre} className="producto-imagen" style={{ border: `4px solid ${colorPrimario}` }} />
           </div>
         
         <div className="info">
@@ -30,7 +30,7 @@ const Servicios = (props) => {
         <div className="cliente-inf">
                 <div className="social-redes">
                     <div className="cuadrado-con-borde-int">
-                        <div className="borde-interno-rojo">
+                    <div className="borde-interno-rojo" style={{ border: `3px solid ${colorPrimario}` }}>
                             <img 
                                 src={require('../../assets/img/CODIGO QR.jpg')} 
                                 alt="QR" 

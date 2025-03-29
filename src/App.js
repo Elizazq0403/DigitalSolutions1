@@ -24,7 +24,7 @@ function App() {
   const [equipos, actualizarEquipos] = useState([{
     id: uuid(),
     titulo: "Front End",
-    colorPrimario: "#0F77FF",
+    colorPrimario: "#cb2128",
     colorSecundario: "#E8F8FF"
   }]);
 
@@ -61,7 +61,7 @@ function App() {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="overflow-x-auto border rounded-lg p-4 shadow-md" style={{ backgroundColor: hexToRgba(equipos[0].colorPrimario, 0.6) }}>
-        <div className="flex justify-around border-b border-gray-300">
+        <div className="flex justify-around border-b border-gray-300" >
           <button onClick={() => cambiarTab("Perfil")}
                   className={`px-2 py-3 ${activeTab === "Perfil" ? "border-b-2 border-blue-500 font-semibold" : ""}`}>
             <MdAdUnits className="inline mr-2" />

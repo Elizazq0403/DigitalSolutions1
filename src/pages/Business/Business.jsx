@@ -1,7 +1,7 @@
 import "./Business.css"
 import QuienesSomos from "../../components/QuienesSomos/QuienesSomos";
-import hexToRgba from 'hex-to-rgba';
 import fotoProductos from "../../assets/img/icono empresa.png"
+import hexToRgba from 'hex-to-rgba';
 
 
 const Servicios = (props) => {
@@ -21,7 +21,7 @@ const Servicios = (props) => {
       <div className="colaborador">
         <div className="encabezado" style={{ backgroundColor: colorPrimario, position: "relative" }}>
                   <h2 className="cliente-titulo">Mi empresa</h2>
-                  <img src={fotoProductos} alt={nombre} className="colaborador-imagen"/>
+                  <img src={fotoProductos} alt={nombre} className="colaborador-imagen" style={{ border: `4px solid ${colorPrimario}` }} />
           </div>
         <div className="info">
           <QuienesSomos />

@@ -17,6 +17,12 @@ body {
   color: #333;
 }
 
+.centro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .campaign-container {
   background-color: #f4f4f4;

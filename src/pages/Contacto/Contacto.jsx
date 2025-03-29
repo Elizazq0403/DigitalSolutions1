@@ -35,7 +35,7 @@ const Contacto = ({ datos, colaboradores }) => {
         {/* Encabezado con imagen */}
         <div className="cliente-header" style={{ backgroundColor: colorPrimario, position: "relative" }}>
           <h2 className="cliente-titulo">Datos de Contacto</h2>
-          <img src={fotoProductos} alt="Ubicación" />
+          <img src={fotoProductos} alt="Ubicación"style={{ border: `4px solid ${colorPrimario}` }} />
         </div>
 
         {/* Información del contacto principal */}
@@ -43,7 +43,8 @@ const Contacto = ({ datos, colaboradores }) => {
           <div>
           {colaboradores.map((colaborador) => (
               <div key={colaborador.id} className="colaborador-card">
-                <h4>{colaborador.nombre}</h4>
+                <h4 style={{ color: colorPrimario }}>{colaborador.nombre}</h4>
+                
                 <h5><strong>{colaborador.puesto}</strong></h5>
               </div>
             ))}
@@ -75,7 +76,7 @@ const Contacto = ({ datos, colaboradores }) => {
           {/* Datos de contacto */}
           <div className="social-redes">
             <div className="cuadrado-con-borde-interno">
-              <div className="borde-interno-rojo">
+            <div className="borde-interno-rojo" style={{ border: `3px solid ${colorPrimario}` }}>
                 <div className="iconos">
                   {iconData.map((item, index) => (
                     <div className="facebook-username" key={index}>
@@ -92,7 +93,7 @@ const Contacto = ({ datos, colaboradores }) => {
           <div className="cliente-inf">
         <div className="social-redes">
                 <div className="cuadrado-con-borde-int">
-                    <div className="borde-interno-rojo">
+                  <div className="borde-interno-rojo" style={{ border: `3px solid ${colorPrimario}` }}>
                         <iframe
                             title="Google Maps"
                             className="google-maps"

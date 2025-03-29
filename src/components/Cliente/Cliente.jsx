@@ -5,6 +5,7 @@ import { MdEmail, MdPhoneIphone } from "react-icons/md";
 import { FiPhoneCall } from "react-icons/fi";
 import { RiQrCodeFill } from "react-icons/ri";
 import ListProductos from "../../pages/Productos/ListProductos";
+import hexToRgba from 'hex-to-rgba';
 
 const Cliente = (props) => {
     const { nombre, puesto, foto, equipo, id, fav } = props.datos;
@@ -14,11 +15,11 @@ const Cliente = (props) => {
         <div className="cliente-card">
             <div className="cliente-header" style={{ backgroundColor: colorPrimario, position: "relative" }}>
                 <h2 className="cliente-titulo">Web-Z  Digitals Solutions</h2>
-                <img src={foto} alt={nombre} />
+                <img src={foto} alt={nombre} style={{ border: `4px solid ${colorPrimario}` }} />
             </div>
 
             <div className="cliente-info">
-                <h4>{nombre}</h4>
+            <h4 style={{ color: colorPrimario }}>{nombre}</h4>
                 <h5><strong>{puesto}</strong></h5>
                 <div className="social-links">
                     <a href="tel:+573216921887">
@@ -87,7 +88,7 @@ const Cliente = (props) => {
             <div className="cliente-inf">
                 <div className="social-redes">
                     <div className="cuadrado-con-borde-int">
-                        <div className="borde-interno-rojo">
+                    <div className="borde-interno-rojo" style={{ border: `3px solid ${colorPrimario}` }}>
                             <img 
                                 src={require('../../assets/img/CODIGO QR.jpg')} 
                                 alt="QR" 

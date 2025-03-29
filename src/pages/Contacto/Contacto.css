@@ -17,7 +17,7 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   width: 120px; /* Ancho deseado */
   height: auto; /* Mantén la proporción de la imagen */
   border-radius: 50%; /* Mantén la forma circular */
-  border: 4px solid #0F77FF; /* Borde mediano de color azul */
+  border: 4px solid #000; /* Borde mediano de color azul */
   position: relative;
   bottom: -80px; /* Ajusta según la posición deseada */
 }
