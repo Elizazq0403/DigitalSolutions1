@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/DigitalSolutions1/static/css/main.9d53f664.css",
-    "main.js": "/DigitalSolutions1/static/js/main.27b5e4ec.js",
+    "main.css": "/DigitalSolutions1/static/css/main.5076aed3.css",
+    "main.js": "/DigitalSolutions1/static/js/main.7dd7b3e3.js",
     "static/js/453.b8ba57c0.chunk.js": "/DigitalSolutions1/static/js/453.b8ba57c0.chunk.js",
     "static/media/instagram.png": "/DigitalSolutions1/static/media/instagram.534f526cf7cd845ad8ec.png",
     "static/media/facebook.png": "/DigitalSolutions1/static/media/facebook.b484c86b528a701319aa.png",
@@ -17,12 +17,12 @@
     "static/media/icono empresa.png": "/DigitalSolutions1/static/media/icono empresa.886f12fcf479c4f54d7d.png",
     "static/media/ubicacion.png": "/DigitalSolutions1/static/media/ubicacion.054ed2d92cc15175d1c1.png",
     "index.html": "/DigitalSolutions1/index.html",
-    "main.9d53f664.css.map": "/DigitalSolutions1/static/css/main.9d53f664.css.map",
-    "main.27b5e4ec.js.map": "/DigitalSolutions1/static/js/main.27b5e4ec.js.map",
+    "main.5076aed3.css.map": "/DigitalSolutions1/static/css/main.5076aed3.css.map",
+    "main.7dd7b3e3.js.map": "/DigitalSolutions1/static/js/main.7dd7b3e3.js.map",
     "453.b8ba57c0.chunk.js.map": "/DigitalSolutions1/static/js/453.b8ba57c0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d53f664.css",
-    "static/js/main.27b5e4ec.js"
+    "static/css/main.5076aed3.css",
+    "static/js/main.7dd7b3e3.js"
   ]
 }
