@@ -37,6 +37,8 @@ const renderActions = () => (
 
 
 const ListProductos = () => {
+
+
  
   const [currentPage, setCurrentPage] = React.useState(1);
   const pageSize = 1;
@@ -75,14 +77,14 @@ const ListProductos = () => {
   return (
     <div className="equipo"> {/* Aplica la clase equipo */}
     
-      <h3>Lista de Productos</h3>
+      <h3 className="pdtos-titulo">Lista de Productos</h3>
       <List
         itemLayout="vertical"
         size="large"
         dataSource={paginatedData}
         footer={
           <div>
-            <b>Ant Design React</b> footer part
+            <b>Web-Z</b> Soluciones Digitales
           </div>
         }
         renderItem={item => (

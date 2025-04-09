@@ -9,7 +9,7 @@ const Contacto = ({ datos, colaboradores }) => {
     return <div>No se han proporcionado datos</div>;
   }
 
-  const { colorPrimario, nombre, puesto } = datos;
+  const { colorPrimario} = datos;
 
   const iconData = [
     {

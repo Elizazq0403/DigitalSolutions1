@@ -13,7 +13,7 @@ import QuienesSomos from '../pages/Business/Business'
 function Routers() {
   return (
     <Routes>
-      <Route path="/Perfil" element={<Cliente />} />
+      <Route path="/" element={<Cliente />} />
       <Route path="/Productos" element={<Servicios />} />
       <Route path="/Empresa" element={<QuienesSomos />} />
       <Route path="/Contacto" element={<Contacto />} />
