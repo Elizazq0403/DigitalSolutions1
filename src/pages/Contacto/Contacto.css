@@ -25,7 +25,7 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
 
 
 .cliente-card img {
-  width: 80px;
+  width: 60px;
   border-radius: 0%; /* estaba en 50%, para el qr */
   position: relative;
   bottom: -100px;
@@ -156,6 +156,22 @@ margin-right: 50px;  /* Espacio entre columnas */
   box-sizing: border-box; /* Incluye el borde en las dimensiones */
   /*margin-top: 70px;  Ajusta margen superior recuadro datos de contacto */
 }
+
+.cuadrado-con-borde-interno div {
+  display: flex;
+  flex-direction: column; /* Apila verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  gap: 10px; /* Espacio entre imágenes */
+  
+}
+
+.img-contacto {
+  width: 200px !important;
+  height: auto; /* Mantiene la proporción original */
+  display: block;
+}
+
+
 
 .borde-interno-rojo {
   width: calc(100% - 40px); /* Tamaño reducido para espacio del margen */

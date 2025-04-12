@@ -1,6 +1,9 @@
 import "./Contacto.css";
 import hexToRgba from "hex-to-rgba";
 import fotoProductos from "../../assets/img/ubicacion.png";
+import correo from "../../assets/img/correo ok.png";
+import llamar from "../../assets/img/llamar ok.png";
+import ubicacion from "../../assets/img/ubicacion ok.png";
 
 const Contacto = ({ datos, colaboradores }) => {
   console.log("Props recibidos:", datos);
@@ -13,20 +16,21 @@ const Contacto = ({ datos, colaboradores }) => {
 
   const iconData = [
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg",
+      src: correo,
       alt: "Email Icon",
       text: "/ elizazq@hotmail.com",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg",
+      src: ubicacion,
       alt: "Location Icon",
       text: "/ Cra 49 calle 144 sur 29",
     },
     {
-      src: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Mobile_phone_%2889516%29_-_The_Noun_Project.svg",
+      src: llamar,
       alt: "Phone Icon",
       text: "/ 300 860 07 40",
     },
+    
   ];
 
   return (
@@ -73,10 +77,11 @@ const Contacto = ({ datos, colaboradores }) => {
             </a>
           </div>
 
-          {/* Datos de contacto */}
+          {/* Datos de contacto*/} 
           <div className="social-redes">
             <div className="cuadrado-con-borde-interno">
-            <div className="borde-interno-rojo" style={{ border: `3px solid ${colorPrimario}` }}>
+            <div >
+                {/*
                 <div className="iconos">
                   {iconData.map((item, index) => (
                     <div className="facebook-username" key={index}>
@@ -87,9 +92,14 @@ const Contacto = ({ datos, colaboradores }) => {
                     </div>
                   ))}
                 </div>
+                */}
+                <img src={require("../../assets/img/ubicacion ok.png")} alt="Icono internet" className="img-contacto"/>
+                <img src={require("../../assets/img/llamar ok.png")} alt="Icono internet" className="img-contacto"/>
+                <img src={require("../../assets/img/correo ok.png")} alt="Icono internet" className="img-contacto"/>
               </div>
             </div>
           </div>
+          
           <div className="cliente-inf">
         <div className="social-redes">
                 <div className="cuadrado-con-borde-int">

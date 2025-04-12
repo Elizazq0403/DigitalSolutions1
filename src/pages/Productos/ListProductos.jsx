@@ -4,6 +4,7 @@ import { v4 as uuid } from "uuid";
 import { List, Avatar, Pagination } from 'antd';
 import { StarOutlined, LikeOutlined, MessageOutlined } from '@ant-design/icons';
 import './ListProductos.css'; // Importa el archivo CSS
+import hexToRgba from 'hex-to-rgba';
 
 
 const listData = [];
@@ -38,7 +39,6 @@ const renderActions = () => (
 
 const ListProductos = () => {
 
-
  
   const [currentPage, setCurrentPage] = React.useState(1);
   const pageSize = 1;
@@ -72,6 +72,7 @@ const ListProductos = () => {
     actualizarEquipos(equiposActualizados);
   };
  
+
 
 
   return (

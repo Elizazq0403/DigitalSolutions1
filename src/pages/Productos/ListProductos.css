@@ -29,8 +29,8 @@
 .ant-list-item {
     background-color: #fff;
     border-radius: 10px;
-  box-shadow: 0 6px 10px #CA21C4;
-  box-shadow: 7px 7px 15px rgba(202, 33, 196, 0.50);
+    box-shadow: 0 6px 10px #CA21C4;
+    box-shadow: 7px 7px 15px rgba(202, 33, 196, 0.50);
     margin-bottom: 20px;
     padding: 20px;
     display: flex;
