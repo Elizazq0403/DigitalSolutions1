@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/DigitalSolutions1/static/css/main.a60df235.css",
-    "main.js": "/DigitalSolutions1/static/js/main.faca3100.js",
+    "main.css": "/DigitalSolutions1/static/css/main.f9a69723.css",
+    "main.js": "/DigitalSolutions1/static/js/main.5af296af.js",
     "static/js/453.b8ba57c0.chunk.js": "/DigitalSolutions1/static/js/453.b8ba57c0.chunk.js",
     "static/media/instagram.png": "/DigitalSolutions1/static/media/instagram.534f526cf7cd845ad8ec.png",
     "static/media/facebook.png": "/DigitalSolutions1/static/media/facebook.b484c86b528a701319aa.png",
@@ -21,12 +21,12 @@
     "static/media/ubicacion.png": "/DigitalSolutions1/static/media/ubicacion.054ed2d92cc15175d1c1.png",
     "static/media/llamar ok.png": "/DigitalSolutions1/static/media/llamar ok.86c018938dd5c30505db.png",
     "index.html": "/DigitalSolutions1/index.html",
-    "main.a60df235.css.map": "/DigitalSolutions1/static/css/main.a60df235.css.map",
-    "main.faca3100.js.map": "/DigitalSolutions1/static/js/main.faca3100.js.map",
+    "main.f9a69723.css.map": "/DigitalSolutions1/static/css/main.f9a69723.css.map",
+    "main.5af296af.js.map": "/DigitalSolutions1/static/js/main.5af296af.js.map",
     "453.b8ba57c0.chunk.js.map": "/DigitalSolutions1/static/js/453.b8ba57c0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a60df235.css",
-    "static/js/main.faca3100.js"
+    "static/css/main.f9a69723.css",
+    "static/js/main.5af296af.js"
   ]
 }
