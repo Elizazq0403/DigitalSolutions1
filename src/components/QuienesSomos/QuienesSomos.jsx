@@ -5,52 +5,80 @@ import "./QuienesSomos.css";
 const QuienesSomos = () => {
   return (
     <div className="">
-      <div className="phase phase-right">
-        <div className="phase-content">
-          <h2 className="phase-title">QUIENES SOMOS</h2>
-          <p>
-            Somos un negocio digital dedicado a transformar la forma en que las personas y las organizaciones se presentan al mundo en pleno siglo XXI.
-          </p>
-        </div>
-        <div className="phase-icon">💻</div>
-      </div>
-      <div className="phase">
-        <div className="phase-icon">👥</div>
-        <div className="phase-content">
-          <h2 className="phase-title">100% DIGITAL</h2>
-          <p>
-            Diseñamos tarjetas de presentación digitales, innovadoras y personalizadas. Nuestro enfoque combina diseño creativo, moderno y de última tecnología.
-          </p>
-        </div>
-      </div>
-      <div className="phase phase-right">
-        <div className="phase-content">
-          <h2 className="phase-title">ACCESIBILIDAD</h2>
-          <p>
-            Este producto es accesible para todas las personas y empresas que deseen conectarse y compartir la información de sus productos a un solo clic.
-          </p>
-        </div>
-        <div className="phase-icon">👍</div>
-      </div>
-      <div className="phase">
-        <div className="phase-icon">📊</div>
-        <div className="phase-content">
-          <h2 className="phase-title">DISEÑO WEB</h2>
-          <p>
-            Su diseño intuitivo permite compartirse fácilmente mediante un enlace, código QR o a través de redes sociales, llegando a miles de personas en internet, desde cualquier dispositivo.
-          </p>
-        </div>
-      </div>
-      <div className="phase phase-right">
-        <div className="phase-content">
-          <h2 className="phase-title">ACOMPAÑAMIENTO</h2>
-          <p>
-            Brindamos un acompañamiento oportuno, asegurándonos de que entiendas cada paso y descubras cómo sacarle el mayor provecho a nuestras soluciones y alcanzar tus objetivos.
-          </p>
-        </div>
-        <div className="phase-icon">💡</div>
-      </div>
+  <div className="phase phase-right">
+    <div className="phase-content">
+      <h2 className="phase-title">
+        <strong>QUIENES SOMOS</strong>
+      </h2>
+      <p>
+        ¡Bienvenidos a ASHER INDUSTRIALES! Somos una empresa ferretera de asesoría técnica y venta de herramientas para montaje y mantenimiento industrial.
+      </p>
     </div>
+
+    <img
+      src={require("../../assets/img/Quienes-Somos.png")}
+      alt="Icono representativo"
+      className="phase-icon"
+    />
+  </div>
+
+  <div className="phase">
+  <img
+      src={require("../../assets/img/Excelencia.png")}
+      alt="Icono representativo"
+      className="phase-icon"
+    />
+    <div className="phase-content">
+      <h2 className="phase-title">
+        <strong>COMPROMISO</strong>
+      </h2>
+      <p>
+        Nuestro compromiso es satisfacer las necesidades en herramientas industriales de nuestros clientes con asesoría y productos de calidad que cumplan con las expectativas en sus montajes y mantenimientos Industriales.
+      </p>
+    </div>
+  </div>
+
+  <div className="phase phase-right">
+    <div className="phase-content">
+      <h2 className="phase-title">
+        <strong>BDS MASCHINEN</strong>
+      </h2>
+      <p>
+        Distribuidores autorizados de BDS MASCHINEN para Colombia. Es un fabricante “Hecho en Alemania” clase Premium taladros magnéticos anulares, cortadores y la placa de maquinas de biselado.
+      </p>
+    </div>
+    <img
+      src={require("../../assets/img/compromiso.png")}
+      alt="Icono representativo"
+      className="phase-icon"
+    />
+  </div>
+
+  <div className="phase">
+    <div className="phase-icon">📊</div>
+    <div className="phase-content">
+      <h2 className="phase-title">
+        <strong>DIFERENTES MODELOS</strong>
+      </h2>
+      <p>
+        BDS fabrica 30 modelos diferentes, para satisfacer las diferentes necesidades de perforación por núcleos, modelos especiales para perforación de vías férreas, estructuras metálicas, modelos de alimentación automática.
+      </p>
+    </div>
+  </div>
+
+  <div className="phase phase-right">
+    <div className="phase-content">
+      <h2 className="phase-title">
+        <strong>OTRAS LINEAS</strong>
+      </h2>
+      <p>
+        Asher Industriales es un proveedor aliado de herramientas eléctricas y manuales de alto rendimiento. Manejamos diversas marcas líderes del sector industrial.
+      </p>
+    </div>
+    <div className="phase-icon">💡</div>
+  </div>
+</div>
+
   );
 };
 

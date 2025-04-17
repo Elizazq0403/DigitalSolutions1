@@ -1,6 +1,6 @@
 import "./Contacto.css";
 import hexToRgba from "hex-to-rgba";
-import fotoProductos from "../../assets/img/ubicacion.png";
+import fotoProductos from "../../assets/img/Contacto_3D.png";
 import correo from "../../assets/img/correo ok.png";
 import llamar from "../../assets/img/llamar ok.png";
 import ubicacion from "../../assets/img/ubicacion ok.png";
@@ -47,9 +47,9 @@ const Contacto = ({ datos, colaboradores }) => {
           <div>
           {colaboradores.map((colaborador) => (
               <div key={colaborador.id} className="colaborador-card">
-                <h4 style={{ color: colorPrimario }}>{colaborador.nombre}</h4>
+                <h4 style={{ color: colorPrimario }}>{colaborador.empresa}</h4>
                 
-                <h5><strong>{colaborador.puesto}</strong></h5>
+                <h5><strong>{colaborador.nit}</strong></h5>
               </div>
             ))}
           </div>
@@ -60,17 +60,17 @@ const Contacto = ({ datos, colaboradores }) => {
           </div>
           {/* Redes sociales */}
           <div className="social-redes">
-            <a href="tel:+573008600740">
+            <a href="https://www.facebook.com/profile.php?id=100028578147179">
               <div className="social-icon-normal">
                 <img src={require("../../assets/img/facebook.png")} alt="Icono facebook" className="iphone" />
               </div>
             </a>
-            <a href="https://wa.me/573044698664" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/asherindustriales/" target="_blank" rel="noopener noreferrer">
               <div className="social-icon-normal">
                 <img src={require("../../assets/img/instagram.png")} alt="Icono instagram" className="iphone" />
               </div>
             </a>
-            <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.asherindustriales.com" target="_blank" rel="noopener noreferrer">
               <div className="social-icon-normal">
                 <img src={require("../../assets/img/icono internet.png")} alt="Icono internet" className="iphone" />
               </div>
@@ -113,7 +113,7 @@ const Contacto = ({ datos, colaboradores }) => {
                             loading="lazy"
                             allowFullScreen
                             referrerPolicy="no-referrer-when-downgrade"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.3732328504957!2d-75.63583762435954!3d6.080307293905855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e46870ca763c9e3%3A0xf1b38a9819d4b64b!2sWEB-Z%20Soluciones%20Digitales!5e0!3m2!1ses!2sco!4v1741743443486!5m2!1ses!2sco"
+                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15867.407608035515!2d-75.62711974193282!3d6.150582551382924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sasher%20industriales%20s.a.s%20ofc%202803%20sabaneta%20antioquia!5e0!3m2!1ses!2sco!"
                         ></iframe>
                     </div>
                 </div>

@@ -85,7 +85,7 @@ const ListProductos = () => {
         dataSource={paginatedData}
         footer={
           <div>
-            <b>Web-Z</b> Soluciones Digitales
+            <b>Asher</b> Industriales
           </div>
         }
         renderItem={item => (

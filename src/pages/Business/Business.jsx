@@ -1,6 +1,6 @@
 import "./Business.css"
 import QuienesSomos from "../../components/QuienesSomos/QuienesSomos";
-import fotoProductos from "../../assets/img/icono empresa.png"
+import fotoProductos from "../../assets/img/empresa.png"
 import hexToRgba from 'hex-to-rgba';
 
 

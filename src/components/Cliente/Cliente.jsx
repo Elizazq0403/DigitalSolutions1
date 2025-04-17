@@ -6,15 +6,22 @@ import { FiPhoneCall } from "react-icons/fi";
 import { RiQrCodeFill } from "react-icons/ri";
 import ListProductos from "../../pages/Productos/ListProductos";
 import hexToRgba from 'hex-to-rgba';
+import { useNavigate } from 'react-router-dom';
 
 const Cliente = (props) => {
     const { nombre, puesto, foto, equipo, id, fav } = props.datos;
     const { colorPrimario } = props;
 
+    const navigate = useNavigate();
+
+    const irACodigoQR = () => {
+        navigate('/Productos#qr');
+    };
+
     return (
         <div className="cliente-card">
             <div className="cliente-header" style={{ backgroundColor: colorPrimario, position: "relative" }}>
-                <h2 className="cliente-titulo">Web-Z  Digitals Solutions</h2>
+                <h2 className="cliente-titulo">Asher Industriales S.A.S     </h2>
                 <img src={foto} alt={nombre} style={{ border: `4px solid ${colorPrimario}` }} />
             </div>
 
@@ -22,7 +29,7 @@ const Cliente = (props) => {
             <h4 style={{ color: colorPrimario }}>{nombre}</h4>
                 <h5><strong>{puesto}</strong></h5>
                 <div className="social-links">
-                    <a href="tel:+573216921887">
+                    <a href="tel:+573206942009">
                         <div className="social-icon-box">
                             <img 
                                 src={require('../../assets/img/icono llamar.png')} 
@@ -32,7 +39,7 @@ const Cliente = (props) => {
                             <span className="icon-label"><strong>Llamar</strong></span>
                         </div>
                     </a>
-                    <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
+                    <a href="mailto:gerencia@asherindustriales.com" target="_blank" rel="noopener noreferrer">
                         <div className="social-icon-box">
                             <img 
                                 src={require('../../assets/img/email.png')} 
@@ -42,7 +49,8 @@ const Cliente = (props) => {
                             <span className="icon-label"><strong>Correo</strong></span>
                         </div>
                     </a>
-                    <a href="https://wa.me/573216921887" target="_blank" rel="noopener noreferrer">
+
+                    <a href="https://wa.me/573206942009" target="_blank" rel="noopener noreferrer">
                         <div className="social-icon-box">
                             <img 
                                 src={require('../../assets/img/whatsapp.png')} 
@@ -62,16 +70,21 @@ const Cliente = (props) => {
                             <span className="icon-label"><strong>Contacto</strong></span>    
                         </div>
                     </a>
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                    <a 
+                        href="https://api.whatsapp.com/send?text=https://elizazq0403.github.io/DigitalSolutions1/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        >
                         <div className="social-icon-box">
                             <img 
-                                src={require('../../assets/img/compartir2.png')} 
-                                alt="Icono Compartir" 
-                                className="iphone" 
+                            src={require('../../assets/img/compartir2.png')} 
+                            alt="Icono Compartir" 
+                            className="iphone" 
                             />
                             <span className="icon-label"><strong>Compartir Wp</strong></span>
                         </div>
-                    </a>
+                        </a>
+
                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
                         <div className="social-icon-box">
                             <img 

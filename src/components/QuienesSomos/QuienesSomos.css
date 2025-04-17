@@ -14,7 +14,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  color: #333;
+  color: #000;
 }
 
 .centro {
@@ -60,7 +60,7 @@ body {
   margin: 20px 20px;
   padding: 20px;
   border-radius: 20px; /* Borde redondeado circular */
-  box-shadow: 0 6px 10px rgba(202, 33, 196, 0.50);
+  box-shadow: 0 6px 10px rgba(252, 53, 18, 0.50);
   text-align: left;
  
  
@@ -74,12 +74,12 @@ body {
 
 
 .phase-icon {
-  flex-shrink: 0; /* Evita que el ícono se reduzca */
-  font-size: 40px;
-  color: #915bff;
-  margin-left: 20px;
-  margin-right: 20px;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-left: 20px; /* opcional */
 }
+
 
 
 .phase-content {
@@ -96,7 +96,7 @@ body {
 
 .phase-content p {
   font-size: 10px;
-  color: #555;
+  color: #000;
   line-height: 1.5;
   font-weight: bold;
 }

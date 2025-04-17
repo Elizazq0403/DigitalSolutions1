@@ -14,17 +14,20 @@ import Routers from './routes/routers';
 function App() {
   const [colaboradores, actualizarColaboradores] = useState([{
     id: uuid(),
+    empresa: "Asher Industriales S.A.S",
+    nit: "900.811.757-1",
     equipo: "Front End",
-    foto: "https://firebasestorage.googleapis.com/v0/b/cv-elizabethzapataq.appspot.com/o/WhatsApp%20Image%202024-10-19%20at%205.07.00%20PM.jpeg?alt=media&token=fd10feaf-8efd-49df-8cad-c4d5797b89f9",
-    nombre: "Elizabeth Zapata Quiceno",
-    puesto: "Desarrolladora de Software",
+    foto: require('./assets/img/ASHER INDUSTRIALES.png'),
+    //foto: "https://firebasestorage.googleapis.com/v0/b/cv-elizabethzapataq.appspot.com/o/WhatsApp%20Image%202024-10-19%20at%205.07.00%20PM.jpeg?alt=media&token=fd10feaf-8efd-49df-8cad-c4d5797b89f9",
+    nombre: "Adriana Girado Granda",
+    puesto: "Gerente",
     fav: true
   }]);
 
   const [equipos, actualizarEquipos] = useState([{
     id: uuid(),
     titulo: "Front End",
-    colorPrimario: "#CA21C4",
+    colorPrimario: "#fc3512",
     colorSecundario: "#E8F8FF"
   }]);
 
