@@ -165,10 +165,14 @@ margin-right: 50px;  /* Espacio entre columnas */
   
 }
 
+
+
 .img-contacto {
-  width: 200px !important;
+  width: 250px !important;
   height: auto; /* Mantiene la proporción original */
   display: block;
+  margin: 0 auto; /* Centra horizontalmente */
+  
 }
 
 
@@ -211,6 +215,7 @@ margin-right: 50px;  /* Espacio entre columnas */
   display: flex;
   flex-direction: column; /* Coloca los elementos en fila */
   gap: 10px; /* Espacio entre filas */
+  
 }
 
 .fila {
@@ -218,6 +223,8 @@ margin-right: 50px;  /* Espacio entre columnas */
   padding: 2px;
   
 }
+
+
 
 body {
   display: flex;

@@ -55,7 +55,11 @@ const QuienesSomos = () => {
   </div>
 
   <div className="phase">
-    <div className="phase-icon">📊</div>
+  <img
+      src={require("../../assets/img/Otros_productos.png")}
+      alt="Icono representativo"
+      className="phase-icon"
+    />
     <div className="phase-content">
       <h2 className="phase-title">
         <strong>DIFERENTES MODELOS</strong>
@@ -75,7 +79,11 @@ const QuienesSomos = () => {
         Asher Industriales es un proveedor aliado de herramientas eléctricas y manuales de alto rendimiento. Manejamos diversas marcas líderes del sector industrial.
       </p>
     </div>
-    <div className="phase-icon">💡</div>
+    <img
+      src={require("../../assets/img/Otras_lineas.png")}
+      alt="Icono representativo"
+      className="phase-icon"
+    />
   </div>
 </div>
 
