@@ -1,8 +1,9 @@
 {
   "files": {
     "main.css": "/DigitalSolutions1/static/css/main.55ca44c2.css",
-    "main.js": "/DigitalSolutions1/static/js/main.5312861c.js",
+    "main.js": "/DigitalSolutions1/static/js/main.42a695c2.js",
     "static/js/453.b8ba57c0.chunk.js": "/DigitalSolutions1/static/js/453.b8ba57c0.chunk.js",
+    "static/media/compartir.png": "/DigitalSolutions1/static/media/compartir.053221f1558d92cc5f23.png",
     "static/media/compartir2.png": "/DigitalSolutions1/static/media/compartir2.c5689bbee8fb427f1a28.png",
     "static/media/descarga.png": "/DigitalSolutions1/static/media/descarga.691c0074b946a2d2e9a6.png",
     "static/media/instagram.png": "/DigitalSolutions1/static/media/instagram.534f526cf7cd845ad8ec.png",
@@ -11,7 +12,6 @@
     "static/media/whatsapp.png": "/DigitalSolutions1/static/media/whatsapp.fb806aa84b6a2c187d0d.png",
     "static/media/icono llamar.png": "/DigitalSolutions1/static/media/icono llamar.16a96e0fe630321985b1.png",
     "static/media/email.png": "/DigitalSolutions1/static/media/email.6a7873ac1a63c561501e.png",
-    "static/media/compartir.png": "/DigitalSolutions1/static/media/compartir.9a7dc08617ebbae892d9.png",
     "static/media/Compras (2).png": "/DigitalSolutions1/static/media/Compras (2).d100dda807916fac1b03.png",
     "static/media/Otros_productos.png": "/DigitalSolutions1/static/media/Otros_productos.5a9feb0d3f321d24b6df.png",
     "static/media/ASHER INDUSTRIALES.png": "/DigitalSolutions1/static/media/ASHER INDUSTRIALES.6fb1ce296a49e57d3a39.png",
@@ -28,11 +28,11 @@
     "static/media/llamar ok.png": "/DigitalSolutions1/static/media/llamar ok.089e28977c0cd1d4a38d.png",
     "index.html": "/DigitalSolutions1/index.html",
     "main.55ca44c2.css.map": "/DigitalSolutions1/static/css/main.55ca44c2.css.map",
-    "main.5312861c.js.map": "/DigitalSolutions1/static/js/main.5312861c.js.map",
+    "main.42a695c2.js.map": "/DigitalSolutions1/static/js/main.42a695c2.js.map",
     "453.b8ba57c0.chunk.js.map": "/DigitalSolutions1/static/js/453.b8ba57c0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.55ca44c2.css",
-    "static/js/main.5312861c.js"
+    "static/js/main.42a695c2.js"
   ]
 }
