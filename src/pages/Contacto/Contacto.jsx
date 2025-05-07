@@ -55,7 +55,7 @@ const Contacto = ({ datos, colaboradores }) => {
           </div>
           <div>
             <div className="contacto">
-              <h5 style={{ fontSize: 50 }}><strong>Síguenos:</strong></h5>
+              <h5 style={{ fontSize: 50 }}><strong>Síguenos</strong></h5>
             </div>
           </div>
           {/* Redes sociales */}
@@ -76,7 +76,9 @@ const Contacto = ({ datos, colaboradores }) => {
               </div>
             </a>
           </div>
-
+          <div className="contacto">
+              <h5 style={{ fontSize: 50 }}><strong>Visítanos en</strong></h5>
+            </div>
           {/* Datos de contacto*/} 
           <div className="social-redes">
             <div className="cuadrado-con-borde-interno">

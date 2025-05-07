@@ -56,19 +56,19 @@ body {
 .phase {
   display: flex; /* Flex para dividir en dos columnas */
   align-items: center;
-  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  background: linear-gradient(145deg, #ffffff, #e7e6f0);
   margin: 20px 20px;
   padding: 20px;
   border-radius: 20px; /* Borde redondeado circular */
-  box-shadow: 0 6px 10px rgba(252, 53, 18, 0.50);
-  text-align: left;
+  /*box-shadow: 0 6px 10px rgba(252, 53, 18, 0.50);*/
+  text-align: justify;
  
  
 }
 
 
 .phase-right {
-  text-align: right; /* Alinea el texto a la derecha */
+  text-align: justify; /* Alinea el texto a la derecha */
   justify-content: flex-end; /* Cambia la posición en flexbox */
 }
 

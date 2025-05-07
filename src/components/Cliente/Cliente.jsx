@@ -57,7 +57,7 @@ const Cliente = (props) => {
                                 alt="Icono WhatsApp" 
                                 className="iphone" 
                             />
-                            <span className="icon-label"><strong>Agende su cita</strong></span>
+                            <span className="icon-label"><strong>Whatsapp</strong></span>
                         </div>
                     </a>
                     <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
