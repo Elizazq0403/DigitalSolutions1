@@ -21,7 +21,7 @@
     /*border-bottom: 4px solid;*/
     display: inline-block;
     padding-bottom: 8px;
-    font-family: "Cascadia Mono";
+    font-family: "'Zen Kurenaido'";
 }
 
 
@@ -65,6 +65,15 @@
 .ant-pagination {
     text-align: center;
     margin-top: 20px;
+}
+
+.lista-productos {
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+.lista-productos span {
+  display: block;
 }
 
 /* Responsividad para pantallas pequeñas */

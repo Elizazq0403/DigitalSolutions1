@@ -22,6 +22,11 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   bottom: -80px; /* Ajusta según la posición deseada */
 }
 
+@font-face {
+  font-family: 'Cascadia Mono';
+  src: url('../../assets/fonts/Cascadia_Mono/Cascadia_Mono/CascadiaMono-VariableFont_wght.ttf') format('truetype');
+}
+
 .cliente-titulo {
   position: absolute;
   top: 30px;
@@ -48,7 +53,10 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   bottom: -100px;
 }
 
-
+@font-face {
+  font-family: 'Zen Kurenaido';
+  src: url('../../assets/fonts/Zen_Kurenaido/Zen_Kurenaido/ZenKurenaido-Regular.ttf') format('truetype');
+}
 
 /*Esta es la parte blanca del fondo de la tarjeta*/
 .cliente-card .cliente-info {
@@ -58,7 +66,7 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   padding-top: 30px;
   padding-bottom: 10px;
   min-height: 100px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Zen Kurenaido', sans-serif;
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   height: 600px; /*debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
 }
@@ -72,7 +80,7 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   padding-top: 10px;
   padding-bottom: 10px;
   min-height: 100px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Zen Kurenaido', sans-serif;
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   height: 380px; /*debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
 }
@@ -88,6 +96,8 @@ margin-bottom: 8px;
 border-bottom: 2px solid;
 padding-bottom: 3px;
 display: inline-block; /* Ajusta el ancho al tamaño del contenido */
+font-family: 'Zen Kurenaido', sans-serif;
+font-style: italic;    /* Cursiva */
 }
 
 audio, canvas, embed, iframe, img, object, svg, video {
@@ -95,12 +105,14 @@ display: inline;
 }
 
 .cliente-card .cliente-info h5 {
-  font-size: 18px;
+  font-size: 22px !important;
   line-height: 22px;
   color: #212121;
   padding: 0 24px;
   font-weight: 400;
   margin: 0;
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-style: italic;    /* Cursiva */
 }
 
 
@@ -152,9 +164,11 @@ margin-bottom: auto !important;
 
 
 .icon-label {
-  font-size: 15px; /* Tamaño del texto */
+  font-size: 20px; /* Tamaño del texto */
   color: #333; /* Color del texto */
   margin-top: 100px; /* Espacio entre la imagen y el texto */
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-weight: bold; /* Negrita */
 }
 
 .social-icon {

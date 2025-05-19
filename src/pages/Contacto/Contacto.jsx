@@ -77,7 +77,7 @@ const Contacto = ({ datos, colaboradores }) => {
             </a>
           </div>
           <div className="contacto">
-              <h5 style={{ fontSize: 50 }}><strong>Visítanos en</strong></h5>
+              <h5 style={{ fontSize: 50 }}><strong>Visítenos en</strong></h5>
             </div>
           {/* Datos de contacto*/} 
           <div className="social-redes">
@@ -95,10 +95,20 @@ const Contacto = ({ datos, colaboradores }) => {
                   ))}
                 </div>
                 */}
-                <img src={require("../../assets/img/ubicacion ok.png")} alt="Icono internet" className="img-contacto"/>
-                <img src={require("../../assets/img/llamar ok.png")} alt="Icono internet" className="img-contacto"/>
-                <img src={require("../../assets/img/correo ok.png")} alt="Icono internet" className="img-contacto"/>
+                <div className="icono-con-texto">
+                  <img src={require("../../assets/img/ubicacion ok.png")} alt="Icono ubicación" className="img-contacto" />
+                </div>
+                <p className="texto-superpuesto">Carrera 49 Calle 144 Sur 29</p>
+                <div className="icono-con-texto">
+                  <img src={require("../../assets/img/llamar ok.png")} alt="Icono llamar" className="img-contacto" />
+                </div>
+                <p className="texto-superpuesto">300 860 07 40</p>
+                <div className="icono-con-texto">
+                <img src={require("../../assets/img/correo ok.png")} alt="Icono correo" className="img-contacto" />
               </div>
+                <p className="texto-superpuesto">elizazq@hotmail.com</p>
+              </div>
+              
             </div>
           </div>
           
