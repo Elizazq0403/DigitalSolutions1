@@ -31,7 +31,9 @@
     padding-top: 30px;
     padding-bottom: 10px;
     min-height: 100px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+    
     box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
     /*height: 740px; debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
 

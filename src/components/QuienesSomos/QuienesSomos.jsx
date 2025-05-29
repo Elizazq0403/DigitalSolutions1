@@ -33,7 +33,7 @@ const QuienesSomos = () => {
         <strong>COMPROMISO</strong>
       </h2>
       <p>
-        Nuestro compromiso es satisfacer las necesidades en herramientas industriales de nuestros clientes con asesoría y productos de calidad que cumplan con las expectativas en sus montajes y mantenimientos Industriales.
+        Nuestro compromiso es satisfacer las necesidades en las herramientas industriales de nuestros clientes con asesoría y productos de calidad que cumplan con las expectativas en sus mantenimientos y montajes Industriales.
       </p>
     </div>
   </div>
@@ -44,7 +44,7 @@ const QuienesSomos = () => {
         <strong>BDS MASCHINEN</strong>
       </h2>
       <p>
-        Distribuidores autorizados de BDS MASCHINEN para Colombia. Es un fabricante “Hecho en Alemania” clase Premium taladros magnéticos anulares, cortadores y la placa de maquinas de biselado.
+        <>Distribuidores <b>BDS MASCHINEN</b> autorizados para Colombia. Es un fabricante “Hecho en Alemania” clase Premium de taladros magnéticos anulares, cortadores y la placa de máquinas de biselado.</>
       </p>
     </div>
     <img
@@ -65,7 +65,7 @@ const QuienesSomos = () => {
         <strong>DIFERENTES MODELOS</strong>
       </h2>
       <p>
-        BDS fabrica 30 modelos diferentes, para satisfacer las diferentes necesidades de perforación por núcleos, modelos especiales para perforación de vías férreas, estructuras metálicas, modelos de alimentación automática.
+        BDS fabrica 30 modelos diferentes, para satisfacer las necesidades de perforación por núcleos, modelos especiales para perforación de vías férreas, estructuras metálicas, modelos de alimentación automática.
       </p>
     </div>
   </div>

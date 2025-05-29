@@ -5,29 +5,32 @@ import { List, Avatar, Pagination } from 'antd';
 import { StarOutlined, LikeOutlined, MessageOutlined } from '@ant-design/icons';
 import './ListProductos.css'; // Importa el archivo CSS
 import hexToRgba from 'hex-to-rgba';
+import CarruselProductos from '../../components/carruselProductos/CarruselProductos';
+import { TbJewishStarFilled } from "react-icons/tb";
 
 
 const productos = [
   {
   href: 'https://www.ejemplo.com/producto-1',
   content: (
-    <ul>
-      <li>• BDS Maschinen</li>
-      <li>• Eslingas</li>
-      <li>• Maquinas de chaflan</li>
-      <li>• Herramientas de corte</li>
-      <li>• Herramientas Eléctricas</li>
-      <li>• Herramientas Manuales</li>
-      <li>• Taladro Magnético Básico</li>
-      <li>• Taladro Magnético Roscador</li>
-    </ul>
+     
+    <p class="justificado">
+      
+   Eslingas, Cadenas, Máquinas de chaflán, Herramientas de corte, Herramientas eléctricas y manuales, Taladro magnético básico, Taladro magnético roscador.
+</p>
+
+
   ),
 },
   {
-    href: 'https://www.ejemplo.com/producto-2',
-    title: 'Pantalón clásico',
-    description: 'Ideal para oficina o uso casual.',
-    content: 'Material: algodón. Colores: azul, negro.'
+    href: 'https://www.youtube.com/watch?v=X9TmJamuFUk&ab_channel=HoGiaPhat',
+    title: 'Taladro MAB 845',
+    //description: 'Ideal para oficina o uso casual.',
+    content: 
+    <p className="justificado">
+      La clásica entre los taladros de broca hueca con base magnética grandes de BDS. Para sacanúcleos de hasta Ø 100 mm y 110 mm de profundidad de corte. El inicio en la clase superior con más potencia y más flexibilidad. Apta para brocas espirales, escariadoras, avellanadoras y roscadoras.
+    </p>
+    
   },
   {
     href: 'https://www.ejemplo.com/producto-3',
@@ -69,9 +72,9 @@ for (let i = 0; i < productos.length; i++) {
 
 
 const actions = [
-  { type: <StarOutlined />, text: '156' },
+
   { type: <LikeOutlined />, text: '156' },
-  { type: <MessageOutlined />, text: '2' },
+  
 ];
 
 
@@ -120,12 +123,37 @@ const ListProductos = () => {
   };
  
 
-
+  const imageData = [
+  { src: require('../../assets/img/Otras_lineas.jpg'), alt: 'Producto 1' },
+  { src: require('../../assets/img/MAB 845.jpg'), alt: 'Producto 2' },
+  { src: require('../../assets/img/bds-maschinen.jpg'), alt: 'Producto 3' },
+  ];
 
   return (
     <div className="equipo"> {/* Aplica la clase equipo */}
+
+      
     
       <h3 className="pdtos-titulo">Líneas de Productos</h3>
+
+      <div className="estrellas">
+        <TbJewishStarFilled className="estrella-icono" />
+        <TbJewishStarFilled className="estrella-icono" />
+        <TbJewishStarFilled className="estrella-icono" />
+        <TbJewishStarFilled className="estrella-icono" />
+        <TbJewishStarFilled className="estrella-icono" />
+        
+      </div>
+
+
+      <ul className='lista-productos'>  
+        <li>DISTRIBUIDORES AUTORIZADOS:</li>
+      </ul> 
+
+      <ul className='lista-productos'>  
+        <li>BDS Maschinen en Colombia</li>
+      </ul>
+
       <List
         itemLayout="vertical"
         size="large"
@@ -140,13 +168,10 @@ const ListProductos = () => {
             key={item.title}
             actions={renderActions()}
             extra={
-              <img 
-                width={272}
-                alt="logo"
-                src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-              
-              />
-            }
+              <div style={{ width: 272 }}>
+                <CarruselProductos images={imageData} />
+              </div>
+              }
           >
             <List.Item.Meta
               //avatar={<Avatar src={item.avatar} />}

@@ -27,6 +27,7 @@ const Cliente = (props) => {
 
             <div className="cliente-info">
             <h4 style={{ color: colorPrimario }}>{nombre}</h4>
+            <hr style={{ backgroundColor: colorPrimario }} />
                 <h5><strong>{puesto}</strong></h5>
                 <div className="social-links">
                     <a href="tel:+573206942009">

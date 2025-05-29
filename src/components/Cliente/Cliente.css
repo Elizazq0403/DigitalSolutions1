@@ -58,6 +58,17 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   src: url('../../assets/fonts/Zen_Kurenaido/Zen_Kurenaido/ZenKurenaido-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Nunito';
+  src: url('../../assets/fonts/Nunito/Nunito-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+}
+
 /*Esta es la parte blanca del fondo de la tarjeta*/
 .cliente-card .cliente-info {
   background: #FFFFFF;
@@ -66,7 +77,8 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   padding-top: 30px;
   padding-bottom: 10px;
   min-height: 100px;
-  font-family: 'Zen Kurenaido', sans-serif;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   height: 600px; /*debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
 }
@@ -80,7 +92,8 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   padding-top: 10px;
   padding-bottom: 10px;
   min-height: 100px;
-  font-family: 'Zen Kurenaido', sans-serif;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   height: 380px; /*debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
 }
@@ -96,7 +109,8 @@ margin-bottom: 8px;
 border-bottom: 2px solid;
 padding-bottom: 3px;
 display: inline-block; /* Ajusta el ancho al tamaño del contenido */
-font-family: 'Zen Kurenaido', sans-serif;
+font-family: 'Nunito', sans-serif;
+  font-weight: 300;
 font-style: italic;    /* Cursiva */
 }
 
@@ -111,9 +125,11 @@ display: inline;
   padding: 0 24px;
   font-weight: 400;
   margin: 0;
-  font-family: 'Zen Kurenaido', sans-serif;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
   font-style: italic;    /* Cursiva */
 }
+
 
 
 
@@ -167,7 +183,8 @@ margin-bottom: auto !important;
   font-size: 20px; /* Tamaño del texto */
   color: #333; /* Color del texto */
   margin-top: 100px; /* Espacio entre la imagen y el texto */
-  font-family: 'Zen Kurenaido', sans-serif;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
   font-weight: bold; /* Negrita */
 }
 

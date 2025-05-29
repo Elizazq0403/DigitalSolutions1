@@ -12,7 +12,8 @@
 }
 
 body {
-  font-family: 'Zen Kurenaido', sans-serif;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
   /*background-color: #3c0566; * Fondo principal */
   display: flex;
   justify-content: center;
@@ -66,7 +67,8 @@ body {
   border-radius: 20px; /* Borde redondeado circular */
   /*box-shadow: 0 6px 10px rgba(252, 53, 18, 0.50);*/
   text-align: justify;
- 
+  
+  
  
 }
 
@@ -74,6 +76,7 @@ body {
 .phase-right {
   text-align: justify; /* Alinea el texto a la derecha */
   justify-content: flex-end; /* Cambia la posición en flexbox */
+  
 }
 
 
@@ -82,6 +85,7 @@ body {
   height: 80px;
   object-fit: contain;
   margin-left: 20px; /* opcional */
+  
 }
 
 
@@ -100,15 +104,18 @@ body {
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 5px;
-  font-family: 'Zen Kurenaido';
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  text-align: center;
 }
 
 .phase-content p {
   font-size: 14px;
   color: #000;
   line-height: 1.5;
-  font-weight: bold;
-  font-family: 'Zen Kurenaido';
+
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
 
 }
 

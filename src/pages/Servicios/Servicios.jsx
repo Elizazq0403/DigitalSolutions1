@@ -4,6 +4,7 @@ import hexToRgba from 'hex-to-rgba';
 import fotoProductos from "../../assets/img/Compras (2).png"
 
 
+
 const Servicios = (props) => {
   if (!props.datos) {
     return <div>No se han proporcionado datos</div>;
