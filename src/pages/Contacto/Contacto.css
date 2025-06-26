@@ -291,13 +291,15 @@ body {
 
 .texto-superpuesto {
   position: relative;
-  top: 60px; /* mueve hacia abajo */
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 2px 5px;
-  border-radius: 5px;
+  text-align: center;
+  width: 100%; /* Hace que el texto ocupe todo el ancho disponible */
+  left: 0;
+  transform: none;
+  top: 65px;
   font-size: 14px;
 }
+
+
 
 
 @font-face {
@@ -305,7 +307,9 @@ body {
   src: url('../../assets/fonts/Stalemate/Stalemate-Regular.ttf') format('truetype');
 }
 
-.contacto {
+/*src: url('../../assets/fonts/Stalemate/Stalemate-Regular.ttf') format('truetype');*/
+
+.contacto-fuente{
   font-family: 'Stalemate', cursive !important;
   margin-top: 40px; /* Ajusta el margen según necesites */
   font-size: 24px; /* Aumenta el tamaño de la letra (ajústalo según prefieras) */

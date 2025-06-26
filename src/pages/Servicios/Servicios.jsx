@@ -1,7 +1,7 @@
 import "./Servicios.css"
 import ListProductos from "../../pages/Productos/ListProductos";
 import hexToRgba from 'hex-to-rgba';
-import fotoProductos from "../../assets/img/Compras (2).png"
+import fotoProductos from "../../assets/img/Compras (2).jpg"
 
 
 

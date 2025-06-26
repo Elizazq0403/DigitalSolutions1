@@ -1,158 +1,76 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { v4 as uuid } from "uuid";
-import { List, Avatar, Pagination } from 'antd';
-import { StarOutlined, LikeOutlined, MessageOutlined } from '@ant-design/icons';
-import './ListProductos.css'; // Importa el archivo CSS
-import hexToRgba from 'hex-to-rgba';
-import CarruselProductos from '../../components/carruselProductos/CarruselProductos';
+import { List, Pagination } from 'antd';
+import { LikeOutlined } from '@ant-design/icons';
+import './ListProductos.css';
 import { TbJewishStarFilled } from "react-icons/tb";
-
 
 const productos = [
   {
-  href: 'https://www.ejemplo.com/producto-1',
-  content: (
-     
-    <p class="justificado">
-      
-   Eslingas, Cadenas, Máquinas de chaflán, Herramientas de corte, Herramientas eléctricas y manuales, Taladro magnético básico, Taladro magnético roscador.
-</p>
-
-
-  ),
-},
+    className: 'phase-title',
+    title: 'OTRAS LÍNEAS',
+    content: (
+      <p className="justificado">
+        Eslingas, Cadenas, Máquinas de chaflán, Herramientas de corte, Herramientas eléctricas y manuales, Taladro magnético básico, Taladro magnético roscador.
+      </p>
+    ),
+    image: require('../../assets/img/Otras_lineas.jpg'),
+  },
   {
     href: 'https://www.youtube.com/watch?v=X9TmJamuFUk&ab_channel=HoGiaPhat',
     title: 'Taladro MAB 845',
-    //description: 'Ideal para oficina o uso casual.',
-    content: 
-    <p className="justificado">
-      La clásica entre los taladros de broca hueca con base magnética grandes de BDS. Para sacanúcleos de hasta Ø 100 mm y 110 mm de profundidad de corte. El inicio en la clase superior con más potencia y más flexibilidad. Apta para brocas espirales, escariadoras, avellanadoras y roscadoras.
-    </p>
-    
+    content: (
+      <p className="justificado">
+        La clásica entre los taladros de broca hueca con base magnética grandes de BDS. Para sacanúcleos de hasta Ø 100 mm y 110 mm de profundidad de corte. Apta para brocas espirales, escariadoras, avellanadoras y roscadoras.
+      </p>
+    ),
+    image: require('../../assets/img/MAB 845.jpg'),
   },
   {
     href: 'https://www.ejemplo.com/producto-3',
     title: 'Zapatos de cuero',
     description: 'Zapatos elegantes hechos a mano.',
-    content: 'Disponibles desde la talla 38 a 44.'
+    content: 'Disponibles desde la talla 38 a 44.',
+    image: require('../../assets/img/bds-maschinen.jpg'),
   },
 ];
 
-<List
-  itemLayout="vertical"
-  dataSource={productos}
-  renderItem={(item) => (
-    <List.Item>
-      <List.Item.Meta
-        title={<a href={item.href}>{item.title || 'Producto'}</a>}
-        description={item.description}
-      />
-      {/* Asegúrate de usar pre-line para mostrar los saltos de línea */}
-      <div style={{ whiteSpace: 'pre-line' }}>
-        {item.content}
-      </div>
-    </List.Item>
-  )}
-/>
-
-
-const listData = [];
-
-for (let i = 0; i < productos.length; i++) {
-  listData.push({
-    href: productos[i].href,
-    title: productos[i].title,
-    description: productos[i].description,
-    content: productos[i].content,
-  });
-}
-
-
-
-const actions = [
-
-  { type: <LikeOutlined />, text: '156' },
-  
-];
-
-
-const renderActions = () => (
-  actions.map((action, index) => (
-    <span key={index} style={{ marginRight: 8 }}>
-      {action.type} {action.text}
-    </span>
-  ))
-);
-
+const listData = productos.map(prod => ({
+  href: prod.href,
+  title: prod.title,
+  description: prod.description,
+  content: prod.content,
+  image: prod.image,
+}));
 
 const ListProductos = () => {
-
- 
-  const [currentPage, setCurrentPage] = React.useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 1;
-
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-    console.log(page);
-  };
-
 
   const paginatedData = listData.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
-
-  const [equipos, actualizarEquipos] = useState([{
-    id: uuid(),
-    titulo: "Programación", // El único equipo
-    colorPrimario: "#606060",
-    colorSecundario: "#373738"
-  }]);
-
-
-  const actualizarColor = (color, id) => {
-    console.log("Actualizar: ", color, id);
-    const equiposActualizados = equipos.map((equipo) => {
-      if (equipo.id === id) {
-        equipo.colorPrimario = color;
-      }
-      return equipo;
-    });
-    actualizarEquipos(equiposActualizados);
-  };
- 
-
-  const imageData = [
-  { src: require('../../assets/img/Otras_lineas.jpg'), alt: 'Producto 1' },
-  { src: require('../../assets/img/MAB 845.jpg'), alt: 'Producto 2' },
-  { src: require('../../assets/img/bds-maschinen.jpg'), alt: 'Producto 3' },
-  ];
-
   return (
-    <div className="equipo"> {/* Aplica la clase equipo */}
-
-      
-    
-      <h3 className="pdtos-titulo">Líneas de Productos</h3>
+    <div className="equipo">
+      <h4 className="phase-title">LÍNEAS DE PRODUCTOS</h4>
 
       <div className="estrellas">
-        <TbJewishStarFilled className="estrella-icono" />
-        <TbJewishStarFilled className="estrella-icono" />
-        <TbJewishStarFilled className="estrella-icono" />
-        <TbJewishStarFilled className="estrella-icono" />
-        <TbJewishStarFilled className="estrella-icono" />
-        
+        {[...Array(5)].map((_, i) => (
+          <TbJewishStarFilled key={i} className="estrella-icono" />
+        ))}
       </div>
 
-
-      <ul className='lista-productos'>  
-        <li>DISTRIBUIDORES AUTORIZADOS:</li>
-      </ul> 
-
-      <ul className='lista-productos'>  
-        <li>BDS Maschinen en Colombia</li>
+      <ul className="lista-productos">
+        <li>Distribuidores autorizados:</li>
       </ul>
+
+      <ul>
+      <li className="phase-title-li">
+        <a href="https://bds-machines.es/" target="_blank" rel="noopener noreferrer">
+          BDS Maschinen en Colombia
+        </a>
+      </li>
+    </ul>
+
 
       <List
         itemLayout="vertical"
@@ -160,37 +78,62 @@ const ListProductos = () => {
         dataSource={paginatedData}
         footer={
           <div>
-            <b>Asher</b> Industriales
+            <b>Asher</b> Industriales S.A.S
           </div>
         }
         renderItem={item => (
           <List.Item
             key={item.title}
-            actions={renderActions()}
             extra={
-              <div style={{ width: 272 }}>
-                <CarruselProductos images={imageData} />
+              <div style={{ width: 272, position: 'relative', marginTop: '20px' }}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  style={{
+                    width: '100%',
+                    borderRadius: '8px',
+                    display: 'block',
+                    objectFit: 'cover',
+                  }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  //bottom: 10,
+                  right: 10,
+                  backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                  padding: '4px 8px',
+                  borderRadius: '4px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+                }}>
+                  <LikeOutlined style={{ cursor: 'pointer' }} />
+                  <span>156</span>
+                </div>
               </div>
-              }
+            }
           >
             <List.Item.Meta
-              //avatar={<Avatar src={item.avatar} />}
-              title={<a href={item.href}>{item.title}</a>}
+              title={<a href={item.href}>{item.title || 'Producto'}</a>}
               description={item.description}
             />
-            {item.content}
+            <div style={{ whiteSpace: 'pre-line' }}>
+              {item.content}
+            </div>
           </List.Item>
         )}
       />
+
       <Pagination
         current={currentPage}
         pageSize={pageSize}
         total={listData.length}
-        onChange={handlePageChange}
+        onChange={setCurrentPage}
       />
     </div>
   );
 };
 
-
 export default ListProductos;
+

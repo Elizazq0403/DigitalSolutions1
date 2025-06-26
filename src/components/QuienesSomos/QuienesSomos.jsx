@@ -20,6 +20,7 @@ const QuienesSomos = () => {
       alt="Icono representativo"
       className="phase-icon"
     />
+
   </div>
 
   <div className="phase">

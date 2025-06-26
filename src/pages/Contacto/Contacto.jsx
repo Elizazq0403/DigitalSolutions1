@@ -54,7 +54,7 @@ const Contacto = ({ datos, colaboradores }) => {
             ))}
           </div>
           <div>
-            <div className="contacto">
+            <div className="contacto-fuente">
               <h5 style={{ fontSize: 50 }}><strong>Síguenos</strong></h5>
             </div>
           </div>
@@ -76,7 +76,7 @@ const Contacto = ({ datos, colaboradores }) => {
               </div>
             </a>
           </div>
-          <div className="contacto">
+          <div className="contacto-fuente">
               <h5 style={{ fontSize: 50 }}><strong>Visítenos en</strong></h5>
             </div>
           {/* Datos de contacto*/} 

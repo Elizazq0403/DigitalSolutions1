@@ -85,6 +85,8 @@ body {
   height: 80px;
   object-fit: contain;
   margin-left: 20px; /* opcional */
+  margin-right: 5%;
+  
   
 }
 

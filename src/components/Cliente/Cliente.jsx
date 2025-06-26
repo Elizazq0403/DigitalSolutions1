@@ -21,7 +21,7 @@ const Cliente = (props) => {
     return (
         <div className="cliente-card">
             <div className="cliente-header" style={{ backgroundColor: colorPrimario, position: "relative" }}>
-                <h2 className="cliente-titulo">Asher Industriales S.A.S     </h2>
+                <h2 className="cliente-titulo">Asher Industriales     </h2>
                 <img src={foto} alt={nombre} style={{ border: `4px solid ${colorPrimario}` }} />
             </div>
 

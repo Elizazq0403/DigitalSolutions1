@@ -56,6 +56,12 @@
     margin-left: auto;
 }
 
+@font-face {
+  font-family: 'Stalemate';
+  src: url('../../assets/fonts/Stalemate/Stalemate-Regular.ttf') format('truetype');
+}
+
+
 .lista-productos-imagen {
     width: 100%;
     height: auto;
@@ -69,11 +75,12 @@
 }
 
 .lista-productos {
-  font-size: 18px;       /* Tamaño de letra */
-  /*font-weight: bold;      Negrita */
+  font-size: 24px;       /* Tamaño de letra */
+  font-weight: bold;     /* Fuente en negrita */ 
   text-align: center;   /* Justificado */
   line-height: 1.6;      /* Espaciado entre líneas para mejor legibilidad */
   padding-left: 10px;    /* Espacio a la izquierda para el símbolo de lista */
+  font-family: 'Stalemate', cursive !important;
 }
 
 
@@ -113,8 +120,26 @@
   font-size: 26px;
 }
 
+.phase-title {
+  font-size: 16px;
+  font-weight: bold !important;
+  margin-bottom: 5px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  color: black !important;
+}
 
-
+.phase-title-li {
+  font-size: 20.5px;
+  font-weight: bold !important;
+  margin-bottom: 5px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  color: black !important;
+  margin-top: 15px;
+}
 
 /* Responsividad para pantallas pequeñas */
 @media (max-width: 768px) {
