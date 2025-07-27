@@ -51,13 +51,13 @@ const ListProductos = () => {
 
   return (
     <div className="equipo">
-      <h4 className="phase-title">LÍNEAS DE PRODUCTOS</h4>
+      {/* <h4 className="phase-title">LÍNEAS DE PRODUCTOS</h4>
 
       <div className="estrellas">
         {[...Array(5)].map((_, i) => (
           <TbJewishStarFilled key={i} className="estrella-icono" />
         ))}
-      </div>
+      </div>*/}
 
       <ul className="lista-productos">
         <li>Distribuidores autorizados:</li>
@@ -76,11 +76,13 @@ const ListProductos = () => {
         itemLayout="vertical"
         size="large"
         dataSource={paginatedData}
-        footer={
+        
+        /*footer={
           <div>
             <b>Asher</b> Industriales S.A.S
           </div>
-        }
+        }*/
+        
         renderItem={item => (
           <List.Item
             key={item.title}

@@ -9,6 +9,7 @@ import hexToRgba from 'hex-to-rgba';
 import Business from './pages/Business/Business';
 import Contacto from './pages/Contacto/Contacto';
 import { useNavigate, useLocation } from "react-router-dom";
+import PruebaConexion from './components/Utils/PruebaConexion';
 
 function App() {
   const [colaboradores, actualizarColaboradores] = useState([{
@@ -143,7 +144,12 @@ function App() {
           )}
         </div>
       </div>
+      <div className="App">
+        <h1>Mi App Digital</h1>
+        <PruebaConexion />
+      </div>
     </div>
+    
   );
 }
 

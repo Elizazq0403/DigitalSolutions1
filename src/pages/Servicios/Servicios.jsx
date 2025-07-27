@@ -28,7 +28,7 @@ const Servicios = (props) => {
         <div className="info">
           <ListProductos />
         </div>
-        <div className="cliente-inf">
+        {/*<div className="cliente-inf">
                 <div className="social-redes">
                     <div className="cuadrado-con-borde-int">
                     <div className="borde-interno-rojo" style={{ border: `3px solid ${colorPrimario}` }}>
@@ -40,7 +40,7 @@ const Servicios = (props) => {
                         </div>
                     </div>
                 </div>  
-            </div>
+            </div>*/}
         </div>
     </section>
   );

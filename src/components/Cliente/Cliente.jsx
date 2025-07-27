@@ -93,7 +93,7 @@ const Cliente = (props) => {
                                 alt="Icono Compartir" 
                                 className="iphone" 
                             />
-                            <span className="icon-label"><strong>QR Pagos</strong></span>
+                            <span className="icon-label"><strong>Compartir QR</strong></span>
                         </div>
                     </a>
                 </div>
