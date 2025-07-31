@@ -8,7 +8,7 @@ import { HiShoppingCart } from "react-icons/hi";
 import hexToRgba from 'hex-to-rgba';
 import Business from './pages/Business/Business';
 import Contacto from './pages/Contacto/Contacto';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, NavLink } from "react-router-dom";
 import PruebaConexion from './components/Utils/PruebaConexion';
 
 function App() {
@@ -54,7 +54,9 @@ function App() {
     setActiveTab(tab);
   };
 
-  // ⏱ Recorrido automático por tabs y regreso a Perfil
+  
+
+  /* ⏱ Recorrido automático por tabs y regreso a Perfil
   useEffect(() => {
     const tabs = ['Perfil', 'Productos', 'Empresa', 'Contacto'];
     let index = 0;
@@ -70,7 +72,7 @@ function App() {
     }, 3000);
 
     return () => clearInterval(intervalo);
-  }, []);
+  }, []);*/
 
   return (
     <div className="flex justify-center items-center min-h-screen">

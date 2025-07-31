@@ -1,25 +1,23 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Cliente from '../components/Cliente/Cliente'
-import Servicios from '../pages/Business/Business'
-import Contacto from '../pages/Contacto/Contacto'
-import Error404 from '../components/Error404/Error404'
-//import TabsCard from '../components/Tabs/TabsCard'
-//import RegistrarCliente from '../components/RegistrarCliente/RegistrarCliente'
-//import Formulario from '../components/Formulario/Formulario'
-import QuienesSomos from '../pages/Business/Business'
+import { Routes, Route } from "react-router-dom";
+import App from "./App";
+import Perfil from "../components/Perfil/Perfil";
+import Productos from "./pages/Productos";
+import Empresa from "./pages/Empresa";
+import Contacto from "./pages/Contacto";
 
-
-function Routers() {
+function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Cliente />} />
-      <Route path="/Productos" element={<Servicios />} />
-      <Route path="/Empresa" element={<QuienesSomos />} />
-      <Route path="/Contacto" element={<Contacto />} />
-      <Route path="/*" element={<Error404 />} />
+      <Route path="/cliente/:slug" element={<App />}>
+        <Route index element={<Perfil />} /> {/* Ruta por defecto */}
+        <Route path="perfil" element={<Perfil />} />
+        <Route path="productos" element={<Productos />} />
+        <Route path="empresa" element={<Empresa />} />
+        <Route path="contacto" element={<Contacto />} />
+      </Route>
     </Routes>
-  )
+  );
 }
 
-export default Routers
+export default Router;
+
