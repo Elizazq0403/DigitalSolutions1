@@ -1,18 +1,18 @@
 import { Routes, Route } from "react-router-dom";
-import App from "./App";
-import Perfil from "../components/Perfil/Perfil";
-import Productos from "./pages/Productos";
-import Empresa from "./pages/Empresa";
-import Contacto from "./pages/Contacto";
+import App from "../App";
+import Cliente from "../components/Cliente/Cliente";
+import Servicios from "./pages/Servicios/Servicios";
+import Business from "./pages/Business/Business";
+import Contacto from "./pages/Contacto/Contacto";
 
 function Router() {
   return (
     <Routes>
-      <Route path="/cliente/:slug" element={<App />}>
-        <Route index element={<Perfil />} /> {/* Ruta por defecto */}
-        <Route path="perfil" element={<Perfil />} />
-        <Route path="productos" element={<Productos />} />
-        <Route path="empresa" element={<Empresa />} />
+      <Route path="/cliente/:slug" element={<Layout />}>
+        <Route index element={<Cliente />} />
+        <Route path="perfil" element={<Cliente />} />
+        <Route path="productos" element={<Servicios />} />
+        <Route path="empresa" element={<Business />} />
         <Route path="contacto" element={<Contacto />} />
       </Route>
     </Routes>

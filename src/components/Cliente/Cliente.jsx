@@ -1,14 +1,16 @@
 import "./Cliente.css";
-import { NavLink, Outlet } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Cliente = (props) => {
 
-  const { puesto, foto, equipo, id, fav } = props.datos;
+  //const { puesto, foto, equipo, id, fav } = props.datos;
   const { colorPrimario } = props;
 
   const slug = "asher-adriana-giraldo"; // 🔥 URL quemada (ignora useParams)
+  //const {slug} = useParams();
+
 
   const [persona, setPersona] = useState(null);
   const [loading, setLoading] = useState(true);
