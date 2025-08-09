@@ -54,7 +54,9 @@ const Cliente = ({ slug, colorPrimario }) => {
   if (error) return <div className="error-message">Error: {error}</div>;
 
   // 📭 Si no hay persona encontrada, mostramos un mensaje específico
-  if (!persona) return <p>No se encontró la persona con el slug: {slug}</p>;
+  //if (!persona) return <p>No se encontró la persona con el slug: {slug}</p>;
+  if (!persona) return <p>.</p>;
+
 
   const {
     nombre,
