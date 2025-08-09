@@ -9,15 +9,23 @@ import { HiShoppingCart } from "react-icons/hi";
 import hexToRgba from 'hex-to-rgba';
 import Business from './pages/Business/Business';
 import Contacto from './pages/Contacto/Contacto';
-import { useNavigate, useLocation, Outlet, useParams, Link } from "react-router-dom";
+import { useLocation, useParams, Link } from "react-router-dom";
 import PruebaConexion from './components/Utils/PruebaConexion';
 
+// 🔹 Hook para obtener slug con fallback
+const useSlug = () => {
+  const { slug } = useParams();
+  if (slug) return slug; // Preferencia: lo toma del router
+  const pathParts = window.location.pathname.split('/');
+  return pathParts[2] || ''; // Fallback: lo toma manualmente de la URL
+};
+
 function App() {
-  //const { slug } = useParams();
-  const slug = "asher-adriana-giraldo";
+  const slug = useSlug();
+  console.log("📌 Slug detectado en App:", slug);
+
   const location = useLocation();
-  
-  // Estado para los equipos y colaboradores
+
   const [colaboradores, actualizarColaboradores] = useState([{
     id: uuid(),
     empresa: "Asher Industriales",
@@ -36,20 +44,17 @@ function App() {
     colorSecundario: "#E8F8FF"
   }]);
 
-  // Determina el tab activo basado en la URL
   const getActiveTab = () => {
     const pathParts = location.pathname.split('/');
-    return pathParts[3] || 'perfil'; // ['', 'cliente', slug, tab]
+    return pathParts[3] || 'perfil';
   };
 
   const [activeTab, setActiveTab] = useState(getActiveTab());
 
-  // Sincroniza el tab activo cuando cambia la URL
   useEffect(() => {
     setActiveTab(getActiveTab());
   }, [location]);
 
-  // Función para actualizar el color
   const actualizarColor = (color, id) => {
     const equiposActualizados = equipos.map((equipo) => {
       if (equipo.id === id) {
@@ -60,45 +65,30 @@ function App() {
     actualizarEquipos(equiposActualizados);
   };
 
+  const getTabClass = (tab) =>
+    `px-2 py-3 ${activeTab === tab ? "border-b-2 border-blue-500 font-semibold" : ""}`;
+
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="overflow-x-auto border rounded-lg p-4 shadow-md" style={{ backgroundColor: hexToRgba(equipos[0].colorPrimario, 0.6) }}>
-        {/* Barra de navegación con Links */}
         <div className="flex justify-around border-b border-gray-300">
-          <Link
-            to={`/cliente/${slug}/perfil`}
-            className={`px-2 py-3 ${activeTab === "perfil" ? "border-b-2 border-blue-500 font-semibold" : ""}`}
-          >
-            <MdAdUnits className="inline mr-2" />
-            Perfil
+          <Link to={`/cliente/${slug}/perfil`} className={getTabClass("perfil")}>
+            <MdAdUnits className="inline mr-2" /> Perfil
           </Link>
 
-          <Link
-            to={`/cliente/${slug}/productos`}
-            className={`px-2 py-3 ${activeTab === "productos" ? "border-b-2 border-blue-500 font-semibold animate-bounce" : ""}`}
-          >
-            <HiShoppingCart className="inline mr-2" />
-            Productos
+          <Link to={`/cliente/${slug}/productos`} className={getTabClass("productos")}>
+            <HiShoppingCart className="inline mr-2" /> Productos
           </Link>
 
-          <Link
-            to={`/cliente/${slug}/empresa`}
-            className={`px-2 py-3 ${activeTab === "empresa" ? "border-b-2 border-blue-500 font-semibold" : ""}`}
-          >
-            <MdOutlineStorefront className="inline mr-2" />
-            Empresa
+          <Link to={`/cliente/${slug}/empresa`} className={getTabClass("empresa")}>
+            <MdOutlineStorefront className="inline mr-2" /> Empresa
           </Link>
 
-          <Link
-            to={`/cliente/${slug}/contacto`}
-            className={`px-2 py-3 ${activeTab === "contacto" ? "border-b-2 border-blue-500 font-semibold" : ""}`}
-          >
-            <MdAssignmentInd className="inline mr-2" />
-            Contacto
+          <Link to={`/cliente/${slug}/contacto`} className={getTabClass("contacto")}>
+            <MdAssignmentInd className="inline mr-2" /> Contacto
           </Link>
         </div>
 
-        {/* Contenido de los tabs */}
         <div className="mt-4 text-center">
           {activeTab === "perfil" && (
             <div className='container'>
@@ -110,6 +100,8 @@ function App() {
                   actualizarColor={actualizarColor}
                 />
               ))}
+              {/* Pasamos slug por props */}
+              <Cliente slug={slug} colorPrimario={equipos[0].colorPrimario} />
             </div>
           )}
 
@@ -147,9 +139,10 @@ function App() {
         <h1>Mi App Digital</h1>
         <PruebaConexion />
       </div>
-
     </div>
   );
 }
 
 export default App;
+
+
