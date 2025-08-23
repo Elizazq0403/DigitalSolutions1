@@ -7,57 +7,51 @@ const Cliente = ({ slug, colorPrimario }) => {
   console.log("📌 Slug recibido en Cliente:", slug);
 
   const [persona, setPersona] = useState(null);
+  const [empresa, setEmpresa] = useState(null);   // <-- nuevo
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const obtenerPersona = async () => {
+    const obtenerPerfil = async () => {
       try {
-        // 🔍 Validación del slug
-        // Si no se recibió un slug válido, evitamos hacer la petición
-        // y dejamos que el flujo de errores se encargue de mostrar un mensaje
         if (!slug) {
-          // ⚠️ Antes lanzábamos un error aquí para detener la ejecución
-          // throw new Error("No se proporcionó un slug válido");
-          console.warn("⚠️ No se recibió un slug válido para buscar el cliente.");
-          return; // Salimos para no ejecutar la petición
+          console.warn("⚠️ No se recibió un slug válido para buscar el perfil.");
+          return;
         }
-        
-        // 🌐 Petición al backend usando el slugq
-        const response = await axios.get(`http://localhost:5000/personas/slug/${slug}`);
-        //ojoooooo esta version funciona con el modelo de datos slug unificado, antes de separar el slug
-        // 📭 Validación de respuesta
-        if (!response.data) {
-          throw new Error("No se encontraron datos para este cliente");
+
+        // 🔄 Endpoint combinado /perfil/{slug_completo}
+        // Ej: /perfil/empresa-slug_persona
+        const response = await axios.get(`http://localhost:5000/personas/${slug}`);
+
+        if (!response.data.persona || !response.data.empresa) {
+          throw new Error(response.data.error || "No se encontraron datos para este perfil");  
         }
-        
-        // ✅ Guardamos la data en el estado
-        setPersona(response.data);
+
+        // ✅ Guardamos empresa y persona
+        setPersona(response.data.persona);
+        setEmpresa(response.data.empresa);
 
       } catch (err) {
-        // ❌ Capturamos y guardamos el error para mostrarlo en la UI
-        console.error("Error al obtener persona:", err);
+        console.error("Error al obtener perfil:", err);
         setError(err.message);
       } finally {
-        // ⏳ Siempre quitamos el loading al terminar
         setLoading(false);
       }
     };
 
-    obtenerPersona();
-  }, [slug]); // Dependencia del slug para recargar si cambia
+    obtenerPerfil();
+  }, [slug]);
 
   // 🌀 Loader mientras esperamos datos
   if (loading) return <Spin tip="Cargando datos..." size="large" />;
 
-  // ❌ Si hay error, lo mostramos
+  // ❌ Si hay error
   if (error) return <div className="error-message">Error: {error}</div>;
 
-  // 📭 Si no hay persona encontrada, mostramos un mensaje específico
-  //if (!persona) return <p>No se encontró la persona con el slug: {slug}</p>;
-  if (!persona) return <p></p>;
+  // 📭 Validación de datos
+  if (!persona && !empresa) return <p>No se encontró el perfil.</p>;
 
-
+  // Datos de Persona
   const {
     nombre,
     cargo,
@@ -69,9 +63,9 @@ const Cliente = ({ slug, colorPrimario }) => {
 
   return (
     <div className="cliente-card">
-      {/* 🏷️ Encabezado con nombre y foto */}
+      {/* 🏷️ Encabezado con nombre de empresa y foto de la persona */}
       <div className="cliente-header" style={{ backgroundColor: colorPrimario, position: "relative" }}>
-        <h2 className="cliente-titulo">Asher Industriales</h2>
+        <h2 className="cliente-titulo">{empresa.razon_social}</h2>
         <img
           src={link_foto}
           alt={nombre}
@@ -150,6 +144,7 @@ const Cliente = ({ slug, colorPrimario }) => {
 };
 
 export default Cliente;
+
 
 
 
