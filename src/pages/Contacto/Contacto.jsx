@@ -18,17 +18,17 @@ const Contacto = ({ datos, colaboradores }) => {
     {
       src: correo,
       alt: "Email Icon",
-      text: "/ elizazq@hotmail.com",
+      text: "/ elizazq@hotmail.com", /**/
     },
     {
       src: ubicacion,
       alt: "Location Icon",
-      text: "/ Cra 49 calle 144 sur 29",
+      text: "/ Cra 49 calle 144 sur 29", /**/
     },
     {
       src: llamar,
       alt: "Phone Icon",
-      text: "/ 300 860 07 40",
+      text: "/ 300 860 07 40", /**/
     },
     
   ];
@@ -60,17 +60,17 @@ const Contacto = ({ datos, colaboradores }) => {
           </div>
           {/* Redes sociales */}
           <div className="social-redes">
-            <a href="https://www.facebook.com/profile.php?id=100028578147179">
+            <a href="https://www.facebook.com/profile.php?id=100028578147179"> {/**/}
               <div className="social-icon-normal">
                 <img src={require("../../assets/img/facebook.png")} alt="Icono facebook" className="iphone" />
               </div>
             </a>
-            <a href="https://www.instagram.com/asherindustriales/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/asherindustriales/" target="_blank" rel="noopener noreferrer"> {/**/}
               <div className="social-icon-normal">
                 <img src={require("../../assets/img/instagram.png")} alt="Icono instagram" className="iphone" />
               </div>
             </a>
-            <a href="https://www.asherindustriales.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.asherindustriales.com" target="_blank" rel="noopener noreferrer"> {/**/}
               <div className="social-icon-normal">
                 <img src={require("../../assets/img/icono internet.png")} alt="Icono internet" className="iphone" />
               </div>
@@ -98,15 +98,15 @@ const Contacto = ({ datos, colaboradores }) => {
                 <div className="icono-con-texto">
                   <img src={require("../../assets/img/ubicacion ok.png")} alt="Icono ubicación" className="img-contacto" />
                 </div>
-                <p className="texto-superpuesto">Carrera 49 Calle 144 Sur 29</p>
+                <p className="texto-superpuesto">Carrera 49 Calle 144 Sur 29</p> {/**/}
                 <div className="icono-con-texto">
                   <img src={require("../../assets/img/llamar ok.png")} alt="Icono llamar" className="img-contacto" />
                 </div>
-                <p className="texto-superpuesto">300 860 07 40</p>
+                <p className="texto-superpuesto">300 860 07 40</p> {/**/}
                 <div className="icono-con-texto">
                 <img src={require("../../assets/img/correo ok.png")} alt="Icono correo" className="img-contacto" />
               </div>
-                <p className="texto-superpuesto">elizazq@hotmail.com</p>
+                <p className="texto-superpuesto">elizazq@hotmail.com</p> {/**/}
               </div>
               
             </div>
@@ -125,7 +125,7 @@ const Contacto = ({ datos, colaboradores }) => {
                             loading="lazy"
                             allowFullScreen
                             referrerPolicy="no-referrer-when-downgrade"
-                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15867.407608035515!2d-75.62711974193282!3d6.150582551382924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sasher%20industriales%20s.a.s%20ofc%202803%20sabaneta%20antioquia!5e0!3m2!1ses!2sco!"
+                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15867.407608035515!2d-75.62711974193282!3d6.150582551382924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sasher%20industriales%20s.a.s%20ofc%202803%20sabaneta%20antioquia!5e0!3m2!1ses!2sco!" /**/
                         ></iframe>
                     </div>
                 </div>

@@ -23,9 +23,9 @@ const Cliente = ({ slug, colorPrimario }) => {
           return; // Salimos para no ejecutar la petición
         }
         
-        // 🌐 Petición al backend usando el slug
+        // 🌐 Petición al backend usando el slugq
         const response = await axios.get(`http://localhost:5000/personas/slug/${slug}`);
-        
+        //ojoooooo esta version funciona con el modelo de datos slug unificado, antes de separar el slug
         // 📭 Validación de respuesta
         if (!response.data) {
           throw new Error("No se encontraron datos para este cliente");
@@ -150,6 +150,7 @@ const Cliente = ({ slug, colorPrimario }) => {
 };
 
 export default Cliente;
+
 
 
 
