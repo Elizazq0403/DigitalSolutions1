@@ -47,9 +47,9 @@ const Contacto = ({ datos, colaboradores }) => {
           <div>
           {colaboradores.map((colaborador) => (
               <div key={colaborador.id} className="colaborador-card">
-                <h4 style={{ color: colorPrimario }}>{colaborador.empresa}</h4>
+                <h4 style={{ color: colorPrimario }}>{colaborador.empresa}</h4> {/*reemplazar {colaborador.empresa} por la variable razon_social*/}
                 
-                <h5><strong>{colaborador.nit}</strong></h5>
+                <h5><strong>{colaborador.nit}</strong></h5> {/*reemplazar {colaborador.nit} por la variable nit*/}
               </div>
             ))}
           </div>
@@ -60,17 +60,17 @@ const Contacto = ({ datos, colaboradores }) => {
           </div>
           {/* Redes sociales */}
           <div className="social-redes">
-            <a href="https://www.facebook.com/profile.php?id=100028578147179"> {/**/}
+            <a href="https://www.facebook.com/profile.php?id=100028578147179"> {/*reemplazar es link por la variable link_facebook*/}
               <div className="social-icon-normal">
                 <img src={require("../../assets/img/facebook.png")} alt="Icono facebook" className="iphone" />
               </div>
             </a>
-            <a href="https://www.instagram.com/asherindustriales/" target="_blank" rel="noopener noreferrer"> {/**/}
+            <a href="https://www.instagram.com/asherindustriales/" target="_blank" rel="noopener noreferrer"> {/*reemplazar es link por la variable link_instagram*/}
               <div className="social-icon-normal">
                 <img src={require("../../assets/img/instagram.png")} alt="Icono instagram" className="iphone" />
               </div>
             </a>
-            <a href="https://www.asherindustriales.com" target="_blank" rel="noopener noreferrer"> {/**/}
+            <a href="https://www.asherindustriales.com" target="_blank" rel="noopener noreferrer"> {/*reemplazar es link por la variable link_pagina_web*/}
               <div className="social-icon-normal">
                 <img src={require("../../assets/img/icono internet.png")} alt="Icono internet" className="iphone" />
               </div>
@@ -98,15 +98,15 @@ const Contacto = ({ datos, colaboradores }) => {
                 <div className="icono-con-texto">
                   <img src={require("../../assets/img/ubicacion ok.png")} alt="Icono ubicación" className="img-contacto" />
                 </div>
-                <p className="texto-superpuesto">Carrera 49 Calle 144 Sur 29</p> {/**/}
+                <p className="texto-superpuesto">Carrera 49 Calle 144 Sur 29</p> {/*reemplazar esta direccion por la variable direccion*/}
                 <div className="icono-con-texto">
                   <img src={require("../../assets/img/llamar ok.png")} alt="Icono llamar" className="img-contacto" />
                 </div>
-                <p className="texto-superpuesto">300 860 07 40</p> {/**/}
+                <p className="texto-superpuesto">300 860 07 40</p> {/*reemplazar este telefono por la variable telefono*/}
                 <div className="icono-con-texto">
                 <img src={require("../../assets/img/correo ok.png")} alt="Icono correo" className="img-contacto" />
               </div>
-                <p className="texto-superpuesto">elizazq@hotmail.com</p> {/**/}
+                <p className="texto-superpuesto">elizazq@hotmail.com</p> {/*reemplazar este correo por la variable corre_electronico*/}
               </div>
               
             </div>
@@ -125,7 +125,8 @@ const Contacto = ({ datos, colaboradores }) => {
                             loading="lazy"
                             allowFullScreen
                             referrerPolicy="no-referrer-when-downgrade"
-                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15867.407608035515!2d-75.62711974193282!3d6.150582551382924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sasher%20industriales%20s.a.s%20ofc%202803%20sabaneta%20antioquia!5e0!3m2!1ses!2sco!" /**/
+                            /*src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15867.407608035515!2d-75.62711974193282!3d6.150582551382924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sasher%20industriales%20s.a.s%20ofc%202803%20sabaneta%20antioquia!5e0!3m2!1ses!2sco!" */
+                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15867.407608035515!2d-75.62711974193282!3d6.150582551382924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sasher%20industriales%20s.a.s%20ofc%202803%20sabaneta%20antioquia!5e0!3m2!1ses!2sco!" /*reemplazar es link por la variable link_ubicacion_maps*/
                         ></iframe>
                     </div>
                 </div>
