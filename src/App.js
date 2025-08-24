@@ -11,13 +11,14 @@ import Business from './pages/Business/Business';
 import Contacto from './pages/Contacto/Contacto';
 import { useLocation, useParams, Link } from "react-router-dom";
 import PruebaConexion from './components/Utils/PruebaConexion';
+import axios from "axios";   // 🔹 importar axios
 
 // 🔹 Hook para obtener slug con fallback
 const useSlug = () => {
   const { slug } = useParams();
-  if (slug) return slug; // Preferencia: lo toma del router
+  if (slug) return slug; 
   const pathParts = window.location.pathname.split('/');
-  return pathParts[2] || ''; // Fallback: lo toma manualmente de la URL
+  return pathParts[2] || ''; 
 };
 
 function App() {
@@ -37,12 +38,34 @@ function App() {
     fav: true
   }]);
 
+  // 🔹 Inicializar equipos sin color (pantone1 vendrá del backend)
   const [equipos, actualizarEquipos] = useState([{
     id: uuid(),
     titulo: "Front End",
-    colorPrimario: "#F0644C",
+    colorPrimario: "#cccccc",  // color por defecto mientras carga
     colorSecundario: "#E8F8FF"
   }]);
+
+  // 🔹 Llamar backend para obtener datos de empresa (incluye pantone1)
+  useEffect(() => {
+    const obtenerEmpresa = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/personas/${slug}`);
+        if (response.data.empresa) {
+          const pantone1 = response.data.empresa.pantone1 || "#00c02e"; // fallback
+          actualizarEquipos((prevEquipos) =>
+            prevEquipos.map((eq) => ({ ...eq, colorPrimario: pantone1 }))
+          );
+        }
+      } catch (error) {
+        console.error("❌ Error obteniendo empresa:", error);
+      }
+    };
+
+    if (slug) {
+      obtenerEmpresa();
+    }
+  }, [slug]);
 
   const getActiveTab = () => {
     const pathParts = location.pathname.split('/');
@@ -70,7 +93,11 @@ function App() {
 
   return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="overflow-x-auto border rounded-lg p-4 shadow-md" style={{ backgroundColor: hexToRgba(equipos[0].colorPrimario, 0.6) }}>
+      <div
+        className="overflow-x-auto border rounded-lg p-4 shadow-md"
+        style={{ backgroundColor: hexToRgba(equipos[0].colorPrimario, 0.6) }}
+      >
+        {/* 🔹 Navegación */}
         <div className="flex justify-around border-b border-gray-300">
           <Link to={`/cliente/${slug}/perfil`} className={getTabClass("perfil")}>
             <MdAdUnits className="inline mr-2" /> Perfil
@@ -89,6 +116,7 @@ function App() {
           </Link>
         </div>
 
+        {/* 🔹 Contenido dinámico */}
         <div className="mt-4 text-center">
           {activeTab === "perfil" && (
             <div className='container'>
@@ -100,7 +128,6 @@ function App() {
                   actualizarColor={actualizarColor}
                 />
               ))}
-              {/* Pasamos slug por props */}
               <Cliente slug={slug} colorPrimario={equipos[0].colorPrimario} />
             </div>
           )}
@@ -132,7 +159,6 @@ function App() {
                   colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
                 />
               ))}
-
             </div>
           )}
         </div>
@@ -147,5 +173,6 @@ function App() {
 }
 
 export default App;
+
 
 
