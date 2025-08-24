@@ -125,11 +125,14 @@ function App() {
             <div className='container'>
               {equipos.map((equipo) => (
                 <Contacto
+                  slug={slug}
                   datos={equipo}
                   key={equipo.id}
+                  colorPrimario={equipos[0].colorPrimario}
                   colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
                 />
               ))}
+
             </div>
           )}
         </div>
