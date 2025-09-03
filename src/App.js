@@ -128,14 +128,21 @@ function App() {
                   actualizarColor={actualizarColor}
                 />
               ))}
-              <Cliente slug={slug} colorPrimario={equipos[0].colorPrimario} />
+              <Cliente 
+              slug={slug} 
+              colorPrimario={equipos[0].colorPrimario} />
             </div>
           )}
 
           {activeTab === "empresa" && (
             <div className='container'>
               {equipos.map((equipo) => (
-                <Business datos={equipo} key={equipo.id} />
+                <Business
+                slug={slug} 
+                datos={equipo} 
+                key={equipo.id} 
+                
+                />
               ))}
             </div>
           )}
