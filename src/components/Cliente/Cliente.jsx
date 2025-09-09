@@ -7,9 +7,24 @@ const Cliente = ({ slug, colorPrimario }) => {
   console.log("📌 Slug recibido en Cliente:", slug);
 
   const [persona, setPersona] = useState(null);
-  const [empresa, setEmpresa] = useState(null);   // <-- nuevo
+  const [empresa, setEmpresa] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [mostrarQR, setMostrarQR] = useState(false); // Estado para controlar la visibilidad del QR
+
+  // Función para compartir en WhatsApp sin ventana de confirmación
+const handleWhatsAppShare = () => {
+  // Usar el emoji directamente (no el código hexadecimal)
+  const message = `Hola somos ${empresa.razon_social}. Te comparto nuestra tarjeta digital https://elizazq0403.github.io/DigitalSolutions1/`;
+  
+  // encodeURIComponent codificará correctamente el emoji para la URL
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`, '_blank');
+};
+
+  // Función para mostrar/ocultar el código QR
+  const toggleQR = () => {
+    setMostrarQR(!mostrarQR);
+  };
 
   useEffect(() => {
     const obtenerPerfil = async () => {
@@ -19,15 +34,12 @@ const Cliente = ({ slug, colorPrimario }) => {
           return;
         }
 
-        // 🔄 Endpoint combinado /perfil/{slug_completo}
-        // Ej: /perfil/empresa-slug_persona
         const response = await axios.get(`http://localhost:5000/personas/${slug}`);
 
         if (!response.data.persona || !response.data.empresa) {
           throw new Error(response.data.error || "No se encontraron datos para este perfil");  
         }
 
-        // ✅ Guardamos empresa y persona
         setPersona(response.data.persona);
         setEmpresa(response.data.empresa);
 
@@ -42,16 +54,12 @@ const Cliente = ({ slug, colorPrimario }) => {
     obtenerPerfil();
   }, [slug]);
 
-  // 🌀 Loader mientras esperamos datos
   if (loading) return <Spin tip="Cargando datos..." size="large" />;
 
-  // ❌ Si hay error
   if (error) return <div className="error-message">Error: {error}</div>;
 
-  // 📭 Validación de datos
   if (!persona && !empresa) return <p>No se encontró el perfil.</p>;
 
-  // Datos de Persona
   const {
     nombre,
     cargo,
@@ -63,7 +71,6 @@ const Cliente = ({ slug, colorPrimario }) => {
 
   return (
     <div className="cliente-card">
-      {/* 🏷️ Encabezado con nombre de empresa y foto de la persona */}
       <div className="cliente-header" style={{ backgroundColor: colorPrimario, position: "relative" }}>
         <h2 className="cliente-titulo">{empresa.razon_social}</h2>
         <img
@@ -73,13 +80,11 @@ const Cliente = ({ slug, colorPrimario }) => {
         />
       </div>
 
-      {/* 📋 Información del cliente */}
       <div className="cliente-info">
         <h4 style={{ color: colorPrimario }}>{nombre}</h4>
         <hr style={{ backgroundColor: colorPrimario }} />
         <h5><strong>{cargo}</strong></h5>
 
-        {/* 🔗 Sección de enlaces sociales */}
         <div className="social-links">
           <a href={`tel:${celular}`}>
             <div className="social-icon-box">
@@ -102,43 +107,62 @@ const Cliente = ({ slug, colorPrimario }) => {
             </div>
           </a>
 
-          <a href="https://www.hotmail.com" target="_blank" rel="noopener noreferrer">
-            <div className="social-icon-box">
-              <img src={require('../../assets/img/descarga.png')} alt="Icono Descargar" className="iphone" />
-              <span className="icon-label"><strong>Contacto</strong></span>    
-            </div>
-          </a>
+          <a
+          href={`http://localhost:5000/contacto/${slug}.vcf`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="social-icon-box">
+            <img
+              src={require('../../assets/img/descarga.png')}
+              alt="Icono Descargar"
+              className="iphone"
+            />
+            <span className="icon-label"><strong>Contacto</strong></span>    
+          </div>
+        </a>
 
-          <a href="https://api.whatsapp.com/send?text=https://elizazq0403.github.io/DigitalSolutions1/" target="_blank" rel="noopener noreferrer">
-            <div className="social-icon-box">
-              <img src={require('../../assets/img/compartir2.png')} alt="Icono Compartir" className="iphone" />
-              <span className="icon-label"><strong>Compartir Wp</strong></span>
-            </div>
-          </a>
-
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-            <div className="social-icon-box">
-              <img src={require('../../assets/img/compartir.png')} alt="Icono Compartir" className="iphone" />
-              <span className="icon-label"><strong>Compartir QR</strong></span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      {/* 📱 QR de contacto */}
-      <div className="cliente-inf">
-        <div className="social-redes">
-          <div className="cuadrado-con-borde-int">
-            <div className="borde-interno-rojo" style={{ border: `3px solid ${colorPrimario}` }}>
-              <img
-                src={require('../../assets/img/CODIGO QR.jpg')}
-                alt="QR"
-                className="tarjeta-qr-imagen"
-              />
-            </div>
+          {/* Botón de Compartir Wp modificado */}
+          <div className="social-icon-box" onClick={handleWhatsAppShare} style={{ cursor: 'pointer' }}>
+            <img
+              src={require("../../assets/img/compartir2.png")}
+              alt="Icono Compartir"
+              className="iphone"
+            />
+            <span className="icon-label">
+              <strong>Compartir Wp</strong>
+            </span>
+          </div>
+          
+          {/* Botón de Compartir QR - Ahora con funcionalidad para mostrar/ocultar QR */}
+          <div className="social-icon-box" onClick={toggleQR} style={{ cursor: 'pointer' }}>
+            <img src={require('../../assets/img/compartir.png')} alt="Icono Compartir" className="iphone" />
+            <span className="icon-label"><strong>Compartir QR</strong></span>
           </div>
         </div>
       </div>
+
+      {/* 📱 QR de contacto - Solo visible cuando mostrarQR es true */}
+      {mostrarQR && (
+        <section className="seccion-codigo-qr">
+          <div className="cliente-inf">
+            <div className="social-redes">
+              <div className="cuadrado-con-borde-int">
+                <div 
+                  className="borde-interno-rojo" 
+                  style={{ border: `3px solid ${colorPrimario}` }}
+                >
+                  <img
+                    src={require('../../assets/img/CODIGO QR.jpg')}
+                    alt="QR de contacto"
+                    className="tarjeta-qr-imagen"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 };

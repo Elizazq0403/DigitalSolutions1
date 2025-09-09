@@ -10,7 +10,7 @@ const QuienesSomos = () => {
     const fetchSesiones = async () => {
       try {
         // si tienes slug -> necesitas un endpoint que convierta slug -> empresa_id
-        const empresaId = 1; // por ahora quemado para pruebas
+        const empresaId = 2; // por ahora quemado para pruebas
         const response = await fetch(`http://localhost:5000/sesiones/${empresaId}`);
         const data = await response.json();
         setSesiones(data);

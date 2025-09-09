@@ -17,7 +17,7 @@ const Empresa = (props) => {
         {
             colaboradores.length > 0 &&
             <section className="equipo" style={obj}> {/*className="equipo" style={obj}, borrando es se ajusta el tamaño sin el fondo de la mitad */}
-                {/**/}
+                {/*Este es el input que nos trae la tabla de colores*/}
                 <input
                     type='color' /*Este es el input que nos trae la tabla de colores*/
                     className="input-color" /*Esta clase le da posicion al input*/
