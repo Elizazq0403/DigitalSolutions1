@@ -1,25 +1,22 @@
 import "./Cliente.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Spin } from 'antd';
 
 const Cliente = ({ slug, colorPrimario }) => {
   console.log("📌 Slug recibido en Cliente:", slug);
 
   const [persona, setPersona] = useState(null);
   const [empresa, setEmpresa] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [mostrarQR, setMostrarQR] = useState(false); // Estado para controlar la visibilidad del QR
+  const [mostrarQR, setMostrarQR] = useState(false);
 
   // Función para compartir en WhatsApp sin ventana de confirmación
-const handleWhatsAppShare = () => {
-  // Usar el emoji directamente (no el código hexadecimal)
-  const message = `Hola somos ${empresa.razon_social}. Te comparto nuestra tarjeta digital https://elizazq0403.github.io/DigitalSolutions1/`;
-  
-  // encodeURIComponent codificará correctamente el emoji para la URL
-  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`, '_blank');
-};
+  const handleWhatsAppShare = () => {
+    if (!empresa) return;
+    
+    const message = `Hola somos ${empresa.razon_social}. Te comparto nuestra tarjeta digital https://elizazq0403.github.io/DigitalSolutions1/`;
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`, '_blank');
+  };
 
   // Función para mostrar/ocultar el código QR
   const toggleQR = () => {
@@ -46,19 +43,16 @@ const handleWhatsAppShare = () => {
       } catch (err) {
         console.error("Error al obtener perfil:", err);
         setError(err.message);
-      } finally {
-        setLoading(false);
       }
     };
 
     obtenerPerfil();
   }, [slug]);
 
-  if (loading) return <Spin tip="Cargando datos..." size="large" />;
-
-  if (error) return <div className="error-message">Error: {error}</div>;
-
-  if (!persona && !empresa) return <p>No se encontró el perfil.</p>;
+  // Si no hay datos, simplemente no renderizar nada o mostrar un mensaje suave
+  if (!persona || !empresa) {
+    return null; // o puedes poner un mensaje suave: return <div>Buscando información...</div>;
+  }
 
   const {
     nombre,
@@ -108,19 +102,19 @@ const handleWhatsAppShare = () => {
           </a>
 
           <a
-          href={`http://localhost:5000/contacto/${slug}.vcf`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="social-icon-box">
-            <img
-              src={require('../../assets/img/descarga.png')}
-              alt="Icono Descargar"
-              className="iphone"
-            />
-            <span className="icon-label"><strong>Contacto</strong></span>    
-          </div>
-        </a>
+            href={`http://localhost:5000/contacto/${slug}.vcf`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="social-icon-box">
+              <img
+                src={require('../../assets/img/descarga.png')}
+                alt="Icono Descargar"
+                className="iphone"
+              />
+              <span className="icon-label"><strong>Contacto</strong></span>    
+            </div>
+          </a>
 
           {/* Botón de Compartir Wp modificado */}
           <div className="social-icon-box" onClick={handleWhatsAppShare} style={{ cursor: 'pointer' }}>
@@ -134,7 +128,7 @@ const handleWhatsAppShare = () => {
             </span>
           </div>
           
-          {/* Botón de Compartir QR - Ahora con funcionalidad para mostrar/ocultar QR */}
+          {/* Botón de Compartir QR */}
           <div className="social-icon-box" onClick={toggleQR} style={{ cursor: 'pointer' }}>
             <img src={require('../../assets/img/compartir.png')} alt="Icono Compartir" className="iphone" />
             <span className="icon-label"><strong>Compartir QR</strong></span>

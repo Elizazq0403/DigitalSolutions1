@@ -192,11 +192,6 @@ const Contacto = ({ slug, colorPrimario, empresaId }) => {
               </div>
             </div>
           )}
-
-          {/* ✅ AQUÍ PASAS EL id_empresa COMO PROP */}
-          {id_empresa && (
-            <QuienesSomos empresaId={id_empresa} />
-          )}
         </div>
       </div>
     </section>
