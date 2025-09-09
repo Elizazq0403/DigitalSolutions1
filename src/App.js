@@ -206,21 +206,25 @@ function App() {
         {/* 🔹 Contenido dinámico */}
         <div className="mt-4 text-center">
           {activeTab === "perfil" && (
-            <div className='container'>
-              {equipos.map((equipo) => (
-                <Empresa
-                  datos={equipo}
-                  key={equipo.id}
-                  colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
-                  actualizarColor={actualizarColor}
-                />
-              ))}
-              <Cliente 
-                slug={slug} 
-                colorPrimario={equipos[0].colorPrimario} 
+          <div className='container'>
+            {equipos.map((equipo) => (
+              <Empresa
+                datos={equipo}
+                key={equipo.id}
+                colaboradores={colaboradores.filter(
+                  (colaborador) => colaborador.equipo === equipo.titulo
+                )}
+                actualizarColor={actualizarColor}
+                empresaNombreUsuario={empresaData?.nombre_usuario_url}  // ✅ Enviando dato al componente
               />
-            </div>
-          )}
+            ))}
+            <Cliente 
+              slug={slug} 
+              colorPrimario={equipos[0].colorPrimario} 
+            />
+          </div>
+        )}
+
 
           {activeTab === "empresa" && (
             console.log("🔍 Equipos a mapear:", equipos),
