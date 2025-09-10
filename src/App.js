@@ -34,12 +34,12 @@ const DebugInfo = ({ slug, empresaData, loading, activeTab }) => (
     fontSize: '12px',
     maxWidth: '300px'
   }}>
-    <h4>🐛 DEBUG INFO</h4>
+    {/* Mostrar información de depuración <h4>🐛 DEBUG INFO</h4>
     <p><strong>Slug:</strong> {slug}</p>
     <p><strong>empresaData:</strong> {empresaData ? 'EXISTE' : 'NULL'}</p>
     <p><strong>id_empresa:</strong> {empresaData?.id_empresa || 'NO DISPONIBLE'}</p>
     <p><strong>Loading:</strong> {loading ? 'true' : 'false'}</p>
-    <p><strong>Active Tab:</strong> {activeTab}</p>
+    <p><strong>Active Tab:</strong> {activeTab}</p>*/}
   </div>
 );
 
@@ -274,10 +274,10 @@ function App() {
         </div>
       </div>
 
-      <div className="App">
+      {/*<div className="App">
         <h1>Mi App Digital</h1>
         <PruebaConexion />
-      </div>
+      </div>*/}
     </div>
   );
 }
