@@ -6,10 +6,9 @@ import fotoProductos from "../../assets/img/Contacto_3D.png";
 import correo from "../../assets/img/correo ok.png";
 import llamar from "../../assets/img/llamar ok.png";
 import ubicacion from "../../assets/img/ubicacion ok.png";
-import QuienesSomos from "../../components/QuienesSomos/QuienesSomos"; // ✅ Importa QuienesSomos
 
-const Contacto = ({ slug, colorPrimario, empresaId }) => {
-  console.log("✅ Contacto - Props recibidos:", { slug, colorPrimario, empresaId });
+const Contacto = ({ slug, colorPrimario }) => {
+  console.log("📌 Slug recibido en Contacto:", slug);
 
   const [persona, setPersona] = useState(null);
   const [empresa, setEmpresa] = useState(null);
@@ -56,7 +55,6 @@ const Contacto = ({ slug, colorPrimario, empresaId }) => {
 
   // ✅ Variables de empresa
   const {
-    id_empresa,
     razon_social,
     nit,
     direccion,
@@ -64,8 +62,6 @@ const Contacto = ({ slug, colorPrimario, empresaId }) => {
     correo_electronico,
     link_ubicacion_maps,
   } = empresa;
-
-  console.log("📌 id_empresa recibido en Contacto:", id_empresa); // Aquí tienes el id_empresa disponible
 
   // ✅ Variables de persona
   const { link_facebook, link_instagram, link_pagina_web } = persona;
@@ -81,7 +77,7 @@ const Contacto = ({ slug, colorPrimario, empresaId }) => {
           <h2 className="cliente-titulo">Datos de Contacto</h2>
           <img
             src={fotoProductos}
-            alt="Contacto"
+            alt="Ubicación"
             style={{ border: `4px solid ${colorPrimario}` }}
           />
         </div>
@@ -104,39 +100,33 @@ const Contacto = ({ slug, colorPrimario, empresaId }) => {
             </div>
           </div>
           <div className="social-redes">
-            {link_facebook && (
-              <a href={link_facebook} target="_blank" rel="noopener noreferrer">
-                <div className="social-icon-normal">
-                  <img
-                    src={require("../../assets/img/facebook.png")}
-                    alt="Facebook"
-                    className="iphone"
-                  />
-                </div>
-              </a>
-            )}
-            {link_instagram && (
-              <a href={link_instagram} target="_blank" rel="noopener noreferrer">
-                <div className="social-icon-normal">
-                  <img
-                    src={require("../../assets/img/instagram.png")}
-                    alt="Instagram"
-                    className="iphone"
-                  />
-                </div>
-              </a>
-            )}
-            {link_pagina_web && (
-              <a href={link_pagina_web} target="_blank" rel="noopener noreferrer">
-                <div className="social-icon-normal">
-                  <img
-                    src={require("../../assets/img/icono internet.png")}
-                    alt="Web"
-                    className="iphone"
-                  />
-                </div>
-              </a>
-            )}
+            <a href={link_facebook} target="_blank" rel="noopener noreferrer">
+              <div className="social-icon-normal">
+                <img
+                  src={require("../../assets/img/facebook.png")}
+                  alt="Icono facebook"
+                  className="iphone"
+                />
+              </div>
+            </a>
+            <a href={link_instagram} target="_blank" rel="noopener noreferrer">
+              <div className="social-icon-normal">
+                <img
+                  src={require("../../assets/img/instagram.png")}
+                  alt="Icono instagram"
+                  className="iphone"
+                />
+              </div>
+            </a>
+            <a href={link_pagina_web} target="_blank" rel="noopener noreferrer">
+              <div className="social-icon-normal">
+                <img
+                  src={require("../../assets/img/icono internet.png")}
+                  alt="Icono internet"
+                  className="iphone"
+                />
+              </div>
+            </a>
           </div>
 
           {/* Datos de contacto */}
@@ -150,17 +140,29 @@ const Contacto = ({ slug, colorPrimario, empresaId }) => {
             <div className="cuadrado-con-borde-interno">
               <div>
                 <div className="icono-con-texto">
-                  <img src={ubicacion} alt="Ubicación" className="img-contacto" />
+                  <img
+                    src={ubicacion}
+                    alt="Icono ubicación"
+                    className="img-contacto"
+                  />
                 </div>
                 <p className="texto-superpuesto">{direccion}</p>
 
                 <div className="icono-con-texto">
-                  <img src={llamar} alt="Teléfono" className="img-contacto" />
+                  <img
+                    src={llamar}
+                    alt="Icono llamar"
+                    className="img-contacto"
+                  />
                 </div>
                 <p className="texto-superpuesto">{telefono}</p>
 
                 <div className="icono-con-texto">
-                  <img src={correo} alt="Correo" className="img-contacto" />
+                  <img
+                    src={correo}
+                    alt="Icono correo"
+                    className="img-contacto"
+                  />
                 </div>
                 <p className="texto-superpuesto">{correo_electronico}</p>
               </div>
@@ -168,30 +170,28 @@ const Contacto = ({ slug, colorPrimario, empresaId }) => {
           </div>
 
           {/* Google Maps */}
-          {link_ubicacion_maps && (
-            <div className="cliente-inf">
-              <div className="social-redes">
-                <div className="cuadrado-con-borde-int">
-                  <div
-                    className="borde-interno-rojo"
-                    style={{ border: `3px solid ${colorPrimario}` }}
-                  >
-                    <iframe
-                      title="Google Maps"
-                      className="google-maps"
-                      width="300%"
-                      height="300%"
-                      style={{ border: 0 }}
-                      loading="lazy"
-                      allowFullScreen
-                      referrerPolicy="no-referrer-when-downgrade"
-                      src={link_ubicacion_maps}
-                    ></iframe>
-                  </div>
+          <div className="cliente-inf">
+            <div className="social-redes">
+              <div className="cuadrado-con-borde-int">
+                <div
+                  className="borde-interno-rojo"
+                  style={{ border: `3px solid ${colorPrimario}` }}
+                >
+                  <iframe
+                    title="Google Maps"
+                    className="google-maps"
+                    width="300%"
+                    height="300%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src={link_ubicacion_maps}
+                  ></iframe>
                 </div>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </section>
