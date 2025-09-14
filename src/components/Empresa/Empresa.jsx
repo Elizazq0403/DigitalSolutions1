@@ -12,7 +12,7 @@ const Empresa = (props) => {
     <>
       {colaboradores.length > 0 && (
         <section className="equipo">
-          {/* ✅ Condición: solo aparece el input si el nombre_usuario_url es "webz" */}
+          {/* ✅ Condición: solo aparece el input si el nombre_usuario_url es "webz"*/}
           {empresaNombreUsuario === "webz" && (
             <input
               type="color"
@@ -22,7 +22,7 @@ const Empresa = (props) => {
                 actualizarColor(evento.target.value, id);
               }}
             />
-          )}
+          )} 
 
           <h3 style={estiloTitulo}></h3>
           <div className="colaboradores">

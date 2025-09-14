@@ -65,15 +65,20 @@ const ListProductos = ({ empresaId }) => {
             extra={
               <div style={{ width: 272, position: "relative", marginTop: "20px" }}>
                 <img
-                  src={item.link_imagen_producto}
+                  src={item.link_imagen_producto} 
                   alt={item.titulo}
                   style={{
                     width: "100%",
                     borderRadius: "8px",
                     display: "block",
                     objectFit: "cover",
+                    margin: "0 auto",   // ✅ centra horizontalmente
+                    justifyContent: "center",
+                    
                   }}
+                  
                 />
+
                 {/* Contador de likes (me gusta) 
                 <div
                   style={{
@@ -98,7 +103,7 @@ const ListProductos = ({ empresaId }) => {
               title={<a href={item.link_producto}>{item.titulo}</a>}
               description={item.descripcion2}
             />
-            <div style={{ whiteSpace: "pre-line" }}>{item.descripcion2}</div>
+            
           </List.Item>
         )}
       />

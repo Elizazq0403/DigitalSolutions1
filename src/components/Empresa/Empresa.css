@@ -1,16 +1,20 @@
 .equipo{
     width: 100%;
-    /*padding: 32px;*/
+    /*padding: 20px;*/
+    padding-bottom: 10px;
     box-sizing: border-box;
     text-align: center;
     font-size: 35px;
     position: relative;
+    
+    
 }
 
 .input-color{
     position: absolute;
     top: 20px;
     right: 50px;
+    
 }
 
 .equipo h3{
@@ -26,4 +30,9 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
  
+}
+
+.hr{
+    border-top-width: 0 !important;
+    
 }

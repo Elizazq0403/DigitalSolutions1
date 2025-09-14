@@ -46,7 +46,7 @@
 
 
 .colaborador-imagen {
-  width: 120px; /* Tamaño de la imagen */
+  width: 150px; /* Tamaño de la imagen */
   border-radius: 50%;
   border: 4px solid #7BB0F4; /* Borde mediano de color azul */
   position: relative;

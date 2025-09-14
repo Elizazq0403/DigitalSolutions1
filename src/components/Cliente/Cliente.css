@@ -44,6 +44,24 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   text-overflow: ellipsis; /* Agrega "..." si el texto es muy largo */
 }
 
+.marquee {
+  display: inline-block;
+  white-space: nowrap;      /* Que no se corte la frase */
+  overflow: hidden;
+  box-sizing: border-box;
+  animation: mover 8s linear infinite; /* 5 segundos, bucle infinito */
+  position: relative;
+}
+
+@keyframes mover {
+  0% {
+    transform: translateX(100%);  /* Empieza desde la derecha */
+  }
+  100% {
+    transform: translateX(-100%); /* Termina saliendo a la izquierda */
+  }
+}
+
 
 
 .cliente-card img {
@@ -106,11 +124,12 @@ font-size: 22px;
 line-height: 22px;
 font-weight: bold;
 margin-bottom: 8px;
+margin-top: 50px;
 border-bottom: 2px solid;
 padding-bottom: 3px;
 display: inline-block; /* Ajusta el ancho al tamaño del contenido */
 font-family: 'Nunito', sans-serif;
-  font-weight: 300;
+font-weight: 300;
 font-style: italic;    /* Cursiva */
 }
 
@@ -136,7 +155,7 @@ display: inline;
 .tarjeta-qr-imagen {
   display: block;
   width: 500% !important;
-  max-width: 280px ;
+  max-width: 210px ;
   height: auto;
   margin: 0 auto;
 }
@@ -153,7 +172,7 @@ display: inline;
 .social-links {
 display: grid;
 grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-gap: 30px; /* Espacio entre íconos */
+/* gap: 30px; Espacio entre íconos */
 justify-items: center;
 max-width: 400px;
 margin: 30px 30px; /*Espacio entre iconos redes sociales*/

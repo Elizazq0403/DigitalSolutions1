@@ -14,7 +14,7 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
 }
 
 .cliente-card .cliente-header img {
-  width: 120px; /* Ancho deseado */
+  width: 150px; /* Ancho deseado */
   height: auto; /* Mantén la proporción de la imagen */
   border-radius: 50%; /* Mantén la forma circular */
   border: 4px solid #000; /* Borde mediano de color azul */
@@ -25,7 +25,7 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
 
 
 .cliente-card img {
-  width: 60px;
+  width: 70px; /*Tamaño iconos perfil*/
   border-radius: 0%; /* estaba en 50%, para el qr */
   position: relative;
   bottom: -100px;
@@ -35,7 +35,7 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
 .tarjeta-qr-imagen {
   display: block;
   width: 500% !important;
-  max-width: 280px ;
+  max-width: 210px ;
   height: auto;
   margin: 0 auto;
   top: -5px;
@@ -103,8 +103,8 @@ display: inline;
 
 
 .social-icon-box {
-  width: 100px;
-  height: 100px;
+  width: 120px ;
+  height: 120px ;
   display: flex;
   flex-direction: column; /* Alinea la imagen y el texto verticalmente */
   align-items: center; /* Centra la imagen y el texto */

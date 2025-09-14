@@ -14,7 +14,7 @@
 
 
 .colaborador .producto-imagen {
-  width: 120px; /* Tamaño de la imagen */
+  width: 150px; /* Tamaño de la imagen */
   border-radius: 50%;
   border: 4px solid #7BB0F4; /* Borde mediano de color azul */
   position: relative;
@@ -101,7 +101,7 @@
 .tarjeta-qr-imagen {
   display: block;
   width: 500% !important;
-  max-width: 280px ;
+  max-width: 210px ;
   height: auto;
   margin: 0 auto;
   top: -5px;
