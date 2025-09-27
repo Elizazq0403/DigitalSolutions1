@@ -37,76 +37,58 @@ const ListProductos = ({ empresaId }) => {
 
   return (
     <div className="equipo">
-      {/* Título general */}
+      {/* Título general 
       <ul className="lista-productos">
         <li>{productos[0]?.titulo || "Distribuidores autorizados"}</li>
-      </ul>
+      </ul>*/}
 
-      {/* Descripción 1 (ejemplo, primer producto o fijo según BD) */}
-      <ul>
-        <li className="phase-title-li">
-          <a
-            href={productos[0]?.link_producto || "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {productos[0]?.descripcion1 || "Descripción principal"}
-          </a>
-        </li>
-      </ul>
 
       <List
-        itemLayout="vertical"
-        size="large"
-        dataSource={paginatedData}
-        renderItem={(item) => (
-          <List.Item
-            key={item.numero_producto}
-            extra={
-              <div style={{ width: 272, position: "relative", marginTop: "20px" }}>
-                <img
-                  src={item.link_imagen_producto} 
-                  alt={item.titulo}
-                  style={{
-                    width: "100%",
-                    borderRadius: "8px",
-                    display: "block",
-                    objectFit: "cover",
-                    margin: "0 auto",   // ✅ centra horizontalmente
-                    justifyContent: "center",
-                    
-                  }}
-                  
-                />
+      itemLayout="vertical"
+      size="large"
+      dataSource={paginatedData}
+      renderItem={(item) => (
+        <List.Item
+          key={item.numero_producto}
+          extra={
+            <div style={{ width: 272, position: "relative", marginTop: "20px" }}>
+              <img
+                src={item.link_imagen_producto} 
+                alt={item.titulo}
+                style={{
+                  width: "100%",
+                  borderRadius: "8px",
+                  display: "block",
+                  objectFit: "cover",
+                  margin: "0 auto",
+                  justifyContent: "center",
+                }}
+              />
+            </div>
+          }
+        >
+          {/* 🔹 Descripción 1 dinámica */}
+          <ul>
+            <li className="phase-title-li">
+              <a
+                href={item.link_producto || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.descripcion1 || "Descripción principal"}
+              </a>
+            </li>
+          </ul>
 
-                {/* Contador de likes (me gusta) 
-                <div
-                  style={{
-                    position: "absolute",
-                    right: 10,
-                    backgroundColor: "rgba(255, 255, 255, 0.85)",
-                    padding: "4px 8px",
-                    borderRadius: "4px",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "4px",
-                    boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
-                  }}
-                >
-                  <LikeOutlined style={{ cursor: "pointer" }} />
-                  <span>156</span>
-                </div>*/}
-              </div>
-            }
-          >
-            <List.Item.Meta
-              title={<a href={item.link_producto}>{item.titulo}</a>}
-              description={item.descripcion2}
-            />
-            
-          </List.Item>
-        )}
-      />
+          {/* 🔹 Descripción 2 dinámica (ya estaba bien) */}
+          <List.Item.Meta
+            title={<a href={item.link_producto}>{item.titulo}</a>}
+            description={item.descripcion2}
+          />
+        </List.Item>
+      )}
+    />
+
 
       <Pagination
         current={currentPage}
