@@ -2,6 +2,7 @@
     width: 340px;
     margin-bottom: 24px;
     position: relative;
+    
 }
 
 
@@ -52,6 +53,7 @@
   position: relative;
   bottom: -80px;
   box-sizing: border-box; /* Incluye el borde dentro del tamaño total */
+  
 }
 
 
@@ -60,14 +62,41 @@
     background: #FFFFFF;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
     border-radius: 0px 0px 20px 20px;
-    padding-top: 30px;
+    padding-top: 60px;
     padding-bottom: 10px;
     min-height: 100px;
     font-family: 'Montserrat', sans-serif;
     box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
-    /*height: 740px; debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
+    height: 740px;
     
 }
+
+.info {
+  max-height: 740px;   /* altura máxima fija */
+  overflow-y: auto;    /* scroll vertical interno */
+  padding-right: 8px;  /* un pequeño espacio para que no tape el scroll */
+}
+
+/* Personalizar el scroll (Chrome, Edge, Safari) */
+.info::-webkit-scrollbar {
+  width: 6px; /* ancho del scroll */
+}
+
+.info::-webkit-scrollbar-track {
+  background: transparent; /* sin fondo */
+}
+
+.info::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); /* color gris suave */
+  border-radius: 4px; /* bordes redondeados */
+}
+
+/* Para Firefox */
+.info {
+  scrollbar-width: thin; /* scroll delgado */
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
 
 .colaborador .info h4 {
   color: #6278F7;

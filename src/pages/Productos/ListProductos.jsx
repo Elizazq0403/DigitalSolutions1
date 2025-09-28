@@ -71,7 +71,7 @@ const ListProductos = ({ empresaId }) => {
           <ul>
             <li className="phase-title-li">
               <a
-                href={item.link_producto || "#"}
+                //href={item.link_producto || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
               >
