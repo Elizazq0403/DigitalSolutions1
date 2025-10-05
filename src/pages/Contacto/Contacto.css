@@ -41,9 +41,6 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   top: -5px;
 }
 
-
-
-
 /*Esta es la parte blanca del fondo de la tarjeta*/
 .cliente-card .cliente-info {
   background: #FFFFFF;
@@ -351,6 +348,86 @@ body {
   z-index: 2; /* Mayor que el borde interno */
   position: relative; /* Mantiene su posición dentro del contenedor */
 
+}
+
+.button {
+  text-decoration: none;
+  line-height: 1;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  background-color: #fff;
+  color: #121212;
+  cursor: pointer;
+  border: 2px solid var(--clr); /* ✅ Borde visible por defecto */
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.05);
+  transition: border 0.3s ease; /* transición suave */
+}
+
+.button-decor {
+  position: absolute;
+  inset: 0;
+  background-color: var(--clr);
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+  z-index: 0;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.button__icon {
+  width: 48px;
+  height: 60px;
+  background-color: var(--clr);
+  display: grid;
+  place-items: center;
+}
+
+.button__text {
+  display: inline-block;
+  transition: color 0.2s;
+  padding: 2px 1.5rem 2px;
+  padding-left: 0.75rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  width: 250px;
+}
+
+/* ✨ Al pasar el cursor, se quita el borde y vuelve al estilo original */
+.button:hover {
+  border: none;
+}
+
+.button:hover .button__text {
+  color: #fff;
+}
+
+.button:hover .button-decor {
+  transform: translate(0);
+}
+
+
+.button:hover .button-decor {
+  transform: translate(0);
+}
+
+.contacto-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
+  align-items: center; /* ✅ Centra horizontalmente los botones */
+  gap: 30px; /* Espacio vertical entre los botones */
+  width: 250px;
+  margin-left: auto;  /* opcional: centra el bloque completo */
+  margin-right: auto; /* dentro de su contenedor padre */
 }
 
 

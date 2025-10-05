@@ -6,6 +6,9 @@ import fotoProductos from "../../assets/img/Contacto_3D.png";
 import correo from "../../assets/img/correo ok.png";
 import llamar from "../../assets/img/llamar ok.png";
 import ubicacion from "../../assets/img/ubicacion ok.png";
+import IconoContacto from "../../components/ButtonContacto/IconoContacto";
+import { FaMapLocationDot } from "react-icons/fa6";
+import { MdOutlineAttachEmail, MdPhoneIphone} from "react-icons/md";
 
 const Contacto = ({ slug, colorPrimario }) => {
   console.log("📌 Slug recibido en Contacto:", slug);
@@ -136,38 +139,24 @@ const Contacto = ({ slug, colorPrimario }) => {
             </h5>
           </div>
 
-          <div className="social-redes">
-            <div className="cuadrado-con-borde-interno">
-              <div>
-                <div className="icono-con-texto">
-                  <img
-                    src={ubicacion}
-                    alt="Icono ubicación"
-                    className="img-contacto"
-                  />
-                </div>
-                <p className="texto-superpuesto">{direccion}</p>
-
-                <div className="icono-con-texto">
-                  <img
-                    src={llamar}
-                    alt="Icono llamar"
-                    className="img-contacto"
-                  />
-                </div>
-                <p className="texto-superpuesto">{telefono}</p>
-
-                <div className="icono-con-texto">
-                  <img
-                    src={correo}
-                    alt="Icono correo"
-                    className="img-contacto"
-                  />
-                </div>
-                <p className="texto-superpuesto">{correo_electronico}</p>
-              </div>
+          <div className="contacto-container">
+              <IconoContacto
+                icono={<FaMapLocationDot color="#fff" size={22} />}
+                texto={direccion}
+                color={colorPrimario}
+              />
+              <IconoContacto
+                icono={<MdPhoneIphone color="#fff" size={22} />}
+                texto={telefono}
+                color={colorPrimario}
+              />
+              <IconoContacto
+                icono={<MdOutlineAttachEmail color="#fff" size={22} />}
+                texto={correo_electronico}
+                color={colorPrimario}
+              />
             </div>
-          </div>
+
 
           {/* Google Maps */}
           <div className="cliente-inf">

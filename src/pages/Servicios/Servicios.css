@@ -24,7 +24,8 @@
 
 
 /*Esta es la parte blanco del fondo de la tarjeta*/
-.colaborador .info {
+.colaborador .info-pdtos
+ {
     background: #FFFFFF;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
     border-radius: 0px 0px 20px 20px;
@@ -42,7 +43,7 @@
 
   
 
-.colaborador .info h4 {
+.colaborador .info-pdtos h4 {
   color: #6278F7;
   font-size: 18px;
   line-height: 22px;
@@ -54,7 +55,7 @@
 }
 
 
-.colaborador .info h5 {
+.colaborador .info-pdtos h5 {
     font-size: 18px;
     line-height: 22px;
     color: #212121;

@@ -31,7 +31,7 @@ const Servicios = (props) => {
           />
         </div>
 
-        <div className="info">
+        <div className="info-pdtos">
           {/* ✅ ahora lo pasamos tal cual como en Business */}
           <ListProductos empresaId={empresaId} />
         </div>
