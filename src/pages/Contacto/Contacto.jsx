@@ -3,12 +3,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Spin } from "antd";
 import fotoProductos from "../../assets/img/Contacto_3D.png";
-import correo from "../../assets/img/correo ok.png";
-import llamar from "../../assets/img/llamar ok.png";
-import ubicacion from "../../assets/img/ubicacion ok.png";
 import IconoContacto from "../../components/ButtonContacto/IconoContacto";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { MdOutlineAttachEmail, MdPhoneIphone} from "react-icons/md";
+import SocialIcon from "../../components/SocialIcon/SocialIcon";
+import { FaFacebookF, FaInstagram, FaGlobe, FaMapMarkerAlt } from "react-icons/fa";
 
 const Contacto = ({ slug, colorPrimario }) => {
   console.log("📌 Slug recibido en Contacto:", slug);
@@ -102,35 +101,32 @@ const Contacto = ({ slug, colorPrimario }) => {
               </h5>
             </div>
           </div>
-          <div className="social-redes">
-            <a href={link_facebook} target="_blank" rel="noopener noreferrer">
-              <div className="social-icon-normal">
-                <img
-                  src={require("../../assets/img/facebook.png")}
-                  alt="Icono facebook"
-                  className="iphone"
-                />
-              </div>
-            </a>
-            <a href={link_instagram} target="_blank" rel="noopener noreferrer">
-              <div className="social-icon-normal">
-                <img
-                  src={require("../../assets/img/instagram.png")}
-                  alt="Icono instagram"
-                  className="iphone"
-                />
-              </div>
-            </a>
-            <a href={link_pagina_web} target="_blank" rel="noopener noreferrer">
-              <div className="social-icon-normal">
-                <img
-                  src={require("../../assets/img/icono internet.png")}
-                  alt="Icono internet"
-                  className="iphone"
-                />
-              </div>
-            </a>
-          </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+      <SocialIcon
+        icon={<FaFacebookF />}
+        color={colorPrimario}
+        link={link_facebook}
+        tooltip="Facebook"
+      />
+      <SocialIcon
+        icon={<FaGlobe />}
+        color={colorPrimario}
+        link={link_pagina_web}  
+        tooltip="Web"
+      />
+      <SocialIcon
+        icon={<FaInstagram />}
+        color={colorPrimario}
+        link={link_instagram}
+        tooltip="Instagram"
+      />
+      <SocialIcon
+        icon={<FaMapMarkerAlt />}
+        color={colorPrimario}
+        link={link_instagram}
+        tooltip="Maps"
+      />
+    </div>
 
           {/* Datos de contacto */}
           <div className="contacto-fuente">
