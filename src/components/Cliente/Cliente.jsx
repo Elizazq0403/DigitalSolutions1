@@ -86,7 +86,8 @@ const Cliente = ({ slug, colorPrimario }) => {
         <img
           src={link_foto}
           alt={nombre}
-          style={{ border: `4px solid ${colorPrimario}` }}
+          style={{ border: `4px 
+          solid ${colorPrimario}` }}
         />
       </div>
 

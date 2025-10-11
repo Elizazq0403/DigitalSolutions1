@@ -206,9 +206,10 @@ margin-right: 50px;  /* Espacio entre columnas */
 }
 
 .borde-interno-rojo::before {
+  /*Esta es la clase del borde blanco del QR*/
   content: ""; /* Genera un elemento visual */
   position: absolute;
-  left: -3px; /* Alineado con el borde rojo */
+  right: -3px; /* Alineado con el borde rojo */
   top: 13.33%; /* Inicio en un tercio desde la parte superior */
   width: 3px; /* Grosor del borde */
   height: 73.33%; /* Altura para cubrir un tercio del cuadrado */
@@ -272,6 +273,17 @@ body {
   flex-direction: column;
   align-items: center;
   /*margin-bottom: 15px;*/
+}
+
+.equipo-contacto   {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+    
 }
 
 .texto-contacto {

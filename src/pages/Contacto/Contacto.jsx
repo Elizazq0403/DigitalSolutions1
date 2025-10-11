@@ -16,6 +16,12 @@ const Contacto = ({ slug, colorPrimario }) => {
   const [empresa, setEmpresa] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [mostrarQR, setMostrarQR] = useState(false);
+
+  // Función para mostrar/ocultar el código QR
+  const toggleQR = () => {
+    setMostrarQR(!mostrarQR);
+  };
 
   useEffect(() => {
     const obtenerPerfil = async () => {
@@ -69,7 +75,7 @@ const Contacto = ({ slug, colorPrimario }) => {
   const { link_facebook, link_instagram, link_pagina_web } = persona;
 
   return (
-    <section className="equipo">
+    <section className="equipo-contacto">
       <div className="cliente-card">
         {/* Encabezado */}
         <div
@@ -97,7 +103,7 @@ const Contacto = ({ slug, colorPrimario }) => {
           <div>
             <div className="contacto-fuente">
               <h5 style={{ fontSize: 50 }}>
-                <strong>Síguenos</strong>
+                <strong>Contáctenos en:</strong>
               </h5>
             </div>
           </div>
@@ -123,17 +129,10 @@ const Contacto = ({ slug, colorPrimario }) => {
       <SocialIcon
         icon={<FaMapMarkerAlt />}
         color={colorPrimario}
-        link={link_instagram}
+        onClick={toggleQR}  
         tooltip="Maps"
       />
     </div>
-
-          {/* Datos de contacto */}
-          <div className="contacto-fuente">
-            <h5 style={{ fontSize: 50 }}>
-              <strong>Visítenos en</strong>
-            </h5>
-          </div>
 
           <div className="contacto-container">
               <IconoContacto
@@ -155,30 +154,34 @@ const Contacto = ({ slug, colorPrimario }) => {
 
 
           {/* Google Maps */}
-          <div className="cliente-inf">
-            <div className="social-redes">
-              <div className="cuadrado-con-borde-int">
-                <div
-                  className="borde-interno-rojo"
-                  style={{ border: `3px solid ${colorPrimario}` }}
-                >
-                  <iframe
-                    title="Google Maps"
-                    className="google-maps"
-                    width="300%"
-                    height="300%"
-                    style={{ border: 0 }}
-                    loading="lazy"
-                    allowFullScreen
-                    referrerPolicy="no-referrer-when-downgrade"
-                    src={link_ubicacion_maps}
-                  ></iframe>
+          {mostrarQR && (
+            <section className="seccion-codigo-qr">
+              <div className="cliente-inf">
+                <div className="social-redes">
+                  <div className="cuadrado-con-borde-int">
+                    <div
+                      className="borde-interno-rojo"
+                      style={{ border: `3px solid ${colorPrimario}` }}
+                    >
+                      <iframe
+                        title="Google Maps"
+                        className="google-maps"
+                        width="300%"
+                        height="300%"
+                        style={{ border: 0 }}
+                        loading="lazy"
+                        allowFullScreen
+                        referrerPolicy="no-referrer-when-downgrade"
+                        src={link_ubicacion_maps}
+                      ></iframe>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+          </section>
+        )}
         </div>
-      </div>
+      </div>  
     </section>
   );
 };
