@@ -1,6 +1,7 @@
 import "./Cliente.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { getApiUrl } from "../../../src/api/config";
 
 const Cliente = ({ slug, colorPrimario }) => {
   console.log("📌 Slug recibido en Cliente:", slug);
@@ -36,9 +37,7 @@ const Cliente = ({ slug, colorPrimario }) => {
           return;
         }
 
-        const response = await axios.get(
-          `http://localhost:5000/personas/${slug}`
-        );
+        const response = await axios.get(getApiUrl(`/personas/${slug}`));
 
         if (!response.data.persona || !response.data.empresa) {
           throw new Error(
@@ -147,7 +146,7 @@ const Cliente = ({ slug, colorPrimario }) => {
           </a>
 
           <a
-            href={`http://localhost:5000/contacto/${slug}.vcf`}
+            href={getApiUrl(`/contacto/${slug}.vcf`)}
             target="_blank"
             rel="noopener noreferrer"
           >

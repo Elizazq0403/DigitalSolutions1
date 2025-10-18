@@ -8,6 +8,7 @@ import { FaMapLocationDot } from "react-icons/fa6";
 import { MdOutlineAttachEmail, MdPhoneIphone} from "react-icons/md";
 import SocialIcon from "../../components/SocialIcon/SocialIcon";
 import { FaFacebookF, FaInstagram, FaGlobe, FaMapMarkerAlt } from "react-icons/fa";
+import { getApiUrl } from "../../../src/api/config.js";
 
 const Contacto = ({ slug, colorPrimario }) => {
   console.log("📌 Slug recibido en Contacto:", slug);
@@ -32,7 +33,7 @@ const Contacto = ({ slug, colorPrimario }) => {
         }
 
         // 🔹 Llamamos al endpoint unificado
-        const response = await axios.get(`http://localhost:5000/personas/${slug}`);
+        const response = await axios.get(getApiUrl(`/personas/${slug}`));
 
         if (!response.data.persona || !response.data.empresa) {
           throw new Error(

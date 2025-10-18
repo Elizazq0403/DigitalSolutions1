@@ -12,6 +12,7 @@ import Contacto from './pages/Contacto/Contacto';
 import { useLocation, useParams, Link } from "react-router-dom";
 import PruebaConexion from './components/Utils/PruebaConexion';
 import axios from "axios";
+import { getApiUrl } from "./api/config.js";
 
 const useSlug = () => {
   const { slug } = useParams();
@@ -78,9 +79,9 @@ function App() {
       try {
         setLoading(true);
         setApiError(null);
-        console.log("🌐 Haciendo fetch a:", `http://localhost:5000/personas/${slug}`);
+        console.log("🌐 Haciendo fetch a:", getApiUrl(`/personas/${slug}`));
         
-        const response = await axios.get(`http://localhost:5000/personas/${slug}`);
+        const response = await axios.get(getApiUrl(`/personas/${slug}`));
         
         // 🔹 DEPURACIÓN DETALLADA: Verifica la respuesta completa
         console.log("📦 Respuesta completa de la API:", response.data);

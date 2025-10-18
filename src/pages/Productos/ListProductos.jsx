@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { List, Pagination } from "antd";
 import { LikeOutlined } from "@ant-design/icons";
 import "./ListProductos.css";
+import { getApiUrl } from "../../../src/api/config.js";
+
 
 const ListProductos = ({ empresaId }) => {
   const [productos, setProductos] = useState([]);
@@ -17,7 +19,7 @@ const ListProductos = ({ empresaId }) => {
         return;
       }
 
-      const response = await fetch(`http://localhost:5000/productos/${empresaId}`);
+      const response = await fetch(getApiUrl(`/productos/${empresaId}`));
       const data = await response.json();
       console.log("👉 Productos recibidos:", data);
       setProductos(data);

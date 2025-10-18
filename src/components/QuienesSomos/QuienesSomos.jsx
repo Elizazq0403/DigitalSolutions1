@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./QuienesSomos.css";
+import { getApiUrl } from "../../../src/api/config";
 
 const QuienesSomos = ({ empresaId }) => {
   const [sesiones, setSesiones] = useState([]);
@@ -12,7 +13,7 @@ const QuienesSomos = ({ empresaId }) => {
           return;
         }
 
-        const response = await fetch(`http://localhost:5000/sesiones/${empresaId}`);
+        const response = await fetch(getApiUrl(`/sesiones/${empresaId}`));
         const data = await response.json();
         setSesiones(data);
       } catch (error) {
