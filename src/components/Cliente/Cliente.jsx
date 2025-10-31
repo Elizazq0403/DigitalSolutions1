@@ -2,6 +2,7 @@ import "./Cliente.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { getApiUrl } from "../../../src/api/config";
+import SocialIcon from "../SocialIcon/SocialIcon";
 
 const Cliente = ({ slug, colorPrimario }) => {
   console.log("📌 Slug recibido en Cliente:", slug);

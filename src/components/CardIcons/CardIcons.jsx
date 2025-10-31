@@ -1,14 +1,13 @@
 import React from "react";
-import "./CardIcons.css"; // Importa los estilos que verás abajo
+import "./CardIcons.css";
 
-// Componente genérico
 const CardIcons = ({ icons }) => {
   return (
     <div className="card">
       {icons.map((icon, index) => (
         <a
           key={index}
-          className={`social-link${index + 1}`}
+          className={`social-link${index + 3}`}
           onClick={icon.onClick}
           href={icon.link}
           target={icon.link ? "_blank" : undefined}
@@ -22,3 +21,4 @@ const CardIcons = ({ icons }) => {
 };
 
 export default CardIcons;
+
