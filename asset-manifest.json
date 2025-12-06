@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/DigitalSolutions1/static/css/main.3b950ee6.css",
+    "main.css": "/DigitalSolutions1/static/css/main.29859811.css",
     "main.js": "/DigitalSolutions1/static/js/main.2ede942e.js",
     "static/js/453.7335024e.chunk.js": "/DigitalSolutions1/static/js/453.7335024e.chunk.js",
     "static/media/compartir.png": "/DigitalSolutions1/static/media/compartir.053221f1558d92cc5f23.png",
@@ -58,12 +58,12 @@
     "static/media/ubicacion.png": "/DigitalSolutions1/static/media/ubicacion.054ed2d92cc15175d1c1.png",
     "static/media/llamar ok..png": "/DigitalSolutions1/static/media/llamar ok..86c018938dd5c30505db.png",
     "index.html": "/DigitalSolutions1/index.html",
-    "main.3b950ee6.css.map": "/DigitalSolutions1/static/css/main.3b950ee6.css.map",
+    "main.29859811.css.map": "/DigitalSolutions1/static/css/main.29859811.css.map",
     "main.2ede942e.js.map": "/DigitalSolutions1/static/js/main.2ede942e.js.map",
     "453.7335024e.chunk.js.map": "/DigitalSolutions1/static/js/453.7335024e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3b950ee6.css",
+    "static/css/main.29859811.css",
     "static/js/main.2ede942e.js"
   ]
 }
