@@ -16,11 +16,23 @@ const Cliente = ({ slug, colorPrimario }) => {
   const handleWhatsAppShare = () => {
     if (!empresa) return;
 
-    const message = `Hola somos ${empresa.razon_social}. Te comparto nuestra tarjeta digital https://elizazq0403.github.io/DigitalSolutions1/`;
+    const message = `Hola somos ${empresa.razon_social}. Te comparto nuestra tarjeta digital https://elizazq0403.github.io/DigitalSolutions1/#/cliente/webz-elizabeth-zapata/perfil`;
     window.open(
       `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`,
       "_blank"
     );
+  };
+
+  // Función para compartir en WhatsApp boton Hecho pór..
+    const handleWhatsApp = () => {
+      if (!empresa) return;
+
+      const message = `Hola WEB-Z Soluciones Digitales, estoy interesad@ en una tarjeta de presentación digital.`;
+      
+      window.open(
+          `https://api.whatsapp.com/send?phone=+573216921887&text=${encodeURIComponent(message)}`,
+          "_blank"
+      );
   };
 
   // Función para mostrar/ocultar el código QR
@@ -194,6 +206,20 @@ const Cliente = ({ slug, colorPrimario }) => {
               <strong>Compartir QR</strong>
             </span>
           </div>
+          {/* Botón de Hecho por... 
+          <div
+            className="social-icon-box"
+            onClick={handleWhatsApp}
+            style={{ cursor: "pointer" }}
+          >
+            <img
+              src={require("../../assets/img/Gemini_Generated_Image_w3ejlww3ejlww3ej-removebg-preview.png")}
+              alt="Icono Compartir"
+              className="iphone"
+            />
+            <span className="icon-label">
+            </span>
+          </div>*/}
         </div>
       </div>
 

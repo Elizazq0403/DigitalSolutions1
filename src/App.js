@@ -13,12 +13,22 @@ import { useLocation, useParams, Link } from "react-router-dom";
 import PruebaConexion from './components/Utils/PruebaConexion';
 import axios from "axios";
 import { getApiUrl } from "./api/config.js";
+import { useNavigate } from 'react-router-dom';
 
 const useSlug = () => {
   const { slug } = useParams();
-  if (slug) return slug; 
-  const pathParts = window.location.pathname.split('/');
-  return pathParts[2] || ''; 
+  
+  // Si useParams no funciona, extraer del hash
+  if (slug) return slug;
+  
+  // Extraer slug del hash para HashRouter
+  const hash = window.location.hash; // "#/cliente/webz-elizabeth-zapata/perfil"
+  const parts = hash.split('/');
+  
+  console.log('🔍 Hash parts:', parts);
+  
+  // parts[0] = "#", parts[1] = "cliente", parts[2] = "webz-elizabeth-zapata"
+  return parts[2] || '';
 };
 
 // 🔹 Componente de Debug
@@ -72,6 +82,16 @@ function App() {
   const [empresaData, setEmpresaData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [apiError, setApiError] = useState(null);
+
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    const redirectPath = sessionStorage.redirect;
+    if (redirectPath && redirectPath !== window.location.pathname) {
+      sessionStorage.removeItem('redirect');
+      navigate(redirectPath);
+    }
+  }, [navigate]);
 
   // 🔹 Obtener datos completos de la empresa
   useEffect(() => {

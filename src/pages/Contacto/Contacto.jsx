@@ -35,6 +35,29 @@ const Contacto = ({ slug, colorPrimario }) => {
         // 🔹 Llamamos al endpoint unificado
         const response = await axios.get(getApiUrl(`/personas/${slug}`));
 
+          // ✅ AGREGAR ESTOS CONSOLE.LOGS:
+      console.log("🔍 Respuesta completa de la API:", response.data);
+      console.log("👤 Objeto persona completo:", response.data.persona);
+      console.log("📋 Todos los campos de persona:", Object.keys(response.data.persona || {}));
+      
+      // Verificar específicamente redes sociales
+      if (response.data.persona) {
+        console.log("🔎 Buscando campos de redes sociales:");
+        console.log("link_facebook:", response.data.persona.link_facebook);
+        console.log("link_instagram:", response.data.persona.link_instagram);
+        console.log("link_pagina_web:", response.data.persona.link_pagina_web);
+        
+        // Buscar cualquier campo que contenga "facebook", "instagram", etc.
+        const allKeys = Object.keys(response.data.persona);
+        const socialKeys = allKeys.filter(key => 
+          key.toLowerCase().includes('facebook') || 
+          key.toLowerCase().includes('instagram') || 
+          key.toLowerCase().includes('web') ||
+          key.toLowerCase().includes('link')
+        );
+        console.log("🔍 Posibles campos de redes:", socialKeys);
+      }
+
         if (!response.data.persona || !response.data.empresa) {
           throw new Error(
             response.data.error || "No se encontraron datos para este perfil"
@@ -113,6 +136,7 @@ const Contacto = ({ slug, colorPrimario }) => {
         icon={<FaFacebookF />}
         color={colorPrimario}
         link={link_facebook}
+        //link="https://www.facebook.com/profile.php?id=100067087870686"
         tooltip="Facebook"
       />
       <SocialIcon
@@ -156,7 +180,7 @@ const Contacto = ({ slug, colorPrimario }) => {
 
           {/* Google Maps */}
           {mostrarQR && (
-            <section className="seccion-codigo-qr">
+            <section className="seccion-codigo-qr-">
               <div className="cliente-inf">
                 <div className="social-redes">
                   <div className="cuadrado-con-borde-int">
@@ -179,8 +203,8 @@ const Contacto = ({ slug, colorPrimario }) => {
                   </div>
                 </div>
               </div>
-          </section>
-        )}
+            </section>
+          )}
         </div>
       </div>  
     </section>
