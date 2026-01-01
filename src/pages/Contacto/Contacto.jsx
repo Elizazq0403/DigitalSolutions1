@@ -1,62 +1,53 @@
 import "./Contacto.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { Spin } from "antd";
 import fotoProductos from "../../assets/img/Contacto_3D.png";
 import IconoContacto from "../../components/ButtonContacto/IconoContacto";
 import { FaMapLocationDot } from "react-icons/fa6";
-import { MdOutlineAttachEmail, MdPhoneIphone} from "react-icons/md";
+import { MdOutlineAttachEmail, MdPhoneIphone } from "react-icons/md";
 import SocialIcon from "../../components/SocialIcon/SocialIcon";
 import { FaFacebookF, FaInstagram, FaGlobe, FaMapMarkerAlt } from "react-icons/fa";
 import { getApiUrl } from "../../../src/api/config.js";
 
-const Contacto = ({ slug, colorPrimario }) => {
+const Contacto = ({ slug, colorPrimario, datos }) => {
   console.log("📌 Slug recibido en Contacto:", slug);
+  console.log("📌 Datos recibidos en Contacto:", datos);
+  console.log("📌 link_logo desde datos:", datos?.link_logo);
 
   const [persona, setPersona] = useState(null);
   const [empresa, setEmpresa] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [mostrarQR, setMostrarQR] = useState(false);
+  const [mostrarMapa, setMostrarMapa] = useState(false);
 
-  // Función para mostrar/ocultar el código QR
-  const toggleQR = () => {
-    setMostrarQR(!mostrarQR);
+  // 🔽 Ref para scroll al mapa
+  const mapaRef = useRef(null);
+
+  // Extraer link_logo de datos (si no existe, usar fotoProductos)
+  const link_logo = datos?.link_logo || fotoProductos;
+
+  // Mostrar / ocultar Google Maps
+  const toggleMapa = () => {
+    setMostrarMapa((prev) => !prev);
   };
+
+  // 🔽 Scroll automático cuando el mapa aparece
+  useEffect(() => {
+    if (mostrarMapa && mapaRef.current) {
+      mapaRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [mostrarMapa]);
 
   useEffect(() => {
     const obtenerPerfil = async () => {
       try {
-        if (!slug) {
-          console.warn("⚠️ No se recibió un slug válido para buscar el perfil.");
-          return;
-        }
+        if (!slug) return;
 
-        // 🔹 Llamamos al endpoint unificado
         const response = await axios.get(getApiUrl(`/personas/${slug}`));
-
-          // ✅ AGREGAR ESTOS CONSOLE.LOGS:
-      console.log("🔍 Respuesta completa de la API:", response.data);
-      console.log("👤 Objeto persona completo:", response.data.persona);
-      console.log("📋 Todos los campos de persona:", Object.keys(response.data.persona || {}));
-      
-      // Verificar específicamente redes sociales
-      if (response.data.persona) {
-        console.log("🔎 Buscando campos de redes sociales:");
-        console.log("link_facebook:", response.data.persona.link_facebook);
-        console.log("link_instagram:", response.data.persona.link_instagram);
-        console.log("link_pagina_web:", response.data.persona.link_pagina_web);
-        
-        // Buscar cualquier campo que contenga "facebook", "instagram", etc.
-        const allKeys = Object.keys(response.data.persona);
-        const socialKeys = allKeys.filter(key => 
-          key.toLowerCase().includes('facebook') || 
-          key.toLowerCase().includes('instagram') || 
-          key.toLowerCase().includes('web') ||
-          key.toLowerCase().includes('link')
-        );
-        console.log("🔍 Posibles campos de redes:", socialKeys);
-      }
 
         if (!response.data.persona || !response.data.empresa) {
           throw new Error(
@@ -85,7 +76,7 @@ const Contacto = ({ slug, colorPrimario }) => {
 
   if (!persona && !empresa) return <p>No se encontró el perfil.</p>;
 
-  // ✅ Variables de empresa
+  // Empresa
   const {
     razon_social,
     nit,
@@ -95,26 +86,31 @@ const Contacto = ({ slug, colorPrimario }) => {
     link_ubicacion_maps,
   } = empresa;
 
-  // ✅ Variables de persona
+  // Persona
   const { link_facebook, link_instagram, link_pagina_web } = persona;
 
   return (
     <section className="equipo-contacto">
       <div className="cliente-card">
-        {/* Encabezado */}
+        {/* HEADER */}
         <div
           className="cliente-header"
           style={{ backgroundColor: colorPrimario, position: "relative" }}
         >
           <h2 className="cliente-titulo">Datos de Contacto</h2>
           <img
-            src={fotoProductos}
-            alt="Ubicación"
+            src={link_logo} /* Aquí usamos link_logo en lugar de fotoProductos */
+            alt={datos?.nombre || "Logo de la empresa"}
             style={{ border: `4px solid ${colorPrimario}` }}
+            onError={(e) => {
+              // Si el logo falla, usar la imagen por defecto
+              console.error("❌ Error cargando logo:", link_logo);
+              e.target.src = fotoProductos;
+            }}
           />
         </div>
 
-        {/* Info Empresa */}
+        {/* INFO */}
         <div className="cliente-info">
           <div className="colaborador-card">
             <h4 style={{ color: colorPrimario }}>{razon_social}</h4>
@@ -123,64 +119,62 @@ const Contacto = ({ slug, colorPrimario }) => {
             </h5>
           </div>
 
-          {/* Redes sociales */}
-          <div>
-            <div className="contacto-fuente">
-              <h5 style={{ fontSize: 50 }}>
-                <strong>Contáctenos en:</strong>
-              </h5>
-            </div>
+          <div className="contacto-fuente">
+            <h5 style={{ fontSize: 50 }}>
+              <strong>Contáctenos en:</strong>
+            </h5>
           </div>
+
+          {/* REDES */}
           <div style={{ display: "flex", justifyContent: "center" }}>
-      <SocialIcon
-        icon={<FaFacebookF />}
-        color={colorPrimario}
-        link={link_facebook}
-        //link="https://www.facebook.com/profile.php?id=100067087870686"
-        tooltip="Facebook"
-      />
-      <SocialIcon
-        icon={<FaGlobe />}
-        color={colorPrimario}
-        link={link_pagina_web}  
-        tooltip="Web"
-      />
-      <SocialIcon
-        icon={<FaInstagram />}
-        color={colorPrimario}
-        link={link_instagram}
-        tooltip="Instagram"
-      />
-      <SocialIcon
-        icon={<FaMapMarkerAlt />}
-        color={colorPrimario}
-        onClick={toggleQR}  
-        tooltip="Maps"
-      />
-    </div>
+            <SocialIcon
+              icon={<FaFacebookF />}
+              color={colorPrimario}
+              link={link_facebook}
+              tooltip="Facebook"
+            />
+            <SocialIcon
+              icon={<FaGlobe />}
+              color={colorPrimario}
+              link={link_pagina_web}
+              tooltip="Web"
+            />
+            <SocialIcon
+              icon={<FaInstagram />}
+              color={colorPrimario}
+              link={link_instagram}
+              tooltip="Instagram"
+            />
+            <SocialIcon
+              icon={<FaMapMarkerAlt />}
+              color={colorPrimario}
+              onClick={toggleMapa}
+              tooltip="Maps"
+            />
+          </div>
 
+          {/* DATOS */}
           <div className="contacto-container">
-              <IconoContacto
-                icono={<FaMapLocationDot color="#fff" size={22} />}
-                texto={direccion}
-                color={colorPrimario}
-              />
-              <IconoContacto
-                icono={<MdPhoneIphone color="#fff" size={22} />}
-                texto={telefono}
-                color={colorPrimario}
-              />
-              <IconoContacto
-                icono={<MdOutlineAttachEmail color="#fff" size={22} />}
-                texto={correo_electronico}
-                color={colorPrimario}
-              />
-            </div>
+            <IconoContacto
+              icono={<FaMapLocationDot color="#fff" size={22} />}
+              texto={direccion}
+              color={colorPrimario}
+            />
+            <IconoContacto
+              icono={<MdPhoneIphone color="#fff" size={22} />}
+              texto={telefono}
+              color={colorPrimario}
+            />
+            <IconoContacto
+              icono={<MdOutlineAttachEmail color="#fff" size={22} />}
+              texto={correo_electronico}
+              color={colorPrimario}
+            />
+          </div>
 
-
-          {/* Google Maps */}
-          {mostrarQR && (
-            <section className="seccion-codigo-qr-">
+          {/* 🔽 GOOGLE MAPS */}
+          {mostrarMapa && (
+            <section className="seccion-codigo-qr-" ref={mapaRef}>
               <div className="cliente-inf">
                 <div className="social-redes">
                   <div className="cuadrado-con-borde-int">
@@ -191,14 +185,12 @@ const Contacto = ({ slug, colorPrimario }) => {
                       <iframe
                         title="Google Maps"
                         className="google-maps"
-                        width="300%"
-                        height="300%"
                         style={{ border: 0 }}
                         loading="lazy"
                         allowFullScreen
                         referrerPolicy="no-referrer-when-downgrade"
                         src={link_ubicacion_maps}
-                      ></iframe>
+                      />
                     </div>
                   </div>
                 </div>
@@ -206,12 +198,13 @@ const Contacto = ({ slug, colorPrimario }) => {
             </section>
           )}
         </div>
-      </div>  
+      </div>
     </section>
   );
 };
 
 export default Contacto;
+
 
 
 

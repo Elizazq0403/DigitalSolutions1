@@ -14,6 +14,7 @@ import PruebaConexion from './components/Utils/PruebaConexion';
 import axios from "axios";
 import { getApiUrl } from "./api/config.js";
 import { useNavigate } from 'react-router-dom';
+import CargandoPagina from './components/Cargando_pagina/CargandoPagina.jsx';
 
 const useSlug = () => {
   const { slug } = useParams();
@@ -175,9 +176,14 @@ function App() {
   const getTabClass = (tab) =>
     `px-2 py-3 ${activeTab === tab ? "border-b-2 border-blue-500 font-semibold" : ""}`;
 
-  if (loading) {
+  /*if (loading) {
     return <div className="flex justify-center items-center min-h-screen">Cargando datos de empresa...</div>;
-  }
+  }*/
+
+  if (loading) {
+    console.log("⏳ Loading es TRUE - Mostrando CargandoPagina");
+    return <CargandoPagina />;
+  } 
 
   if (apiError) {
     return (
@@ -248,50 +254,67 @@ function App() {
 
 
           {activeTab === "empresa" && (
-            console.log("🔍 Equipos a mapear:", equipos),
-            console.log("🔍 empresaData.id_empresa:", empresaData.id_empresa),
+          <>
+            {console.log("🔍 Renderizando Business...")}
             <div className='container'>
               {equipos.map((equipo, index) => (
-                console.log(`🔍 Renderizando Business ${index} - empresaId:`, empresaData.id_empresa),
                 <Business
                   slug={slug} 
-                  datos={equipo} 
-                  key={equipo.id} 
-                  empresaId={empresaData.id_empresa} // ✅ Quita el optional chaining si existe
-                />
-              ))}
-            </div>
-          )}
-
-          {activeTab === "productos" && (
-            console.log("🔍 Renderizando Servicios - empresaId a pasar:", empresaData?.id_empresa),
-            <div className='container'>
-              {equipos.map((equipo) => (
-                <Servicios 
-                  datos={equipo} 
+                  datos={{
+                    ...equipo,
+                    link_logo: empresaData?.link_logo,
+                    nombre: empresaData?.razon_social,
+                  }} 
                   key={equipo.id} 
                   empresaId={empresaData?.id_empresa}
                 />
               ))}
             </div>
-          )}
+          </>
+        )}
+
+          {activeTab === "productos" && (() => {
+            console.log("🔍 Renderizando Servicios...");
+            return (
+              <div className='container'>
+                {equipos.map((equipo) => (
+                  <Servicios 
+                    datos={{
+                      ...equipo,
+                      link_logo: empresaData?.link_logo,
+                      nombre: empresaData?.razon_social
+                    }} 
+                    key={equipo.id} 
+                    empresaId={empresaData?.id_empresa}
+                  />
+                ))}
+              </div>
+            );
+          })()}
 
           {activeTab === "contacto" && (
-            console.log("🔍 Renderizando Contacto - empresaId a pasar:", empresaData?.id_empresa),
-            <div className='container'>
-              {equipos.map((equipo) => (
-                // App.js
-                <Contacto
-                  slug={slug}
-                  datos={equipo}
-                  key={equipo.id}
-                  colorPrimario={equipos[0].colorPrimario}
-                  colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
-                  empresaId={empresaData.id_empresa} // ✅ PASANDO a Contacto
-                />
-              ))}
-            </div>
-          )}
+          <div className='container'>
+            {equipos.map((equipo) => (
+              <Contacto
+                slug={slug}
+                datos={{
+                  // Solo los datos específicos que necesita Contacto
+                  link_logo: empresaData?.link_logo,
+                  nombre: empresaData?.razon_social,
+                  // Agrega otros campos que Contacto pueda necesitar
+                  direccion: empresaData?.direccion,
+                  telefono: empresaData?.telefono,
+                  correo_electronico: empresaData?.correo_electronico,
+                  link_ubicacion_maps: empresaData?.link_ubicacion_maps,
+                }}
+                key={equipo.id}
+                colorPrimario={equipos[0].colorPrimario}
+                colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
+                empresaId={empresaData?.id_empresa}
+              />
+            ))}
+          </div>
+        )}
         </div>
       </div>
 

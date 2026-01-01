@@ -14,7 +14,7 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
 }
 
 .cliente-card .cliente-header img {
-  width: 150px; /* Ancho deseado */
+  width: 180px !important; /* Ancho deseado */
   height: auto; /* Mantén la proporción de la imagen */
   border-radius: 50%; /* Mantén la forma circular */
   border: 4px solid #000; /* Borde mediano de color azul */
@@ -35,7 +35,7 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
 .tarjeta-qr-imagen {
   display: block;
   width: 500% !important;
-  max-width: 210px ;
+  max-width: 250px ;  
   height: auto;
   margin: 0 auto;
   top: -5px;
@@ -46,7 +46,7 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   background: #FFFFFF;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
   border-radius: 0px 0px 20px 20px;
-  padding-top: 30px;
+  padding-top: 70px; /* Aumenta el valor para incrementar el espacio superior */
   padding-bottom: 10px;
   min-height: 100px;
   font-family: 'Nunito', sans-serif;

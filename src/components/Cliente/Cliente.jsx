@@ -1,8 +1,7 @@
 import "./Cliente.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { getApiUrl } from "../../../src/api/config";
-import SocialIcon from "../SocialIcon/SocialIcon";
 
 const Cliente = ({ slug, colorPrimario }) => {
   console.log("📌 Slug recibido en Cliente:", slug);
@@ -12,50 +11,58 @@ const Cliente = ({ slug, colorPrimario }) => {
   const [error, setError] = useState(null);
   const [mostrarQR, setMostrarQR] = useState(false);
 
-  // Función para compartir en WhatsApp sin ventana de confirmación
+  // 🔽 Referencia para hacer scroll al QR
+  const qrRef = useRef(null);
+
+  // Función para compartir en WhatsApp (tarjeta)
   const handleWhatsAppShare = () => {
     if (!empresa) return;
 
-    const message = `Hola somos ${empresa.razon_social}. Te comparto nuestra tarjeta digital https://elizazq0403.github.io/DigitalSolutions1/#/cliente/webz-elizabeth-zapata/perfil`;
+    const message = `Hola somos ${empresa.razon_social}. Te comparto nuestra tarjeta digital https://elizazq0403.github.io/DigitalSolutions1/#/cliente/${slug}/perfil`;
+
     window.open(
       `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`,
       "_blank"
     );
   };
 
-  // Función para compartir en WhatsApp boton Hecho pór..
-    const handleWhatsApp = () => {
-      if (!empresa) return;
+  // Función WhatsApp "Hecho por..."
+  const handleWhatsApp = () => {
+    const message =
+      "Hola WEB-Z Soluciones Digitales, estoy interesad@ en una tarjeta de presentación digital.";
 
-      const message = `Hola WEB-Z Soluciones Digitales, estoy interesad@ en una tarjeta de presentación digital.`;
-      
-      window.open(
-          `https://api.whatsapp.com/send?phone=+573216921887&text=${encodeURIComponent(message)}`,
-          "_blank"
-      );
+    window.open(
+      `https://api.whatsapp.com/send?phone=+573216921887&text=${encodeURIComponent(
+        message
+      )}`,
+      "_blank"
+    );
   };
 
-  // Función para mostrar/ocultar el código QR
+  // Mostrar / ocultar QR
   const toggleQR = () => {
-    setMostrarQR(!mostrarQR);
+    setMostrarQR((prev) => !prev);
   };
+
+  // 🔽 Scroll automático cuando el QR aparece
+  useEffect(() => {
+    if (mostrarQR && qrRef.current) {
+      qrRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [mostrarQR]);
 
   useEffect(() => {
     const obtenerPerfil = async () => {
       try {
-        if (!slug) {
-          console.warn(
-            "⚠️ No se recibió un slug válido para buscar el perfil."
-          );
-          return;
-        }
+        if (!slug) return;
 
         const response = await axios.get(getApiUrl(`/personas/${slug}`));
 
         if (!response.data.persona || !response.data.empresa) {
-          throw new Error(
-            response.data.error || "No se encontraron datos para este perfil"
-          );
+          throw new Error("No se encontraron datos para este perfil");
         }
 
         setPersona(response.data.persona);
@@ -69,10 +76,7 @@ const Cliente = ({ slug, colorPrimario }) => {
     obtenerPerfil();
   }, [slug]);
 
-  // Si no hay datos, simplemente no renderizar nada o mostrar un mensaje suave
-  if (!persona || !empresa) {
-    return null; // o puedes poner un mensaje suave: return <div>Buscando información...</div>;
-  }
+  if (!persona || !empresa) return null;
 
   const {
     nombre,
@@ -83,34 +87,36 @@ const Cliente = ({ slug, colorPrimario }) => {
     link_foto,
   } = persona;
 
-  const { link_qr } = empresa; // ✅ Nuevo campo de la tabla Empresa
+  const { link_qr, razon_social } = empresa;
 
   return (
     <div className="cliente-card">
+      {/* HEADER */}
       <div
         className="cliente-header"
-        style={{ backgroundColor: colorPrimario, position: "relative" }}
+        style={{ backgroundColor: colorPrimario }}
       >
         <h2 className="cliente-titulo marquee">
-          ¡Bienvenid@, {empresa.razon_social}! 
+          {/*¡Bienvenid@, {razon_social}!*/}
+          ¡Bienvenido a D-Card, tu tarjeta digital!
         </h2>
 
         <img
           src={link_foto}
           alt={nombre}
-          style={{ border: `4px 
-          solid ${colorPrimario}` }}
+          style={{ border: `4px solid ${colorPrimario}` }}
         />
       </div>
 
+      {/* INFO */}
       <div className="cliente-info">
         <h4 style={{ color: colorPrimario }}>{nombre}</h4>
-        {/* <hr style={{ backgroundColor: colorPrimario }} /> <hr style={{ backgroundColor: colorPrimario }} />*/}
         <h5>
           <strong>{cargo}</strong>
         </h5>
 
         <div className="social-links">
+          {/* Llamar */}
           <a href={`tel:${celular}`}>
             <div className="social-icon-box">
               <img
@@ -124,16 +130,13 @@ const Cliente = ({ slug, colorPrimario }) => {
             </div>
           </a>
 
-          <a
-            href={`mailto:${correo_electronico}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          {/* Correo */}
+          <a href={`mailto:${correo_electronico}`}>
             <div className="social-icon-box">
               <img
                 src={require("../../assets/img/email.png")}
-                alt="Email"
-                className="whatsapp-icon"
+                alt="Correo"
+                className="iphone"
               />
               <span className="icon-label">
                 <strong>Correo</strong>
@@ -141,11 +144,8 @@ const Cliente = ({ slug, colorPrimario }) => {
             </div>
           </a>
 
-          <a
-            href={link_whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          {/* WhatsApp */}
+          <a href={link_whatsapp} target="_blank" rel="noopener noreferrer">
             <div className="social-icon-box">
               <img
                 src={require("../../assets/img/whatsapp.png")}
@@ -153,11 +153,12 @@ const Cliente = ({ slug, colorPrimario }) => {
                 className="iphone"
               />
               <span className="icon-label">
-                <strong>Whatsapp</strong>
+                <strong>WhatsApp</strong>
               </span>
             </div>
           </a>
 
+          {/* Descargar contacto */}
           <a
             href={getApiUrl(`/contacto/${slug}.vcf`)}
             target="_blank"
@@ -166,7 +167,7 @@ const Cliente = ({ slug, colorPrimario }) => {
             <div className="social-icon-box">
               <img
                 src={require("../../assets/img/descarga.png")}
-                alt="Icono Descargar"
+                alt="Contacto"
                 className="iphone"
               />
               <span className="icon-label">
@@ -175,7 +176,7 @@ const Cliente = ({ slug, colorPrimario }) => {
             </div>
           </a>
 
-          {/* Botón de Compartir Wp modificado */}
+          {/* Compartir WhatsApp */}
           <div
             className="social-icon-box"
             onClick={handleWhatsAppShare}
@@ -183,7 +184,7 @@ const Cliente = ({ slug, colorPrimario }) => {
           >
             <img
               src={require("../../assets/img/compartir2.png")}
-              alt="Icono Compartir"
+              alt="Compartir"
               className="iphone"
             />
             <span className="icon-label">
@@ -191,7 +192,7 @@ const Cliente = ({ slug, colorPrimario }) => {
             </span>
           </div>
 
-          {/* Botón de Compartir QR */}
+          {/* Compartir QR */}
           <div
             className="social-icon-box"
             onClick={toggleQR}
@@ -199,33 +200,19 @@ const Cliente = ({ slug, colorPrimario }) => {
           >
             <img
               src={require("../../assets/img/compartir.png")}
-              alt="Icono Compartir"
+              alt="QR"
               className="iphone"
             />
             <span className="icon-label">
-              <strong>Compartir QR</strong>
+              <strong>Escanear QR</strong>
             </span>
           </div>
-          {/* Botón de Hecho por... 
-          <div
-            className="social-icon-box"
-            onClick={handleWhatsApp}
-            style={{ cursor: "pointer" }}
-          >
-            <img
-              src={require("../../assets/img/Gemini_Generated_Image_w3ejlww3ejlww3ej-removebg-preview.png")}
-              alt="Icono Compartir"
-              className="iphone"
-            />
-            <span className="icon-label">
-            </span>
-          </div>*/}
         </div>
       </div>
 
-      {/* 📱 QR de contacto - Solo visible cuando mostrarQR es true */}
+      {/* 🔽 SECCIÓN QR */}
       {mostrarQR && (
-        <section className="seccion-codigo-qr">
+        <section className="seccion-codigo-qr" ref={qrRef}>
           <div className="cliente-inf">
             <div className="social-redes">
               <div className="cuadrado-con-borde-int">
@@ -234,7 +221,7 @@ const Cliente = ({ slug, colorPrimario }) => {
                   style={{ border: `3px solid ${colorPrimario}` }}
                 >
                   <img
-                    src={link_qr} // ✅ Aquí usamos la variable que viene de la DB
+                    src={link_qr}
                     alt="QR de contacto"
                     className="tarjeta-qr-imagen"
                   />
@@ -249,6 +236,7 @@ const Cliente = ({ slug, colorPrimario }) => {
 };
 
 export default Cliente;
+
 
 
 
