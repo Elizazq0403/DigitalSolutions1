@@ -9,30 +9,51 @@ import { HiShoppingCart } from "react-icons/hi";
 import hexToRgba from 'hex-to-rgba';
 import Business from './pages/Business/Business';
 import Contacto from './pages/Contacto/Contacto';
-import { useLocation, useParams, Link } from "react-router-dom";
-import PruebaConexion from './components/Utils/PruebaConexion';
+import { useParams, useLocation, Link } from "react-router-dom";
 import axios from "axios";
 import { getApiUrl } from "./api/config.js";
 import { useNavigate } from 'react-router-dom';
 import CargandoPagina from './components/Cargando_pagina/CargandoPagina.jsx';
 
-const useSlug = () => {
-  const { slug } = useParams();
+// 🔹 NUEVO HOOK UNIFICADO PARA OBTENER EL SLUG (funciona con y sin #)
+const useSlugUniversal = () => {
+  const { slug } = useParams(); // Primero intentar con useParams (BrowserRouter)
   
-  // Si useParams no funciona, extraer del hash
-  if (slug) return slug;
+  // Si useParams no devuelve slug, extraer de la URL
+  if (slug) {
+    console.log('✅ Slug obtenido de useParams():', slug);
+    return slug;
+  }
   
-  // Extraer slug del hash para HashRouter
-  const hash = window.location.hash; // "#/cliente/webz-elizabeth-zapata/perfil"
-  const parts = hash.split('/');
+  // Fallback: extraer de la URL actual
+  const { pathname, hash } = window.location;
+  console.log('🔍 URL actual - pathname:', pathname, 'hash:', hash);
   
-  console.log('🔍 Hash parts:', parts);
+  // Intentar desde pathname (BrowserRouter): /cliente/mi-slug/perfil
+  if (pathname.includes('/cliente/')) {
+    const pathParts = pathname.split('/');
+    const slugFromPath = pathParts[2]; // ["", "cliente", "mi-slug", "perfil"]
+    if (slugFromPath) {
+      console.log('✅ Slug extraído de pathname:', slugFromPath);
+      return slugFromPath;
+    }
+  }
   
-  // parts[0] = "#", parts[1] = "cliente", parts[2] = "webz-elizabeth-zapata"
-  return parts[2] || '';
+  // Intentar desde hash (HashRouter legacy): #/cliente/mi-slug/perfil
+  if (hash.includes('/cliente/')) {
+    const hashParts = hash.split('/');
+    const slugFromHash = hashParts[2]; // ["#", "cliente", "mi-slug", "perfil"]
+    if (slugFromHash) {
+      console.log('✅ Slug extraído de hash:', slugFromHash);
+      return slugFromHash;
+    }
+  }
+  
+  console.warn('⚠️ No se pudo extraer slug de la URL');
+  return '';
 };
 
-// 🔹 Componente de Debug
+// 🔹 Componente de Debug (opcional)
 const DebugInfo = ({ slug, empresaData, loading, activeTab }) => (
   <div style={{
     position: 'fixed',
@@ -46,22 +67,25 @@ const DebugInfo = ({ slug, empresaData, loading, activeTab }) => (
     fontSize: '12px',
     maxWidth: '300px'
   }}>
-    {/* Mostrar información de depuración <h4>🐛 DEBUG INFO</h4>
-    <p><strong>Slug:</strong> {slug}</p>
-    <p><strong>empresaData:</strong> {empresaData ? 'EXISTE' : 'NULL'}</p>
-    <p><strong>id_empresa:</strong> {empresaData?.id_empresa || 'NO DISPONIBLE'}</p>
+    <h4>🐛 DEBUG INFO</h4>
+    <p><strong>Slug:</strong> {slug || 'NO ENCONTRADO'}</p>
+    <p><strong>URL completa:</strong> {window.location.href}</p>
+    <p><strong>Pathname:</strong> {window.location.pathname}</p>
+    <p><strong>Hash:</strong> {window.location.hash || '(vacío)'}</p>
     <p><strong>Loading:</strong> {loading ? 'true' : 'false'}</p>
-    <p><strong>Active Tab:</strong> {activeTab}</p>*/}
+    <p><strong>Active Tab:</strong> {activeTab}</p>
   </div>
 );
 
 function App() {
-  const slug = useSlug();
+  // 🔹 Obtener slug con el nuevo hook universal
+  const slug = useSlugUniversal();
   console.log("📌 Slug detectado en App:", slug);
-
+  
   const location = useLocation();
-
-  const [colaboradores, actualizarColaboradores] = useState([{
+  console.log("📍 useLocation():", location);
+  
+  const [colaboradores] = useState([{
     id: uuid(),
     empresa: "Asher Industriales",
     nit: "900.811.757-1",
@@ -86,6 +110,7 @@ function App() {
 
   const navigate = useNavigate();
   
+  // 🔹 Redirección si es necesaria
   useEffect(() => {
     const redirectPath = sessionStorage.redirect;
     if (redirectPath && redirectPath !== window.location.pathname) {
@@ -97,6 +122,13 @@ function App() {
   // 🔹 Obtener datos completos de la empresa
   useEffect(() => {
     const obtenerEmpresaCompleta = async () => {
+      // Si no hay slug, no hacer nada
+      if (!slug) {
+        console.warn("⚠️ No hay slug para hacer la petición");
+        setLoading(false);
+        return;
+      }
+
       try {
         setLoading(true);
         setApiError(null);
@@ -104,20 +136,15 @@ function App() {
         
         const response = await axios.get(getApiUrl(`/personas/${slug}`));
         
-        // 🔹 DEPURACIÓN DETALLADA: Verifica la respuesta completa
         console.log("📦 Respuesta completa de la API:", response.data);
-        console.log("🏢 Datos de empresa:", response.data.empresa);
         
         if (response.data.empresa) {
           const empresa = response.data.empresa;
           setEmpresaData(empresa);
           
-          // 🔹 DEPURACIÓN: Verifica todos los campos de la empresa
           console.log("🔍 Campos disponibles en empresa:", Object.keys(empresa));
           console.log("📌 id_empresa:", empresa.id_empresa);
-          console.log("📌 id:", empresa.id);
-          console.log("📌 empresa_id:", empresa.empresa_id);
-          console.log("📌 pantone1:", empresa.pantone1);
+          console.log("🎨 pantone1:", empresa.pantone1);
           
           // Actualizar color de equipos
           const pantone1 = empresa.pantone1 || "#00c02e";
@@ -137,32 +164,31 @@ function App() {
       }
     };
 
-    if (slug) {
-      obtenerEmpresaCompleta();
-    } else {
-      console.warn("⚠️ No hay slug para hacer la petición");
-      setLoading(false);
-    }
+    obtenerEmpresaCompleta();
   }, [slug]);
 
-  // 🔹 DEPURACIÓN: Verifica el estado de empresaData
-  useEffect(() => {
-    console.log("📊 Estado de empresaData:", empresaData);
-    console.log("📊 empresaData?.id_empresa:", empresaData?.id_empresa);
-    console.log("📊 Tipo de id_empresa:", typeof empresaData?.id_empresa);
-  }, [empresaData]);
-
+  // 🔹 Función para obtener la pestaña activa (actualizada para BrowserRouter)
   const getActiveTab = () => {
-    const pathParts = location.pathname.split('/');
-    return pathParts[3] || 'perfil';
+    const pathname = location.pathname; // Ej: /cliente/mi-slug/productos
+    
+    // Extraer la última parte de la ruta
+    const pathParts = pathname.split('/');
+    const tab = pathParts[3]; // ["", "cliente", "mi-slug", "productos"]
+    
+    // Si no hay pestaña específica, usar 'perfil' por defecto
+    return tab || 'perfil';
   };
 
   const [activeTab, setActiveTab] = useState(getActiveTab());
 
+  // 🔹 Actualizar pestaña activa cuando cambia la ruta
   useEffect(() => {
-    setActiveTab(getActiveTab());
+    const newActiveTab = getActiveTab();
+    console.log("🔄 Cambiando activeTab a:", newActiveTab);
+    setActiveTab(newActiveTab);
   }, [location]);
 
+  // 🔹 Actualizar color de equipos
   const actualizarColor = (color, id) => {
     const equiposActualizados = equipos.map((equipo) => {
       if (equipo.id === id) {
@@ -173,13 +199,11 @@ function App() {
     actualizarEquipos(equiposActualizados);
   };
 
+  // 🔹 Clase para pestañas activas
   const getTabClass = (tab) =>
     `px-2 py-3 ${activeTab === tab ? "border-b-2 border-blue-500 font-semibold" : ""}`;
 
-  /*if (loading) {
-    return <div className="flex justify-center items-center min-h-screen">Cargando datos de empresa...</div>;
-  }*/
-
+  // 🔹 Estados de carga y error
   if (loading) {
     console.log("⏳ Loading es TRUE - Mostrando CargandoPagina");
     return <CargandoPagina />;
@@ -191,7 +215,21 @@ function App() {
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
           <h2 className="font-bold">Error al cargar datos</h2>
           <p>{apiError}</p>
-          <p className="text-sm mt-2">Slug: {slug}</p>
+          <p className="text-sm mt-2">Slug: {slug || '(no detectado)'}</p>
+          <p className="text-sm">URL: {window.location.href}</p>
+        </div>
+      </div>
+    );
+  }
+
+  // 🔹 Si no hay slug, mostrar error
+  if (!slug) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded">
+          <h2 className="font-bold">No se detectó el perfil</h2>
+          <p>La URL no contiene un perfil válido.</p>
+          <p className="text-sm mt-2">Ejemplo correcto: https://tudcard.com/cliente/mi-empresa-mi-persona</p>
         </div>
       </div>
     );
@@ -199,19 +237,19 @@ function App() {
 
   return (
     <div className="flex justify-center items-center min-h-screen">
-      {/* 🔹 Componente de Debug */}
+      {/* 🔹 Componente de Debug (comentar en producción) 
       <DebugInfo 
         slug={slug} 
         empresaData={empresaData} 
         loading={loading} 
         activeTab={activeTab} 
       />
-
+      */}
       <div
         className="overflow-x-auto border rounded-lg p-4 shadow-md"
         style={{ backgroundColor: hexToRgba(equipos[0].colorPrimario, 0.6) }}
       >
-        {/* 🔹 Navegación */}
+        {/* 🔹 Navegación - IMPORTANTE: Links SIN # */}
         <div className="flex justify-around border-b border-gray-300">
           <Link to={`/cliente/${slug}/perfil`} className={getTabClass("perfil")}>
             <MdAdUnits className="inline mr-2" /> Perfil
@@ -233,29 +271,26 @@ function App() {
         {/* 🔹 Contenido dinámico */}
         <div className="mt-4 text-center">
           {activeTab === "perfil" && (
-          <div className='container'>
-            {equipos.map((equipo) => (
-              <Empresa
-                datos={equipo}
-                key={equipo.id}
-                colaboradores={colaboradores.filter(
-                  (colaborador) => colaborador.equipo === equipo.titulo
-                )}
-                actualizarColor={actualizarColor}
-                empresaNombreUsuario={empresaData?.nombre_usuario_url}  // ✅ Enviando dato al componente
+            <div className='container'>
+              {equipos.map((equipo) => (
+                <Empresa
+                  datos={equipo}
+                  key={equipo.id}
+                  colaboradores={colaboradores.filter(
+                    (colaborador) => colaborador.equipo === equipo.titulo
+                  )}
+                  actualizarColor={actualizarColor}
+                  empresaNombreUsuario={empresaData?.nombre_usuario_url}
+                />
+              ))}
+              <Cliente 
+                slug={slug} 
+                colorPrimario={equipos[0].colorPrimario} 
               />
-            ))}
-            <Cliente 
-              slug={slug} 
-              colorPrimario={equipos[0].colorPrimario} 
-            />
-          </div>
-        )}
-
+            </div>
+          )}
 
           {activeTab === "empresa" && (
-          <>
-            {console.log("🔍 Renderizando Business...")}
             <div className='container'>
               {equipos.map((equipo, index) => (
                 <Business
@@ -270,58 +305,47 @@ function App() {
                 />
               ))}
             </div>
-          </>
-        )}
+          )}
 
-          {activeTab === "productos" && (() => {
-            console.log("🔍 Renderizando Servicios...");
-            return (
-              <div className='container'>
-                {equipos.map((equipo) => (
-                  <Servicios 
-                    datos={{
-                      ...equipo,
-                      link_logo: empresaData?.link_logo,
-                      nombre: empresaData?.razon_social
-                    }} 
-                    key={equipo.id} 
-                    empresaId={empresaData?.id_empresa}
-                  />
-                ))}
-              </div>
-            );
-          })()}
+          {activeTab === "productos" && (
+            <div className='container'>
+              {equipos.map((equipo) => (
+                <Servicios 
+                  datos={{
+                    ...equipo,
+                    link_logo: empresaData?.link_logo,
+                    nombre: empresaData?.razon_social
+                  }} 
+                  key={equipo.id} 
+                  empresaId={empresaData?.id_empresa}
+                />
+              ))}
+            </div>
+          )}
 
           {activeTab === "contacto" && (
-          <div className='container'>
-            {equipos.map((equipo) => (
-              <Contacto
-                slug={slug}
-                datos={{
-                  // Solo los datos específicos que necesita Contacto
-                  link_logo: empresaData?.link_logo,
-                  nombre: empresaData?.razon_social,
-                  // Agrega otros campos que Contacto pueda necesitar
-                  direccion: empresaData?.direccion,
-                  telefono: empresaData?.telefono,
-                  correo_electronico: empresaData?.correo_electronico,
-                  link_ubicacion_maps: empresaData?.link_ubicacion_maps,
-                }}
-                key={equipo.id}
-                colorPrimario={equipos[0].colorPrimario}
-                colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
-                empresaId={empresaData?.id_empresa}
-              />
-            ))}
-          </div>
-        )}
+            <div className='container'>
+              {equipos.map((equipo) => (
+                <Contacto
+                  slug={slug}
+                  datos={{
+                    link_logo: empresaData?.link_logo,
+                    nombre: empresaData?.razon_social,
+                    direccion: empresaData?.direccion,
+                    telefono: empresaData?.telefono,
+                    correo_electronico: empresaData?.correo_electronico,
+                    link_ubicacion_maps: empresaData?.link_ubicacion_maps,
+                  }}
+                  key={equipo.id}
+                  colorPrimario={equipos[0].colorPrimario}
+                  colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
+                  empresaId={empresaData?.id_empresa}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
-
-      {/*<div className="App">
-        <h1>Mi App Digital</h1>
-        <PruebaConexion />
-      </div>*/}
     </div>
   );
 }
