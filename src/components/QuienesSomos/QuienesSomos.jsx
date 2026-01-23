@@ -2,8 +2,24 @@ import React, { useEffect, useState } from "react";
 import "./QuienesSomos.css";
 import { getApiUrl } from "../../../src/api/config";
 
+// 🔽 IMPORTAR TODAS LAS IMÁGENES NECESARIAS
+import quienesSomosImg from "../../assets/img/Quienes-Somos.png";
+import excelenciaImg from "../../assets/img/Excelencia.png";
+import compromisoImg from "../../assets/img/compromiso.png";
+import otrosProductosImg from "../../assets/img/Otros_productos.png";
+import otrasLineasImg from "../../assets/img/Otras_lineas.png";
+
 const QuienesSomos = ({ empresaId }) => {
   const [sesiones, setSesiones] = useState([]);
+
+  // 🔽 ARRAY DE IMÁGENES IMPORTADAS
+  const imagenes = [
+    quienesSomosImg,
+    excelenciaImg,
+    compromisoImg,
+    otrosProductosImg,
+    otrasLineasImg
+  ];
 
   useEffect(() => {
     const fetchSesiones = async () => {
@@ -32,15 +48,7 @@ const QuienesSomos = ({ empresaId }) => {
           className={`phase ${index % 2 === 0 ? "phase-right" : ""}`}
         >
           <img
-            src={require(`../../assets/img/${
-              [
-                "Quienes-Somos.png",
-                "Excelencia.png",
-                "compromiso.png",
-                "Otros_productos.png",
-                "Otras_lineas.png"
-              ][index]
-            }`)}
+            src={imagenes[index] || imagenes[0]} // Usa la imagen correspondiente o fallback
             alt="Icono representativo"
             className="phase-icon"
           />

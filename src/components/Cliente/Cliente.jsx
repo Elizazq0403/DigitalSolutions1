@@ -3,6 +3,16 @@ import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { getApiUrl } from "../../../src/api/config";
 
+// 🔽 🔽 🔽 **CAMBIAR TODAS ESTAS RUTAS** 🔽 🔽 🔽
+// De: '../assets/img/...' 
+// A: '../../assets/img/...'
+import llamarIcon from '../../assets/img/icono_llamar.png';
+import emailIcon from '../../assets/img/email.png';
+import whatsappIcon from '../../assets/img/whatsapp.png';
+import descargaIcon from '../../assets/img/descarga.png';
+import compartir2Icon from '../../assets/img/compartir2.png';
+import compartirIcon from '../../assets/img/compartir.png';
+
 const Cliente = ({ slug, colorPrimario }) => {
   console.log("📌 Slug recibido en Cliente:", slug);
 
@@ -120,7 +130,7 @@ const Cliente = ({ slug, colorPrimario }) => {
           <a href={`tel:${celular}`}>
             <div className="social-icon-box">
               <img
-                src={require("../../assets/img/icono llamar.png")}
+                src={llamarIcon}
                 alt="Llamar"
                 className="iphone"
               />
@@ -134,7 +144,7 @@ const Cliente = ({ slug, colorPrimario }) => {
           <a href={`mailto:${correo_electronico}`}>
             <div className="social-icon-box">
               <img
-                src={require("../../assets/img/email.png")}
+                src={emailIcon}
                 alt="Correo"
                 className="iphone"
               />
@@ -148,7 +158,7 @@ const Cliente = ({ slug, colorPrimario }) => {
           <a href={link_whatsapp} target="_blank" rel="noopener noreferrer">
             <div className="social-icon-box">
               <img
-                src={require("../../assets/img/whatsapp.png")}
+                src={whatsappIcon}
                 alt="WhatsApp"
                 className="iphone"
               />
@@ -166,7 +176,7 @@ const Cliente = ({ slug, colorPrimario }) => {
           >
             <div className="social-icon-box">
               <img
-                src={require("../../assets/img/descarga.png")}
+                src={descargaIcon}
                 alt="Contacto"
                 className="iphone"
               />
@@ -183,7 +193,7 @@ const Cliente = ({ slug, colorPrimario }) => {
             style={{ cursor: "pointer" }}
           >
             <img
-              src={require("../../assets/img/compartir2.png")}
+              src={compartir2Icon}
               alt="Compartir"
               className="iphone"
             />
@@ -199,7 +209,7 @@ const Cliente = ({ slug, colorPrimario }) => {
             style={{ cursor: "pointer" }}
           >
             <img
-              src={require("../../assets/img/compartir.png")}
+              src={compartirIcon}
               alt="QR"
               className="iphone"
             />
@@ -235,7 +245,7 @@ const Cliente = ({ slug, colorPrimario }) => {
   );
 };
 
-export default Cliente;
+expo
 
 
 
