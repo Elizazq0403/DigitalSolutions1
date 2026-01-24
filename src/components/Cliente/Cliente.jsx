@@ -245,7 +245,7 @@ const Cliente = ({ slug, colorPrimario }) => {
   );
 };
 
-expo
+export default Cliente;
 
 
 
