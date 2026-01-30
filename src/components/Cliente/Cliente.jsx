@@ -1,20 +1,29 @@
 import "./Cliente.css";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import { getApiUrl } from "../../../src/api/config";
-
-// 🔽 🔽 🔽 **CAMBIAR TODAS ESTAS RUTAS** 🔽 🔽 🔽
-// De: '../assets/img/...' 
-// A: '../../assets/img/...'
-import llamarIcon from '../../assets/img/icono_llamar.png';
-import emailIcon from '../../assets/img/email.png';
-import whatsappIcon from '../../assets/img/whatsapp.png';
-import descargaIcon from '../../assets/img/descarga.png';
-import compartir2Icon from '../../assets/img/compartir2.png';
-import compartirIcon from '../../assets/img/compartir.png';
 
 const Cliente = ({ slug, colorPrimario }) => {
   console.log("📌 Slug recibido en Cliente:", slug);
+
+  // 🔽 TODAS LAS URLs SEGÚN ENTORNO
+  const baseUrl = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+  const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000/api";
+  
+  
+  // 🔽 URLs de las imágenes
+  const llamarIcon = `${baseUrl}/img/icono_llamar.png`;
+  const emailIcon = `${baseUrl}/img/email.png`;
+  const whatsappIcon = `${baseUrl}/img/whatsapp.png`;
+  const descargaContact = `${baseUrl}/img/descarga-ok.png`;
+  const compartirIcon = `${baseUrl}/img/compartir.png`;
+  const compartir2Icon = `${baseUrl}/img/compartir2.png`;
+
+  console.log("🔧 Variables de entorno:");
+  console.log("📁 Base URL:", baseUrl);
+  console.log("🔌 API Base URL:", apiBaseUrl);
+  console.log("📡 API URL:", apiUrl);
+  console.log("🖼️ Ruta llamarIcon:", llamarIcon);
 
   const [persona, setPersona] = useState(null);
   const [empresa, setEmpresa] = useState(null);
@@ -24,11 +33,18 @@ const Cliente = ({ slug, colorPrimario }) => {
   // 🔽 Referencia para hacer scroll al QR
   const qrRef = useRef(null);
 
+  // Función para obtener URL de API completa
+  const getApiUrl = (endpoint) => {
+    // Asegura que el endpoint empiece con /
+    const path = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+    return `${apiBaseUrl}${path}`;
+  };
+
   // Función para compartir en WhatsApp (tarjeta)
   const handleWhatsAppShare = () => {
     if (!empresa) return;
 
-    const message = `Hola somos ${empresa.razon_social}. Te comparto nuestra tarjeta digital https://elizazq0403.github.io/DigitalSolutions1/#/cliente/${slug}/perfil`;
+    const message = `Hola somos ${empresa.razon_social}. Te comparto nuestra tarjeta digital ${baseUrl}/#/cliente/${slug}/perfil`;
 
     window.open(
       `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`,
@@ -69,7 +85,11 @@ const Cliente = ({ slug, colorPrimario }) => {
       try {
         if (!slug) return;
 
+        console.log("🌐 Solicitando perfil desde:", getApiUrl(`/personas/${slug}`));
+        
         const response = await axios.get(getApiUrl(`/personas/${slug}`));
+
+        console.log("✅ Respuesta API:", response.data);
 
         if (!response.data.persona || !response.data.empresa) {
           throw new Error("No se encontraron datos para este perfil");
@@ -78,15 +98,27 @@ const Cliente = ({ slug, colorPrimario }) => {
         setPersona(response.data.persona);
         setEmpresa(response.data.empresa);
       } catch (err) {
-        console.error("Error al obtener perfil:", err);
-        setError(err.message);
+        console.error("❌ Error al obtener perfil:", err);
+        setError(err.message || "Error desconocido");
       }
     };
 
     obtenerPerfil();
   }, [slug]);
 
-  if (!persona || !empresa) return null;
+  // Función para descargar VCF
+  const getVcfUrl = () => {
+    return getApiUrl(`/contacto/${slug}.vcf`);
+  };
+
+  // ✅ ELIMINADO: Los mensajes de error y loading que se mostraban en el frontend
+  // if (error) { ... }
+  // if (!persona || !empresa) { ... }
+
+  // Ahora directamente continuamos, pero si no hay datos, no renderizamos nada
+  if (!persona || !empresa) {
+    return null; // No muestra nada mientras carga
+  }
 
   const {
     nombre,
@@ -107,14 +139,18 @@ const Cliente = ({ slug, colorPrimario }) => {
         style={{ backgroundColor: colorPrimario }}
       >
         <h2 className="cliente-titulo marquee">
-          {/*¡Bienvenid@, {razon_social}!*/}
           ¡Bienvenido a D-Card, tu tarjeta digital!
         </h2>
 
         <img
           src={link_foto}
           alt={nombre}
+          className="cliente-foto"
           style={{ border: `4px solid ${colorPrimario}` }}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = `${baseUrl}/img/avatar-default.png`;
+          }}
         />
       </div>
 
@@ -125,6 +161,7 @@ const Cliente = ({ slug, colorPrimario }) => {
           <strong>{cargo}</strong>
         </h5>
 
+
         <div className="social-links">
           {/* Llamar */}
           <a href={`tel:${celular}`}>
@@ -133,6 +170,10 @@ const Cliente = ({ slug, colorPrimario }) => {
                 src={llamarIcon}
                 alt="Llamar"
                 className="iphone"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = `${baseUrl}/img/icono-default.png`;
+                }}
               />
               <span className="icon-label">
                 <strong>Llamar</strong>
@@ -147,6 +188,10 @@ const Cliente = ({ slug, colorPrimario }) => {
                 src={emailIcon}
                 alt="Correo"
                 className="iphone"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = `${baseUrl}/img/icono-default.png`;
+                }}
               />
               <span className="icon-label">
                 <strong>Correo</strong>
@@ -161,6 +206,10 @@ const Cliente = ({ slug, colorPrimario }) => {
                 src={whatsappIcon}
                 alt="WhatsApp"
                 className="iphone"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = `${baseUrl}/img/icono-default.png`;
+                }}
               />
               <span className="icon-label">
                 <strong>WhatsApp</strong>
@@ -169,16 +218,17 @@ const Cliente = ({ slug, colorPrimario }) => {
           </a>
 
           {/* Descargar contacto */}
-          <a
-            href={getApiUrl(`/contacto/${slug}.vcf`)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          
+            <a href={getVcfUrl()} target="_blank" rel="noopener noreferrer">
             <div className="social-icon-box">
               <img
-                src={descargaIcon}
+                src={descargaContact}
                 alt="Contacto"
                 className="iphone"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  //e.target.src = `${baseUrl}/img/icono-default.png`;
+                }}
               />
               <span className="icon-label">
                 <strong>Contacto</strong>
@@ -196,6 +246,10 @@ const Cliente = ({ slug, colorPrimario }) => {
               src={compartir2Icon}
               alt="Compartir"
               className="iphone"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = `${baseUrl}/img/icono-default.png`;
+              }}
             />
             <span className="icon-label">
               <strong>Compartir Wp</strong>
@@ -212,6 +266,10 @@ const Cliente = ({ slug, colorPrimario }) => {
               src={compartirIcon}
               alt="QR"
               className="iphone"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = `${baseUrl}/img/icono-default.png`;
+              }}
             />
             <span className="icon-label">
               <strong>Escanear QR</strong>
@@ -234,6 +292,10 @@ const Cliente = ({ slug, colorPrimario }) => {
                     src={link_qr}
                     alt="QR de contacto"
                     className="tarjeta-qr-imagen"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = `${baseUrl}/img/qr-default.png`;
+                    }}
                   />
                 </div>
               </div>
@@ -241,6 +303,7 @@ const Cliente = ({ slug, colorPrimario }) => {
           </div>
         </section>
       )}
+      
     </div>
   );
 };
