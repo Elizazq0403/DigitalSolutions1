@@ -294,7 +294,7 @@ const Cliente = ({ slug, colorPrimario }) => {
                     className="tarjeta-qr-imagen"
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = `${baseUrl}/img/qr-default.png`;
+                      e.target.src = `${baseUrl}/img/icono-default.png`;
                     }}
                   />
                 </div>
