@@ -10,7 +10,7 @@ import SocialIcon from "../../components/SocialIcon/SocialIcon";
 import { FaFacebookF, FaInstagram, FaGlobe, FaMapMarkerAlt } from "react-icons/fa";
 import { getApiUrl } from "../../../src/api/config.js";
 
-const Contacto = ({ slug, colorPrimario, datos }) => {
+const Contacto = ({ slug, colorPrimario, colorSecundario, datos }) => {
   console.log("📌 Slug recibido en Contacto:", slug);
   console.log("📌 Datos recibidos en Contacto:", datos);
   console.log("📌 link_logo desde datos:", datos?.link_logo);
@@ -101,7 +101,7 @@ const Contacto = ({ slug, colorPrimario, datos }) => {
           <img
             src={link_logo} /* Aquí usamos link_logo en lugar de fotoProductos */
             alt={datos?.nombre || "Logo de la empresa"}
-            style={{ border: `4px solid ${colorPrimario}` }}
+            style={{ border: `4px solid ${colorSecundario}` }}
             onError={(e) => {
               // Si el logo falla, usar la imagen por defecto
               console.error("❌ Error cargando logo:", link_logo);

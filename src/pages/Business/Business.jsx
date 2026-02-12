@@ -8,7 +8,7 @@ const Servicios = (props) => {
     return <div>No se han proporcionado datos</div>;
   }
 
-  const { colorPrimario, foto, nombre, link_logo } = props.datos;
+  const { colorPrimario, colorSecundario, foto, nombre, link_logo } = props.datos;
   const { empresaId } = props; // 👈 aquí recibes el id de la empresa
 
   const obj = {
@@ -27,7 +27,7 @@ const Servicios = (props) => {
             src={link_logo}
             alt={nombre}
             className="colaborador-imagen"
-            style={{ border: `4px solid ${colorPrimario}` }}
+            style={{ border: `4px solid ${colorSecundario}` }}
           />
         </div>
         <div className="info">

@@ -2,7 +2,7 @@ import "./Cliente.css";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
-const Cliente = ({ slug, colorPrimario }) => {
+const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
   console.log("📌 Slug recibido en Cliente:", slug);
 
   // 🔽 TODAS LAS URLs SEGÚN ENTORNO
@@ -146,7 +146,7 @@ const Cliente = ({ slug, colorPrimario }) => {
           src={link_foto}
           alt={nombre}
           className="cliente-foto"
-          style={{ border: `4px solid ${colorPrimario}` }}
+          style={{ border: `4px solid ${colorSecundario}` }}
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = `${baseUrl}/img/avatar-default.png`;

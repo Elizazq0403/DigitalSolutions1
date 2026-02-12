@@ -145,11 +145,18 @@ function App() {
           console.log("🔍 Campos disponibles en empresa:", Object.keys(empresa));
           console.log("📌 id_empresa:", empresa.id_empresa);
           console.log("🎨 pantone1:", empresa.pantone1);
+          console.log("🎨 pantone2:", empresa.pantone2);
           
-          // Actualizar color de equipos
+          // Actualizar colores de equipos con pantone1 y pantone2
           const pantone1 = empresa.pantone1 || "#00c02e";
+          const pantone2 = empresa.pantone2 || "#E8F8FF"; // Valor por defecto si no existe
+          
           actualizarEquipos((prevEquipos) =>
-            prevEquipos.map((eq) => ({ ...eq, colorPrimario: pantone1 }))
+            prevEquipos.map((eq) => ({ 
+              ...eq, 
+              colorPrimario: pantone1,
+              colorSecundario: pantone2 // Asignar pantone2 a colorSecundario
+            }))
           );
         } else {
           console.warn("⚠️ No se encontró data.empresa en la respuesta");
@@ -247,7 +254,9 @@ function App() {
       */}
       <div
         className="overflow-x-auto border rounded-lg p-4 shadow-md"
-        style={{ backgroundColor: hexToRgba(equipos[0].colorPrimario, 0.6) }}
+        //style={{ backgroundColor: hexToRgba(equipos[0].colorPrimario, 0.6) }}
+        style={{ backgroundColor: hexToRgba(equipos[0].colorSecundario) }}
+
       >
         {/* 🔹 Navegación - IMPORTANTE: Links SIN # */}
         <div className="flex justify-around border-b border-gray-300">
@@ -286,6 +295,7 @@ function App() {
               <Cliente 
                 slug={slug} 
                 colorPrimario={equipos[0].colorPrimario} 
+                colorSecundario={equipos[0].colorSecundario}
               />
             </div>
           )}
@@ -338,6 +348,7 @@ function App() {
                   }}
                   key={equipo.id}
                   colorPrimario={equipos[0].colorPrimario}
+                  colorSecundario={equipos[0].colorSecundario}
                   colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
                   empresaId={empresaData?.id_empresa}
                 />
