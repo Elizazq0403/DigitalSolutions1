@@ -12,7 +12,7 @@
   top: 30px;
   left: 50%;
   transform: translateX(-50%);
-  color: #000;
+  color: #FFFFFF;
   font-size: 25px;
   font-family: "Cascadia Mono";
   font-weight: normal;
@@ -35,7 +35,7 @@
   top: 30px;
   left: 50%;
   transform: translateX(-50%);
-  color: #000; /* Texto negro */
+  color: #fff; /* Texto negro */
   font-size: 23px;
   font-family: "Cascadia Mono";
   font-weight: normal;

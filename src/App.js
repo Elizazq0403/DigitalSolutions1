@@ -231,15 +231,8 @@ function App() {
 
   // 🔹 Si no hay slug, mostrar error
   if (!slug) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded">
-          <h2 className="font-bold">No se detectó el perfil</h2>
-          <p>La URL no contiene un perfil válido.</p>
-          <p className="text-sm mt-2">Ejemplo correcto: https://tudcard.com/cliente/mi-empresa-mi-persona</p>
-        </div>
-      </div>
-    );
+    window.location.href = "https://tudcard.com/#/cliente/webz-elizabeth-zapata/productos";
+    return null;
   }
 
   return (
