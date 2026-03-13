@@ -2,6 +2,7 @@ import "./Cliente.css";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
+
 const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
   console.log("📌 Slug recibido en Cliente:", slug);
 
