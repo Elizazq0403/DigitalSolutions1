@@ -305,6 +305,8 @@ function App() {
                   }} 
                   key={equipo.id} 
                   empresaId={empresaData?.id_empresa}
+                  colorPrimario={equipos[0].colorPrimario} 
+                  colorSecundario={equipos[0].colorSecundario}
                 />
               ))}
             </div>

@@ -21,7 +21,12 @@ const Servicios = (props) => {
           className="encabezado"
           style={{ backgroundColor: colorPrimario, position: "relative" }}
         >
-          <h2 className="cliente-titulo">Nuestros Productos</h2>
+          <h2 
+            className="cliente-titulo"
+            style={{ color: colorSecundario }}
+          >
+            Nuestros Productos
+          </h2>
 
           <img
             src={link_logo}

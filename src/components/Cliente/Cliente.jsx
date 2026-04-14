@@ -139,8 +139,11 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
         className="cliente-header"
         style={{ backgroundColor: colorPrimario }}
       >
-        <h2 className="subtitulo-inferior marquee">
-          ¡D-Card, tu tarjeta digital!
+        <h2 
+          className="subtitulo-inferior marquee"
+          style={{ color: colorSecundario }}
+        >
+          ¡Con D-Card, tus ventas CRECEN!
         </h2>
 
         <img

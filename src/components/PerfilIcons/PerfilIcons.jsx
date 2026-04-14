@@ -10,13 +10,20 @@ const DefaultIcon = () => (
 );
 
 const PerfilIcons = ({ 
-  text = "QUIENES SOMOS",  // Cambiado el texto por defecto
+  text = "QUIENES SOMOS",
   icon: IconComponent = DefaultIcon,
   iconCopy: IconCopyComponent = DefaultIcon,
-  className = "" 
+  className = "",
+  colorPrimario = "#212121",
+  colorSecundario = "#2aabee"
 }) => {
   return (
-    <button className={`button perfil-icons-button ${className}`}>
+    <button 
+      className={`button perfil-icons-button ${className}`}
+      style={{
+        background: colorSecundario,  // Fondo del botón = colorSecundario
+      }}
+    >
       <p className="button__text">
         {text.split('').map((char, index) => (
           <span key={index} style={{ '--index': index }}>
@@ -25,7 +32,12 @@ const PerfilIcons = ({
         ))}
       </p>
 
-      <div className="button__circle">
+      <div 
+        className="button__circle"
+        style={{
+          background: colorPrimario,
+        }}
+      >
         <span className="button__icon">
           <IconComponent />
         </span>

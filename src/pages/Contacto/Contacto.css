@@ -449,6 +449,67 @@ body {
   padding-bottom: 30px;
 }
 
+/* ===== ESTILOS PARA HOVER AUTOMÁTICO ===== */
+.social-hover-wrapper,
+.contacto-hover-wrapper {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* Estilo para cuando el hover automático está activo */
+.social-hover-wrapper.auto-hover .social-icon-normal,
+.social-hover-wrapper.auto-hover button,
+.contacto-hover-wrapper.auto-hover .button {
+  animation: autoHoverEffect 0.8s ease forwards;
+}
+
+/* Animación que simula el hover */
+@keyframes autoHoverEffect {
+  0% {
+    transform: scale(1);
+    border-color: var(--clr, #0F77FF);
+  }
+  30% {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Para los botones de IconoContacto (Dirección, Teléfono, Correo) */
+.contacto-hover-wrapper.auto-hover .button .button-decor {
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.contacto-hover-wrapper.auto-hover .button .button__text {
+  color: #fff;
+}
+
+.contacto-hover-wrapper.auto-hover .button {
+  border: none;
+  animation: autoHoverEffect 0.8s ease forwards;
+}
+
+/* Para los SocialIcon */
+.social-hover-wrapper.auto-hover button,
+.social-hover-wrapper.auto-hover a {
+  animation: autoHoverEffect 0.8s ease forwards;
+}
+
+/* Asegurar que el efecto no interfiera con el hover real del usuario */
+.social-hover-wrapper:hover,
+.contacto-hover-wrapper:hover {
+  animation: none;
+}
+
+
+
 
 @media (max-width: 768px) {
   .cliente-card .cliente-header img {

@@ -343,11 +343,13 @@ margin-right: 50px;  /* Espacio entre columnas */
   font-weight: normal;
   padding: 5px 10px;
   border-radius: 5px;
-  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); 
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 1); 
   white-space: nowrap; /* Evita el salto de línea */
   overflow: hidden; /* Evita que el texto se desborde */
   text-overflow: ellipsis; /* Agrega "..." si el texto es muy largo */
 }
+
+
 
 
 @media (max-width: 768px) {

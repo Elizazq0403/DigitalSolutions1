@@ -41,7 +41,7 @@ const IconosProvicionales = {
   )
 };
 
-const QuienesSomos = ({ empresaId }) => {
+const QuienesSomos = ({ empresaId, colorPrimario, colorSecundario }) => {
   const [sesiones, setSesiones] = useState([]);
 
   useEffect(() => {
@@ -84,6 +84,8 @@ const QuienesSomos = ({ empresaId }) => {
               text={iconosPorSesion[index]?.text || "MERCADO OBJETIVO"}
               icon={iconosPorSesion[index]?.icon || IconosProvicionales.libro}
               iconCopy={iconosPorSesion[index]?.icon || IconosProvicionales.libro}
+              colorPrimario={colorPrimario}
+              colorSecundario={colorSecundario}
             />
           </div>
           <div className="phase-content">
@@ -98,6 +100,6 @@ const QuienesSomos = ({ empresaId }) => {
   );
 };
 
-export default QuienesSomos;  
+export default QuienesSomos; 
 
 

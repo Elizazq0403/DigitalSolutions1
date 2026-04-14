@@ -9,7 +9,14 @@ const Servicios = (props) => {
   }
 
   const { colorPrimario, colorSecundario, foto, nombre, link_logo } = props.datos;
-  const { empresaId } = props; // 👈 aquí recibes el id de la empresa
+  const { empresaId, colorPrimario: colorPrimarioDirect, colorSecundario: colorSecundarioDirect } = props;
+
+  // Usar los colores directos si existen, si no, usar los que vienen en datos
+  const finalColorPrimario = colorPrimarioDirect || colorPrimario;
+  const finalColorSecundario = colorSecundarioDirect || colorSecundario;
+
+  console.log("🎨 Servicios - colorPrimario:", finalColorPrimario);
+  console.log("🎨 Servicios - colorSecundario:", finalColorSecundario);
 
   const obj = {
     // backgroundColor: hexToRgba(colorPrimario, 0.6)
@@ -20,19 +27,28 @@ const Servicios = (props) => {
       <div className="colaborador">
         <div
           className="encabezado"
-          style={{ backgroundColor: colorPrimario, position: "relative" }}
+          style={{ backgroundColor: finalColorPrimario, position: "relative" }}
         >
-          <h2 className="cliente-titulo">Mi empresa</h2>
+          <h2 
+            className="cliente-titulo"
+            style={{ color: finalColorSecundario }}
+          >
+            Mi empresa
+          </h2>
           <img
             src={link_logo}
             alt={nombre}
             className="colaborador-imagen"
-            style={{ border: `4px solid ${colorSecundario}` }}
+            style={{ border: `4px solid ${finalColorSecundario}` }}
           />
         </div>
         <div className="info">
-          {/* ✅ ahora QuienesSomos recibe empresaId */}
-          <QuienesSomos empresaId={empresaId} />
+          {/* ✅ Ahora QuienesSomos recibe los colores */}
+          <QuienesSomos 
+            empresaId={empresaId}
+            colorPrimario={finalColorPrimario}
+            colorSecundario={finalColorSecundario}
+          />
         </div>
       </div>
     </section>
