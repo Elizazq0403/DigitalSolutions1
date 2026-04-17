@@ -6,11 +6,10 @@
 
 /*Este es el encabezado del fondo de la tarjeta*/
 .cliente-card .cliente-header {
-background-color: #F0F0F0;
-border-radius: 20px 20px 0 0;
-height: 160px; /* Aumenta el valor para incrementar la altura del encabezado*/
-box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
-
+  background-color: #F0F0F0;
+  border-radius: 20px 20px 0 0;
+  height: 160px; /* Aumenta el valor para incrementar la altura del encabezado*/
+  box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
 }
 
 .cliente-card .cliente-header img {
@@ -22,14 +21,11 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   bottom: -80px; /* Ajusta según la posición deseada */
 }
 
-
-
 .cliente-card img {
   width: 70px; /*Tamaño iconos perfil*/
   border-radius: 0%; /* estaba en 50%, para el qr */
   position: relative;
   bottom: -100px;
-  
 }
 
 .tarjeta-qr-imagen {
@@ -55,20 +51,19 @@ box-shadow: 7px 7px 15px rgba(0, 0, 0, 50%);
   height: 600px; /*debo quitar esta propiedad si quiero el largo de la tarjeta del tamaño real*/
 }
 
-
 .cliente-card .cliente-info h4 {
-color: #0F77FF;
-font-size: 22px;
-line-height: 22px;
-font-weight: bold;
-margin-bottom: 8px;
-border-bottom: 2px solid;
-padding-bottom: 3px;
-display: inline-block; /* Ajusta el ancho al tamaño del contenido */
+  color: #0F77FF;
+  font-size: 22px;
+  line-height: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  border-bottom: 2px solid;
+  padding-bottom: 3px;
+  display: inline-block; /* Ajusta el ancho al tamaño del contenido */
 }
 
 audio, canvas, embed, iframe, img, object, svg, video {
-display: inline;
+  display: inline;
 }
 
 .cliente-card .cliente-info h5 {
@@ -90,7 +85,6 @@ display: inline;
   display: flex;
   justify-content: center; /* Centra los íconos horizontalmente */
   align-items: center; /* Alinea los íconos verticalmente */
-  /*gap: 0px;  Espacio entre los íconos */
   max-width: 400px;
   margin: 10px auto; /* Centra el contenedor */
   position: relative;
@@ -98,140 +92,120 @@ display: inline;
   margin-bottom: 30px;
 }
 
-
 .social-icon-box {
   width: 120px ;
   height: 120px ;
   display: flex;
-  flex-direction: column; /* Alinea la imagen y el texto verticalmente */
-  align-items: center; /* Centra la imagen y el texto */
-  justify-content: center; /* Alinea los elementos dentro del contenedor */
-  text-align: center; /* Centra el texto */
-  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  Sombra ligera */
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
   transition: transform 0.3s ease, background-color 0.3s ease;
   position: relative; 
   z-index: 11;
-      
-  
 }
 
 .icon-label {
-  font-size: 17px; /* Tamaño del texto */
-  color: #333; /* Color del texto */
-  margin-top: 100px; /* Espacio entre la imagen y el texto */
-  font-weight: bold ; /* Negrita */
+  font-size: 17px; 
+  color: #333; 
+  margin-top: 100px; 
+  font-weight: bold ; 
 }
 
 .social-icon {
-position: absolute; /* Posiciona el ícono respecto al contenedor */
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%); /* Centra el ícono en el contenedor */
-font-size: 35px; /* Tamaño del ícono */
-color: #333; /* Color del ícono */
-transition: color 0.3s ease;
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  font-size: 35px; 
+  color: #333; 
+  transition: color 0.3s ease;
 }
 
 .social-icon:hover {
-background-color: #41D9A1;
-color: #fff;
-transform: scale(1.1); /* Efecto de agrandar íconos en hover */
+  background-color: #41D9A1;
+  color: #fff;
+  transform: scale(1.1); 
 }
 
-/* Estilos para los íconos en la columna izquierda */
 .social-links a:nth-child(odd) .social-icon {
-margin-left: 50px; /* Espacio entre columnas */
+  margin-left: 50px; 
 }
 
-/* Estilos para los íconos en la columna derecha */
 .social-links a:nth-child(even) .social-icon {
-margin-right: 50px;  /* Espacio entre columnas */
+  margin-right: 50px;  
 }
 
 .cuadrado-con-borde-interno {
-  width: 320px; /* Ancho total */
-  height: 320px; /* Alto total */
-  background-color: transparent; /* Sin relleno */
-  /*box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); /* Sombra negra clara */
-  border-radius: 15px; /* Bordes redondeados */
-  position: relative; /* Para manejar posicionamiento interno */
-  box-sizing: border-box; /* Incluye el borde en las dimensiones */
-  margin-bottom: 20px;  /*Ajusta margen superior recuadro datos de contacto */
+  width: 320px; 
+  height: 320px; 
+  background-color: transparent; 
+  border-radius: 15px; 
+  position: relative; 
+  box-sizing: border-box; 
+  margin-bottom: 20px;  
 }
 
 .cuadrado-con-borde-interno div {
   display: flex;
-  flex-direction: column;     /* Apila verticalmente */
-  align-items: center;        /* Centra horizontalmente */
-  justify-content: center;    /* Centra verticalmente si hay altura */
-  gap: 10px;                  /* Espacio entre imágenes */
-  height: 20%;               /* Asegura que ocupe toda la altura del contenedor */
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 10px; 
+  height: 20%; 
 }
-
-
-
 
 .img-contacto {
   width: 250px !important;
-  height: auto; /* Mantiene la proporción original */
+  height: auto; 
   display: block;
-  margin: 0 auto; /* Centra horizontalmente */
+  margin: 0 auto; 
   text-align: center;
-  
-  
 }
 
-
-
 .borde-interno-rojo {
-  width: calc(100% - 40px); /* Tamaño reducido para espacio del margen */
-  height: calc(100% - 40px); /* Tamaño reducido para espacio del margen */
-  border: 3px solid #0F77FF; /* Borde rojo */
-  border-radius: 12px; /* Bordes redondeados internos */
-  background-color: transparent; /* Sin relleno */
-  position: absolute; /* Posicionamiento relativo al contenedor externo */
-  top: 20px; /* Espaciado desde la parte superior */
-  left: 20px; /* Espaciado desde el lado izquierdo */
-  box-sizing: border-box; /* Incluye el borde en las dimensiones */
-  display: flex; /* Usamos flexbox */
-  align-items: center; /* Centrado vertical */
-  justify-content: flex-start; /* Alineación a la izquierda */
-  z-index: 1; /* Valor bajo para estar detrás */
-  position: absolute; /* Se mantiene dentro del contenedor */
+  width: calc(100% - 40px); 
+  height: calc(100% - 40px); 
+  border: 3px solid #0F77FF; 
+  border-radius: 12px; 
+  background-color: transparent; 
+  position: absolute; 
+  top: 20px; 
+  left: 20px; 
+  box-sizing: border-box; 
+  display: flex; 
+  align-items: center; 
+  justify-content: flex-start; 
+  z-index: 1; 
 }
 
 .borde-interno-rojo p {
-  margin: 0; /* Eliminamos márgenes predeterminados */
-  padding: 0 10px; /* Espaciado a la izquierda y derecha */
+  margin: 0; 
+  padding: 0 10px; 
 }
 
 .borde-interno-rojo::before {
-  /*Esta es la clase del borde blanco del QR*/
-  content: ""; /* Genera un elemento visual */
+  content: ""; 
   position: absolute;
-  right: -3px; /* Alineado con el borde rojo */
-  top: 13.33%; /* Inicio en un tercio desde la parte superior */
-  width: 3px; /* Grosor del borde */
-  height: 73.33%; /* Altura para cubrir un tercio del cuadrado */
-  background-color: #ffffff; /* Color blanco */
-  border-radius: 1.5px; /* Redondear bordes de la línea negra */
-  z-index: 2; /* Aparece encima del borde rojo */
+  right: -3px; 
+  top: 13.33%; 
+  width: 3px; 
+  height: 73.33%; 
+  background-color: #ffffff; 
+  border-radius: 1.5px; 
+  z-index: 2; 
 }
 
 .contenedor {
   display: flex;
-  flex-direction: column; /* Coloca los elementos en fila */
-  gap: 10px; /* Espacio entre filas */
-  
+  flex-direction: column; 
+  gap: 10px; 
 }
 
 .fila {
-  font-size: 14px; /*Este me quito el borde blanco*/
+  font-size: 14px; 
   padding: 2px;
-  
 }
-
-
 
 body {
   display: flex;
@@ -239,7 +213,7 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  background-color: #d3d9e2; /* Fondo similar al de la imagen */
+  background-color: #d3d9e2; 
   font-family: Arial, sans-serif;
 }
 
@@ -247,32 +221,29 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
 .facebook-username {
   display: flex;
   align-items: center;
-  background-color: #fff; /* Fondo blanco */
-  border-radius: 50px; /* Bordes redondeados */
+  background-color: #fff; 
+  border-radius: 50px; 
   padding: 1px 5px;
-  box-shadow: 0px 2px 4px rgba(15, 119, 255, 0.8); /* Sombra suave */
-  
+  box-shadow: 0px 2px 4px rgba(15, 119, 255, 0.8); 
 }
 
 .icon img {
-  width: 30px; /* Tamaño del ícono */
+  width: 30px; 
   height: 30px;
-  border-radius: 50%; /* Hace el ícono circular */
-  background-color: #1877f2; /* Color de fondo azul de Facebook */
-  padding: 3px; /* Espaciado interno */
+  border-radius: 50%; 
+  background-color: #1877f2; 
+  padding: 3px; 
 }
 
 .icono-con-texto {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*margin-bottom: 15px;*/
 }
 
 .equipo-contacto   {
@@ -283,7 +254,6 @@ body {
     align-items: center;
     text-align: center;
     margin-bottom: 20px;
-    
 }
 
 .texto-contacto {
@@ -301,27 +271,22 @@ body {
 .texto-superpuesto {
   position: relative;
   text-align: center;
-  width: 100%; /* Hace que el texto ocupe todo el ancho disponible */
+  width: 100%; 
   left: 0;
   transform: none;
   top: 65px;
   font-size: 14px;
 }
 
-
-
-
 @font-face {
   font-family: 'Stalemate';
-  src: url('../../assets/fonts/Stalemate/Stalemate-Regular.ttf') format('truetype');
+  src: url('/public/fonts/Stalemate/Stalemate-Regular.ttf') format('truetype');
 }
-
-/*src: url('../../assets/fonts/Stalemate/Stalemate-Regular.ttf') format('truetype');*/
 
 .contacto-fuente{
   font-family: 'Stalemate', cursive !important;
-  margin-top: 40px; /* Ajusta el margen según necesites */
-  font-size: 24px; /* Aumenta el tamaño de la letra (ajústalo según prefieras) */
+  margin-top: 40px; 
+  font-size: 24px; 
 }
 
 .siguenos {
@@ -333,33 +298,27 @@ body {
   height: 300px;
   border: none;
   border-radius: 5px;
-  
 }
-
-
 
 .social-icon-normal {
   display: inline-block;
   margin-right: 10px;
   transform: translateY(-90px);
-  
 }
-
 
 .username-text {
   margin-left: 10px;
   font-size: 14px;
-  color: #333; /* Color del texto */
+  color: #333; 
 }
 
 .iconos {
   display: flex;
-  flex-direction: column; /* Acomoda en columna */
-  align-items: flex-start; /* Alinea los elementos a la izquierda */
-  gap: 10px; /* Espacio entre los elementos */
-  z-index: 2; /* Mayor que el borde interno */
-  position: relative; /* Mantiene su posición dentro del contenedor */
-
+  flex-direction: column; 
+  align-items: flex-start; 
+  gap: 10px; 
+  z-index: 2; 
+  position: relative; 
 }
 
 .button {
@@ -371,9 +330,9 @@ body {
   background-color: #fff;
   color: #121212;
   cursor: pointer;
-  border: 2px solid var(--clr); /* ✅ Borde visible por defecto */
+  border: 2px solid var(--clr); 
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.05);
-  transition: border 0.3s ease; /* transición suave */
+  transition: border 0.3s ease; 
 }
 
 .button-decor {
@@ -413,7 +372,6 @@ body {
   width: 250px;
 }
 
-/* ✨ Al pasar el cursor, se quita el borde y vuelve al estilo original */
 .button:hover {
   border: none;
 }
@@ -426,24 +384,19 @@ body {
   transform: translate(0);
 }
 
-
-.button:hover .button-decor {
-  transform: translate(0);
-}
-
 .contacto-container {
   margin-top: 30px;
   display: flex;
-  flex-direction: column; /* Apila los elementos verticalmente */
-  align-items: center; /* ✅ Centra horizontalmente los botones */
-  gap: 30px; /* Espacio vertical entre los botones */
+  flex-direction: column; 
+  align-items: center; 
+  gap: 30px; 
   width: 250px;
-  margin-left: auto;  /* opcional: centra el bloque completo */
-  margin-right: auto; /* dentro de su contenedor padre */
+  margin-left: auto;  
+  margin-right: auto; 
 }
 
 .seccion-codigo-qr- {
-  margin-top: 50px; /* Ajusta este valor según necesites */
+  margin-top: 50px; 
   padding-top: 20px;
   width: 100%;
   padding-bottom: 30px;
@@ -510,11 +463,12 @@ body {
 
 
 
-
 @media (max-width: 768px) {
   .cliente-card .cliente-header img {
-    width: 130px; /* Ajusta a un tamaño más pequeño en pantallas pequeñas */
+    width: 130px; 
   }
 }
+
+/* NUEVAS REGLAS INTEGRADAS PARA*/
 
 

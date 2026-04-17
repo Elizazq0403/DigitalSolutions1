@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Zen Kurenaido';
-  src: url('../../assets/fonts/Zen_Kurenaido/Zen_Kurenaido/ZenKurenaido-Regular.ttf') format('truetype');
+  src: url('/public/fonts/Zen_Kurenaido/Zen_Kurenaido/ZenKurenaido-Regular.ttf') format('truetype');
 }
 
 body {
@@ -95,7 +95,7 @@ body {
 
 @font-face {
   font-family: 'Zen Kurenaido';
-  src: url('../../assets/fonts/Zen_Kurenaido/Zen_Kurenaido/ZenKurenaido-Regular.ttf') format('truetype');
+  src: url('/public/fonts/Zen_Kurenaido/Zen_Kurenaido/ZenKurenaido-Regular.ttf') format('truetype');
 }
 
 

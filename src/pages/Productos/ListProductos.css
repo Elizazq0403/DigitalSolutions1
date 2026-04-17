@@ -59,7 +59,7 @@
 
 @font-face {
   font-family: 'Stalemate';
-  src: url('../../assets/fonts/Stalemate/Stalemate-Regular.ttf') format('truetype');
+  src: url('/public/fonts/Stalemate/Stalemate-Regular.ttf') format('truetype');
 }
 
 

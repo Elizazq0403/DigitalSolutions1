@@ -1,4 +1,5 @@
-/* From Uiverse.io by MikeeMikee */ 
+/* PerfilIcons.css */
+
 .button.perfil-icons-button {
   cursor: pointer;
   border: none;
@@ -6,7 +7,7 @@
   height: 100px;
   border-radius: 50%;
   overflow: visible;
-  position: relative;
+  position: relative; /* Mantenido de tu original */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,6 +15,8 @@
   font-weight: 600;
   margin: 0;
   padding: 0;
+  /* --- CAMBIO AQUÍ --- */
+  z-index: 2; /* Para que el scroll lo oculte tras el encabezado */
 }
 
 .button.perfil-icons-button .button__text {
@@ -25,7 +28,7 @@
   z-index: 1;
   width: 100%;
   height: 100%;
-  color: #ffffff;  /* ← Texto BLANCO para que contraste con el fondo */
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -33,7 +36,7 @@
   position: absolute;
   transform: rotate(calc(20deg * var(--index)));
   inset: 7px;
-  color: #ffffff;  /* ← Texto BLANCO */
+  color: #ffffff;
   font-size: 14px;
   display: inline-block;
 }
@@ -59,7 +62,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;  /* ← Iconos blancos */
+  color: #ffffff;
 }
 
 .button.perfil-icons-button .button__icon--copy {
