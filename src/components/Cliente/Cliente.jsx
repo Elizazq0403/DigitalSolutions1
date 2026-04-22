@@ -2,7 +2,6 @@ import "./Cliente.css";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
-
 const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
   console.log("📌 Slug recibido en Cliente:", slug);
 
@@ -10,21 +9,21 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
   const baseUrl = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
   const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000/api";
-  
-  
-  // 🔽 URLs de las imágenes
-  const llamarIcon = `${baseUrl}/img/icono_llamar.png`;
-  const emailIcon = `${baseUrl}/img/email.png`;
-  const whatsappIcon = `${baseUrl}/img/whatsapp.png`;
-  const descargaContact = `${baseUrl}/img/descarga-ok.png`;
-  const compartirIcon = `${baseUrl}/img/compartir.png`;
-  const compartir2Icon = `${baseUrl}/img/compartir2.png`;
+
+  // 🔽 URLs DIRECTAS DE LOS ICONOS
+  const llamarIcon = "https://tudcard.com/img/icono_llamar.png";
+  const emailIcon = "https://tudcard.com/img/email.png";
+  const whatsappIcon = "https://tudcard.com/img/whatsapp.png";
+  const descargaContact = "https://tudcard.com/img/descarga-ok.png";
+  const compartirIcon = "https://tudcard.com/img/compartir.png";
+  const compartir2Icon = "https://tudcard.com/img/compartir2.png";
+  const avatarDefault = "https://tudcard.com/img/avatar-default.png";
+  const iconoDefault = "https://tudcard.com/img/icono-default.png";
 
   console.log("🔧 Variables de entorno:");
   console.log("📁 Base URL:", baseUrl);
   console.log("🔌 API Base URL:", apiBaseUrl);
   console.log("📡 API URL:", apiUrl);
-  console.log("🖼️ Ruta llamarIcon:", llamarIcon);
 
   const [persona, setPersona] = useState(null);
   const [empresa, setEmpresa] = useState(null);
@@ -36,7 +35,6 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
 
   // Función para obtener URL de API completa
   const getApiUrl = (endpoint) => {
-    // Asegura que el endpoint empiece con /
     const path = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
     return `${apiBaseUrl}${path}`;
   };
@@ -49,19 +47,6 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
 
     window.open(
       `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
-  };
-
-  // Función WhatsApp "Hecho por..."
-  const handleWhatsApp = () => {
-    const message =
-      "Hola WEB-Z Soluciones Digitales, estoy interesad@ en una tarjeta de presentación digital.";
-
-    window.open(
-      `https://api.whatsapp.com/send?phone=+573216921887&text=${encodeURIComponent(
-        message
-      )}`,
       "_blank"
     );
   };
@@ -112,13 +97,8 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
     return getApiUrl(`/contacto/${slug}.vcf`);
   };
 
-  // ✅ ELIMINADO: Los mensajes de error y loading que se mostraban en el frontend
-  // if (error) { ... }
-  // if (!persona || !empresa) { ... }
-
-  // Ahora directamente continuamos, pero si no hay datos, no renderizamos nada
   if (!persona || !empresa) {
-    return null; // No muestra nada mientras carga
+    return null;
   }
 
   const {
@@ -153,7 +133,7 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
           style={{ border: `4px solid ${colorSecundario}` }}
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = `${baseUrl}/img/avatar-default.png`;
+            e.target.src = avatarDefault;
           }}
         />
       </div>
@@ -165,7 +145,6 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
           <strong>{cargo}</strong>
         </h5>
 
-
         <div className="social-links">
           {/* Llamar */}
           <a href={`tel:${celular}`}>
@@ -176,7 +155,7 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
                 className="iphone"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = `${baseUrl}/img/icono-default.png`;
+                  e.target.src = iconoDefault;
                 }}
               />
               <span className="icon-label">
@@ -194,7 +173,7 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
                 className="iphone"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = `${baseUrl}/img/icono-default.png`;
+                  e.target.src = iconoDefault;
                 }}
               />
               <span className="icon-label">
@@ -212,7 +191,7 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
                 className="iphone"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = `${baseUrl}/img/icono-default.png`;
+                  e.target.src = iconoDefault;
                 }}
               />
               <span className="icon-label">
@@ -222,8 +201,7 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
           </a>
 
           {/* Descargar contacto */}
-          
-            <a href={getVcfUrl()} target="_blank" rel="noopener noreferrer">
+          <a href={getVcfUrl()} target="_blank" rel="noopener noreferrer">
             <div className="social-icon-box">
               <img
                 src={descargaContact}
@@ -231,7 +209,7 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
                 className="iphone"
                 onError={(e) => {
                   e.target.onerror = null;
-                  //e.target.src = `${baseUrl}/img/icono-default.png`;
+                  e.target.src = iconoDefault;
                 }}
               />
               <span className="icon-label">
@@ -252,7 +230,7 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
               className="iphone"
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = `${baseUrl}/img/icono-default.png`;
+                e.target.src = iconoDefault;
               }}
             />
             <span className="icon-label">
@@ -272,7 +250,7 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
               className="iphone"
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = `${baseUrl}/img/icono-default.png`;
+                e.target.src = iconoDefault;
               }}
             />
             <span className="icon-label">
@@ -298,7 +276,7 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
                     className="tarjeta-qr-imagen"
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = `${baseUrl}/img/icono-default.png`;
+                      e.target.src = iconoDefault;
                     }}
                   />
                 </div>
@@ -307,18 +285,8 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
           </div>
         </section>
       )}
-      
     </div>
   );
 };
 
 export default Cliente;
-
-
-
-
-
-
-
-
-

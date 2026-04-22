@@ -32,6 +32,19 @@ const Contacto = ({ slug, colorPrimario, colorSecundario, datos }) => {
 
   const toggleMapa = () => setMostrarMapa((prev) => !prev);
 
+  // --- LÓGICA DE SCROLL AUTOMÁTICO ---
+  useEffect(() => {
+    if (mostrarMapa && mapaRef.current) {
+      // Usamos un pequeño delay para asegurar que el componente ya se renderizó en el DOM
+      setTimeout(() => {
+        mapaRef.current.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }, 100);
+    }
+  }, [mostrarMapa]); // Se ejecuta cada vez que cambia el estado del mapa
+
   useEffect(() => {
     let isMounted = true;
     const ejecutarSecuencia = async () => {
@@ -110,7 +123,6 @@ const Contacto = ({ slug, colorPrimario, colorSecundario, datos }) => {
                   link={item.link}
                   onClick={item.onClick}
                   tooltip={item.tool}
-                  /* Pasamos el estado de visibilidad aquí */
                   visible={hoverStates[item.key]} 
                 />
               </div>
@@ -130,9 +142,24 @@ const Contacto = ({ slug, colorPrimario, colorSecundario, datos }) => {
           </div>
 
           {mostrarMapa && (
-            <div className="mapa-container" ref={mapaRef}>
-               <iframe title="Maps" src={link_ubicacion_maps} className="google-maps" />
-            </div>
+            <section className="seccion-codigo-qr-" ref={mapaRef}>
+              <div className="cliente-inf">
+                <div className="social-redes">
+                  <div className="cuadrado-con-borde-int">
+                    <div className="borde-interno-rojo" style={{ border: `3px solid ${colorPrimario}` }}>
+                      <iframe
+                        title="Google Maps"
+                        className="google-maps"
+                        style={{ border: 0 }}
+                        loading="lazy"
+                        allowFullScreen
+                        src={link_ubicacion_maps}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           )}
         </div>
       </div>
