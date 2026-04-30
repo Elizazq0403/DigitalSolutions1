@@ -7,6 +7,7 @@ import Servicios from "../pages/Servicios/Servicios";
 import Business from "../pages/Business/Business";
 import Contacto from "../pages/Contacto/Contacto";
 import CodigoQR from "../pages/CodigoQR/CodigoQR";
+import VideoQR from "../pages/VideoQR/VideoQR";
 
 function Router() {
   return (
@@ -23,6 +24,8 @@ function Router() {
         <Route path="productos" element={<Servicios />} />
         <Route path="empresa" element={<Business />} />
         <Route path="contacto" element={<Contacto />} />
+        <Route path="generar-qr" element={<CodigoQR />} />
+        <Route path="video-qr" element={<VideoQR />} />
       </Route>
     </Routes>
   );

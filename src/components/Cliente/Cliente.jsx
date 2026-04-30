@@ -117,7 +117,9 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
       {/* HEADER */}
       <div
         className="cliente-header"
-        style={{ backgroundColor: colorPrimario }}
+        
+        //style={{ background: `linear-gradient(-144deg, ${colorPrimario}, ${colorSecundario} 50%, ${colorPrimario})` }}
+        style={{ backgroundColor: colorPrimario }} /*fondo*/
       >
         <h2 
           className="subtitulo-inferior marquee"
@@ -131,6 +133,7 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
           alt={nombre}
           className="cliente-foto"
           style={{ border: `4px solid ${colorSecundario}` }}
+          
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = avatarDefault;
@@ -268,7 +271,7 @@ const Cliente = ({ slug, colorPrimario, colorSecundario }) => {
               <div className="cuadrado-con-borde-int">
                 <div
                   className="borde-interno-rojo"
-                  style={{ border: `3px solid ${colorPrimario}` }}
+                  style={{ border: `3px solid ${colorPrimario}` }} //Borde QR y ubicación
                 >
                   <img
                     src={link_qr}

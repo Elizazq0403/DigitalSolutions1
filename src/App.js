@@ -9,6 +9,8 @@ import { HiShoppingCart } from "react-icons/hi";
 import hexToRgba from 'hex-to-rgba';
 import Business from './pages/Business/Business';
 import Contacto from './pages/Contacto/Contacto';
+import CodigoQR from './pages/CodigoQR/CodigoQR.jsx';
+import VideoQR from './pages/VideoQR/VideoQR.jsx';
 import { useParams, useLocation, Link } from "react-router-dom";
 import axios from "axios";
 import { getApiUrl } from "./api/config.js";
@@ -348,6 +350,27 @@ function App() {
                   empresaId={empresaData?.id_empresa}
                 />
               ))}
+            </div>
+          )}
+          {/* ✅ NUEVA SECCIÓN: No tiene Link arriba, así que es "oculta" */}
+          {activeTab === "generar-qr" && (
+            <div className='container'>
+              <CodigoQR 
+                slug="webz-qr" 
+                colorPrimario={equipos[0].colorPrimario}
+                colorSecundario={equipos[0].colorSecundario}
+              />
+            </div>
+          )}
+          {activeTab === "video-qr" && (
+            <div className='container'>
+              <VideoQR 
+                slug={slug} 
+                qrDesdeBD={empresaData?.link_qr} // ← Pásale el link directamente
+                datosCompletos={empresaData}
+                colorPrimario={equipos[0].colorPrimario}
+                colorSecundario={equipos[0].colorSecundario}
+              />
             </div>
           )}
         </div>
