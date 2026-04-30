@@ -1,0 +1,118 @@
+/* FUENTES */
+@font-face {
+  font-family: 'Cascadia Mono';
+  src: url('/public/fonts/Cascadia_Mono/Cascadia_Mono/CascadiaMono-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/public/fonts/Nunito/Nunito-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.cliente-contenedor-video {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-width: 450px;
+  margin: 20px auto;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ENCABEZADO Y AVATAR */
+.cliente-header {
+  position: relative;
+  height: 140px;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.avatar-wrapper {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  line-height: 0;
+}
+
+.avatar-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* INFO Y TEXTOS */
+.cliente-info {
+  padding: 20px;
+}
+
+.cliente-info h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.eslogan-texto {
+  font-weight: 800;
+  color: #000;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+/* MARQUEE (ANIMACIÓN) */
+.subtitulo-inferior {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  font-size: 23px;
+  font-family: "Cascadia Mono";
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+  white-space: nowrap;
+}
+
+.marquee {
+  display: inline-block;
+  animation: mover 8s linear infinite;
+}
+
+@keyframes mover {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* QR E IMAGENES */
+.qr-container {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  margin-bottom: 20px;
+}
+
+.qr-image {
+  width: 100%;
+  max-width: 260px;
+  display: block;
+}
+
+.qr-logo-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.qr-logo-overlay img {
+  width: 90px;
+  height: auto;
+}

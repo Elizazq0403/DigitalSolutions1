@@ -45,8 +45,7 @@ const CodigoQR = ({ colorPrimario }) => {
 
   return (
     <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto', fontFamily: 'sans-serif' }}>
-      <h2 style={{ color: colorPrimario || '#1379db' }}>Panel de Administración QR</h2>
-      <p style={{ fontSize: '13px', color: '#666' }}>Sesión: <strong>{adminSlug}</strong></p>
+
       
       {error && (
         <div style={{ color: '#d32f2f', backgroundColor: '#ffebee', padding: '10px', borderRadius: '5px', marginBottom: '10px' }}>
