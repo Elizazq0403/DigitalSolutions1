@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import QRCode from 'qrcode';
+import { ImWhatsapp } from "react-icons/im";
 
 const VideoQR = ({ slug, datosCompletos, colorPrimario, colorSecundario }) => {
   const [qr, setQr] = useState('');
-  const iconoDefault = "https://tudcard.com/img/icono-default.png";
   const avatarDefault = "https://tudcard.com/img/avatar-default.png";
   const logoDCard = "https://tudcard.com/img/Logo-video-ok.png";
   
@@ -33,7 +33,7 @@ const VideoQR = ({ slug, datosCompletos, colorPrimario, colorSecundario }) => {
   const fotoPerfil = datosCompletos?.link_foto || datosCompletos?.link_logo || avatarDefault;
 
   return (
-    <div className="cliente-contenedor" style={{ padding: '0px', textAlign: 'center', backgroundColor: '#fff', borderRadius: '30px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', maxWidth: '450px', margin: '20px auto' }}>
+    <div className="cliente-contenedor" style={{ padding: '0px', textAlign: 'center', backgroundColor: '#fff', borderRadius: '30px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', maxWidth: '340px', margin: '20px auto' }}>
       
       {/* --- ENCABEZADO --- */}
       <header className="cliente-header" style={{ position: 'relative', marginBottom: '60px' }}>
@@ -68,12 +68,17 @@ const VideoQR = ({ slug, datosCompletos, colorPrimario, colorSecundario }) => {
       {/* --- CUERPO DEL QR --- */}
       <div style={{ padding: '20px' }}>
         
-        {/* Nombre de la Empresa (Estilo Clientes.jsx) */}
+        {/* Nombre de la Empresa */}
         <div className="cliente-info">
-        <h2>
-          {datosCompletos?.razon_social || 'D-Card'}
-        </h2>
-      </div>
+          <h2 style={{ 
+            color: colorPrimario, 
+            fontSize: '26px', 
+            fontWeight: '600', 
+            marginBottom: '15px' 
+          }}>
+            {datosCompletos?.empresa?.razon_social || datosCompletos?.razon_social || 'D-Card'}
+          </h2>
+        </div>
 
         {qr && (
           <section className="seccion-codigo-qr">
@@ -84,12 +89,12 @@ const VideoQR = ({ slug, datosCompletos, colorPrimario, colorSecundario }) => {
               backgroundColor: '#fff',
               borderRadius: '25px',
               boxShadow: '0 15px 35px rgba(0,0,0,0.12)',
-              marginBottom: '20px'
+              marginBottom: '10px' // Reducido para que el teléfono quede cerca
             }}>
               <img
                 src={qr} 
                 alt="QR Dinámico"
-                style={{ width: '100%', maxWidth: '260px', display: 'block' }}
+                style={{ width: '100%', maxWidth: '240px', display: 'block' }}
               />
 
               <div style={{
@@ -106,16 +111,33 @@ const VideoQR = ({ slug, datosCompletos, colorPrimario, colorSecundario }) => {
                 <img 
                   src={logoDCard} 
                   alt="D-Card Logo Center" 
-                  style={{ 
-                    width: '90px', 
-                    height: 'auto'
-                  }} 
+                  style={{ width: '100px', height: 'auto' }} 
                 />
               </div>
             </div>
             
-            <div>
-              <p className="cliente-info">
+            {/* Contenedor Inferior Centrado */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px' }}>
+              
+              {/* Grupo de WhatsApp Centrado */}
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                gap: '10px',
+                marginBottom: '5px'
+              }}>
+                <ImWhatsapp style={{ color: '#25D366', fontSize: '24px' }} />
+                <span className="cliente-info" style={{ 
+                  color: colorPrimario, 
+                  fontSize: '22px', // Un poco más grande para resaltar
+                  fontWeight: '700' 
+                }}>
+                  {datosCompletos?.empresa?.telefono || datosCompletos?.telefono || 'D-Card'}
+                </span>
+              </div>
+
+              <p className="cliente-info" style={{ fontSize: '18px', margin: 0, opacity: 0.8 }}>
                 Escanea · Conecta · Impacta
               </p>
             </div>

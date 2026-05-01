@@ -30,24 +30,6 @@
   margin-bottom: 60px;
 }
 
-.avatar-wrapper {
-  position: absolute;
-  bottom: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #fff;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  line-height: 0;
-}
-
-.avatar-img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
 /* INFO Y TEXTOS */
 .cliente-info {
   padding: 20px;
